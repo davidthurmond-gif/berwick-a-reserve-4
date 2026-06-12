@@ -123,8 +123,30 @@ main {
 
 @media (max-width: 720px) {
   .grid-2 { grid-template-columns: 1fr; }
-  nav { overflow-x: auto; }
-  nav button { flex: 0 0 auto; }
+  nav {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+  }
+  nav button {
+    flex: 0 0 auto;
+    white-space: nowrap;
+    padding: 0.7rem 0.85rem;
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  header { padding: 1rem 1rem; }
+  header h1 { font-size: 1.2rem; }
+  header .sub { font-size: 0.8rem; }
+  header .updated { font-size: 0.72rem; }
+  main { padding: 0.75rem; }
+  .card { padding: 0.9rem 0.9rem; }
+  .card h2 { font-size: 1rem; }
+  table { font-size: 0.78rem; }
+  th, td { padding: 0.4rem 0.45rem; }
 }
 
 table {
@@ -168,7 +190,7 @@ tr.finals-cutoff td {
   margin-right: 0.35rem;
 }
 
-.table-wrap { overflow-x: auto; }
+.table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
 
 .badge {
   display: inline-block;
