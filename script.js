@@ -1,0 +1,1055 @@
+/* Berwick A Reserve 4 - Saturday Comp site logic */
+
+const OVERRIDES_KEY = "berwickComp_overrides_v1";
+const OUR_TEAM = "Berwick";
+
+let DATA = null;
+let OVERRIDES = null;
+
+function loadOverrides() {
+  try {
+    const raw = localStorage.getItem(OVERRIDES_KEY);
+    const parsed = raw ? JSON.parse(raw) : {};
+    return { roster: {}, clubs: {}, playerNotes: {}, ...parsed };
+  } catch (e) {
+    return { roster: {}, clubs: {}, playerNotes: {} };
+  }
+}
+
+function saveOverrides() {
+  localStorage.setItem(OVERRIDES_KEY, JSON.stringify(OVERRIDES));
+}
+
+function applyOverrides() {
+  // roster overrides (UTR + contact details)
+  DATA.roster.forEach(p => {
+    const o = OVERRIDES.roster[p.name];
+    if (o) {
+      if (o.utrSingles !== undefined) p.utrSingles = o.utrSingles;
+      if (o.utrDoubles !== undefined) p.utrDoubles = o.utrDoubles;
+      if (o.mobile !== undefined) p.mobile = o.mobile;
+      if (o.email !== undefined) p.email = o.email;
+    }
+  });
+  // club court type + notes overrides
+  DATA.clubs.forEach(c => {
+    const o = OVERRIDES.clubs[c.id];
+    if (o) {
+      if (o.courtType !== undefined) c.courtType = o.courtType;
+      if (o.notes !== undefined) c.notes = o.notes;
+    }
+  });
+}
+
+/* ---------------- Player notes (used on Players tab) ---------------- */
+
+function playerNoteKey(team, name) {
+  return `${team}::${name}`;
+}
+
+function getPlayerNote(team, name) {
+  const key = playerNoteKey(team, name);
+  return OVERRIDES.playerNotes[key] || { plays: "", serving: "", generalPlay: "", strengths: "", weaknesses: "" };
+}
+
+function savePlayerNote(team, name, field, value) {
+  const key = playerNoteKey(team, name);
+  OVERRIDES.playerNotes[key] = OVERRIDES.playerNotes[key] || { plays: "", serving: "", generalPlay: "", strengths: "", weaknesses: "" };
+  OVERRIDES.playerNotes[key][field] = value;
+  saveOverrides();
+}
+
+function slug(s) {
+  return (s || "").toLowerCase().replace(/[^a-z0-9]+/g, "-");
+}
+
+/* ---------------- Ladder computation ---------------- */
+
+function computeLadder() {
+  const teams = {};
+  function ensure(name) {
+    if (!teams[name]) {
+      teams[name] = { team: name, played: 0, pts: 0, rFor: 0, rAgainst: 0, sFor: 0, sAgainst: 0, gFor: 0, gAgainst: 0, form: [] };
+    }
+    return teams[name];
+  }
+
+  DATA.results.forEach(round => {
+    round.matches.forEach(m => {
+      const h = ensure(m.home);
+      const a = ensure(m.away);
+      h.played++; a.played++;
+      h.pts += m.homePts; a.pts += m.awayPts;
+      h.rFor += m.homeR; h.rAgainst += m.awayR;
+      a.rFor += m.awayR; a.rAgainst += m.homeR;
+      h.sFor += m.homeS; h.sAgainst += m.awayS;
+      a.sFor += m.awayS; a.sAgainst += m.homeS;
+      h.gFor += m.homeG; h.gAgainst += m.awayG;
+      a.gFor += m.awayG; a.gAgainst += m.homeG;
+      h.form.push({ round: round.round, result: m.homePts > m.awayPts ? "W" : "L", opponent: m.away, pts: m.homePts, oppPts: m.awayPts });
+      a.form.push({ round: round.round, result: m.awayPts > m.homePts ? "W" : "L", opponent: m.home, pts: m.awayPts, oppPts: m.homePts });
+    });
+  });
+
+  const list = Object.values(teams).map(t => {
+    const gamePct = t.gFor + t.gAgainst > 0 ? t.gFor / (t.gFor + t.gAgainst) : 0;
+    const setPct = t.sFor + t.sAgainst > 0 ? t.sFor / (t.sFor + t.sAgainst) : 0;
+    return { ...t, gamePct, setPct };
+  });
+
+  list.sort((x, y) => {
+    if (y.pts !== x.pts) return y.pts - x.pts;
+    if (y.setPct !== x.setPct) return y.setPct - x.setPct;
+    return y.gamePct - x.gamePct;
+  });
+
+  list.forEach((t, i) => t.position = i + 1);
+  return list;
+}
+
+// Cumulative ladder points per team, snapshotted after each round — used for the Results progression chart.
+function computeLadderProgression() {
+  const rounds = [...DATA.results].sort((a, b) => a.round - b.round);
+  const totals = {};
+  const progression = {};
+  const roundNumbers = rounds.map(r => r.round);
+
+  rounds.forEach((round, idx) => {
+    round.matches.forEach(m => {
+      totals[m.home] = (totals[m.home] || 0) + m.homePts;
+      totals[m.away] = (totals[m.away] || 0) + m.awayPts;
+    });
+    Object.keys(totals).forEach(team => {
+      if (!progression[team]) progression[team] = new Array(idx).fill(0);
+    });
+    Object.keys(progression).forEach(team => {
+      progression[team].push(totals[team] || 0);
+    });
+  });
+
+  return { rounds: roundNumbers, teams: progression };
+}
+
+/* ---------------- Player stats computation ---------------- */
+
+function computePlayerStats() {
+  const players = {};
+
+  function ensure(name, team) {
+    if (!players[name]) {
+      players[name] = {
+        name, team,
+        played: 0, wins: 0, losses: 0,
+        setsFor: 0, setsAgainst: 0,
+        gamesFor: 0, gamesAgainst: 0,
+        singles: { played: 0, wins: 0, losses: 0 },
+        doubles: { played: 0, wins: 0, losses: 0 },
+        form: []
+      };
+    }
+    return players[name];
+  }
+
+  DATA.results.forEach(round => {
+    round.matches.forEach(m => {
+      (m.rubbers || []).forEach(r => {
+        const homeWon = r.winner === "home";
+        const sides = [
+          { names: r.homePlayers, team: m.home, won: homeWon, setsFor: r.homeSets, setsAgainst: r.awaySets, gamesFor: r.homeGames, gamesAgainst: r.awayGames, oppNames: r.awayPlayers, oppTeam: m.away, isHome: true },
+          { names: r.awayPlayers, team: m.away, won: !homeWon, setsFor: r.awaySets, setsAgainst: r.homeSets, gamesFor: r.awayGames, gamesAgainst: r.homeGames, oppNames: r.homePlayers, oppTeam: m.home, isHome: false }
+        ];
+        sides.forEach(side => {
+          side.names.forEach(name => {
+            const p = ensure(name, side.team);
+            p.played++;
+            if (side.won) p.wins++; else p.losses++;
+            p.setsFor += side.setsFor;
+            p.setsAgainst += side.setsAgainst;
+            p.gamesFor += side.gamesFor;
+            p.gamesAgainst += side.gamesAgainst;
+            const typeStats = r.type === "singles" ? p.singles : p.doubles;
+            typeStats.played++;
+            if (side.won) typeStats.wins++; else typeStats.losses++;
+            const partner = side.names.filter(n => n !== name)[0] || null;
+            const score = r.sets.map(s => side.isHome ? `${s[0]}-${s[1]}` : `${s[1]}-${s[0]}`).join(", ");
+            p.form.push({
+              round: round.round, type: r.type, result: side.won ? "W" : "L",
+              partner, opponents: side.oppNames, opponentTeam: side.oppTeam, score
+            });
+          });
+        });
+      });
+    });
+  });
+
+  return Object.values(players).map(p => {
+    const winPct = p.played > 0 ? p.wins / p.played : 0;
+    return { ...p, winPct };
+  }).sort((a, b) => {
+    if (a.team === OUR_TEAM && b.team !== OUR_TEAM) return -1;
+    if (b.team === OUR_TEAM && a.team !== OUR_TEAM) return 1;
+    if (a.team !== b.team) return a.team.localeCompare(b.team);
+    if (b.winPct !== a.winPct) return b.winPct - a.winPct;
+    return b.played - a.played;
+  });
+}
+
+/* ---------------- Players tab ---------------- */
+
+function renderPlayers() {
+  const select = document.getElementById("players-team");
+
+  if (!select.dataset.initialized) {
+    const teams = [OUR_TEAM, ...DATA.clubs.filter(c => c.name !== OUR_TEAM).map(c => c.name)];
+    select.innerHTML = `<option value="all">All teams</option>` + teams.map(t => `<option value="${escapeAttr(t)}">${t}</option>`).join("");
+    select.value = OUR_TEAM;
+    select.dataset.initialized = "1";
+    select.addEventListener("change", renderPlayers);
+  }
+
+  const stats = computePlayerStats();
+  const filterTeam = select.value;
+  let rows = filterTeam === "all" ? stats : stats.filter(p => p.team === filterTeam);
+  if (filterTeam === "all") {
+    rows = [...rows].sort((a, b) => {
+      if (a.team !== b.team) {
+        if (a.team === OUR_TEAM) return -1;
+        if (b.team === OUR_TEAM) return 1;
+        return a.team.localeCompare(b.team);
+      }
+      return byRosterOrder(a.team)(a, b);
+    });
+  } else {
+    rows = [...rows].sort(byRosterOrder(filterTeam));
+  }
+  const el = document.getElementById("players-table");
+  const showTeamCol = filterTeam === "all";
+
+  el.innerHTML = `
+    <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th></th><th>Order</th><th>Player</th>${showTeamCol ? "<th>Team</th>" : ""}<th>W-L</th><th>Win %</th>
+          <th>Singles</th><th>Doubles</th><th>UTR S</th><th>UTR D</th><th>Sets</th><th>Games</th><th>Form</th>
+        </tr>
+      </thead>
+      <tbody>
+        ${rows.map(p => {
+          const roster = p.team === OUR_TEAM ? rosterByName(p.name) : null;
+          const info = getPlayerOrderInfo(p.team, p.name);
+          return `
+          <tr class="${p.team === OUR_TEAM ? "us-row" : ""}">
+            <td>${info.emergency ? `<span class="badge-e" title="Emergency player">E</span>` : ""}</td>
+            <td>${info.order ?? "-"}</td>
+            <td><button class="player-link" data-team="${escapeAttr(p.team)}" data-name="${escapeAttr(p.name)}">${escapeHtml(p.name)}</button></td>
+            ${showTeamCol ? `<td>${escapeHtml(p.team)}</td>` : ""}
+            <td>${p.wins}-${p.losses}</td>
+            <td>${(p.winPct * 100).toFixed(0)}%</td>
+            <td>${p.singles.played ? `${p.singles.wins}-${p.singles.losses}` : `<span class="muted">-</span>`}</td>
+            <td>${p.doubles.played ? `${p.doubles.wins}-${p.doubles.losses}` : `<span class="muted">-</span>`}</td>
+            <td>${roster ? formatUtr(roster, "singles") : `<span class="muted">-</span>`}</td>
+            <td>${roster ? formatUtr(roster, "doubles") : `<span class="muted">-</span>`}</td>
+            <td>${p.setsFor}-${p.setsAgainst}</td>
+            <td>${p.gamesFor}-${p.gamesAgainst}</td>
+            <td><div class="form-pills">${p.form.slice(-5).map(f => `<span class="pill ${f.result}" title="Rd${f.round} ${f.type} vs ${f.opponents.join(' & ')} (${f.opponentTeam}) — ${f.score}">${f.result}</span>`).join("")}</div></td>
+          </tr>`;
+        }).join("")}
+      </tbody>
+    </table>
+    </div>
+    <p class="muted" style="margin-top:0.5rem;">Stats compiled from rubber-by-rubber results (singles + doubles) across all 8 teams in A Reserve 4, rounds 1–${DATA.results.length}. Hover the form pills for set scores. UTR values are masked where UTR Sports requires sign-in to view the exact rating — edit them on the Berwick tab as real ratings become known. "Order" is each player's roster/singles position (lower = more senior); rostered players may only play at their own position or higher (more senior). <span class="badge-e" title="Emergency player">E</span> = emergency player.</p>
+  `;
+
+  el.querySelectorAll(".player-link").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const team = btn.dataset.team;
+      const name = btn.dataset.name;
+      if (select.value !== team) {
+        select.value = team;
+        renderPlayers();
+      }
+      setTimeout(() => {
+        const target = document.getElementById(`note-${slug(team)}-${slug(name)}`);
+        if (target) target.scrollIntoView({ behavior: "smooth", block: "center" });
+      }, 50);
+    });
+  });
+
+  renderPlayerNotes(filterTeam, stats);
+}
+
+/* ---------------- Player notes section (below Players table) ---------------- */
+
+function renderPlayerNotes(filterTeam, stats) {
+  const el = document.getElementById("player-notes-section");
+  if (filterTeam === "all") {
+    el.innerHTML = `<p class="muted">Select a specific team above to view and edit player scouting notes (plays, serving, general play, strengths, weaknesses).</p>`;
+    return;
+  }
+  const players = stats.filter(p => p.team === filterTeam);
+  if (!players.length) {
+    el.innerHTML = `<p class="muted">No players recorded for ${escapeHtml(filterTeam)} yet.</p>`;
+    return;
+  }
+  el.innerHTML = `
+    <div class="card">
+      <h2>${escapeHtml(filterTeam)} — Player Notes</h2>
+      ${players.map(p => {
+        const note = getPlayerNote(p.team, p.name);
+        return `
+        <div class="player-notes-card" id="note-${slug(p.team)}-${slug(p.name)}">
+          <h4>${escapeHtml(p.name)}</h4>
+          <div class="player-notes-grid">
+            <div>
+              <label>Plays</label>
+              <select class="editable note-field" data-team="${escapeAttr(p.team)}" data-name="${escapeAttr(p.name)}" data-field="plays">
+                <option value="">-</option>
+                <option value="Right" ${note.plays === "Right" ? "selected" : ""}>Right</option>
+                <option value="Left" ${note.plays === "Left" ? "selected" : ""}>Left</option>
+                <option value="Both" ${note.plays === "Both" ? "selected" : ""}>Both</option>
+              </select>
+            </div>
+            <div>
+              <label>Serving</label>
+              <input type="text" class="editable note-field" data-team="${escapeAttr(p.team)}" data-name="${escapeAttr(p.name)}" data-field="serving" placeholder="e.g. Big flat serve, kicks high" value="${escapeAttr(note.serving)}">
+            </div>
+            <div style="grid-column: 1 / -1;">
+              <label>General play</label>
+              <textarea class="editable note-field" data-team="${escapeAttr(p.team)}" data-name="${escapeAttr(p.name)}" data-field="generalPlay" placeholder="Style of play, tactics, fitness...">${escapeHtml(note.generalPlay)}</textarea>
+            </div>
+            <div>
+              <label>Strengths</label>
+              <textarea class="editable note-field" data-team="${escapeAttr(p.team)}" data-name="${escapeAttr(p.name)}" data-field="strengths">${escapeHtml(note.strengths)}</textarea>
+            </div>
+            <div>
+              <label>Weaknesses</label>
+              <textarea class="editable note-field" data-team="${escapeAttr(p.team)}" data-name="${escapeAttr(p.name)}" data-field="weaknesses">${escapeHtml(note.weaknesses)}</textarea>
+            </div>
+          </div>
+        </div>`;
+      }).join("")}
+    </div>
+  `;
+
+  el.querySelectorAll(".note-field").forEach(field => {
+    field.addEventListener("change", () => {
+      savePlayerNote(field.dataset.team, field.dataset.name, field.dataset.field, field.value);
+      flashSaved(field.closest(".player-notes-card").querySelector("h4"));
+    });
+  });
+}
+
+/* ---------------- Stats tab ---------------- */
+
+let statsMode = "singles";
+
+function initStatsToggle() {
+  document.querySelectorAll("#stats-toggle button").forEach(btn => {
+    btn.addEventListener("click", () => {
+      statsMode = btn.dataset.mode;
+      document.querySelectorAll("#stats-toggle button").forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+      renderStatsRanking(computePlayerStats());
+    });
+  });
+}
+
+function renderStatsRanking(stats) {
+  const el = document.getElementById("stats-ranking");
+  const key = statsMode;
+  const rows = stats.filter(p => p[key].played > 0)
+    .sort((a, b) => {
+      const aPct = a[key].wins / a[key].played, bPct = b[key].wins / b[key].played;
+      if (bPct !== aPct) return bPct - aPct;
+      return b[key].played - a[key].played;
+    });
+
+  if (!rows.length) {
+    el.innerHTML = `<p class="muted">No data yet.</p>`;
+    return;
+  }
+
+  el.innerHTML = `
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>#</th><th>Player</th><th>Team</th><th>${statsMode === "singles" ? "Singles" : "Doubles"}</th><th>Win %</th><th>Games %</th></tr></thead>
+      <tbody>
+        ${rows.map((p, i) => {
+          const gamesPct = (p.gamesFor + p.gamesAgainst) > 0 ? (p.gamesFor / (p.gamesFor + p.gamesAgainst)) * 100 : 0;
+          return `
+          <tr class="${p.team === OUR_TEAM ? "us-row" : ""}">
+            <td>${i + 1}</td>
+            <td>${escapeHtml(p.name)}</td>
+            <td>${escapeHtml(p.team)}</td>
+            <td>${p[key].wins}-${p[key].losses}</td>
+            <td>${((p[key].wins / p[key].played) * 100).toFixed(0)}%</td>
+            <td>${gamesPct.toFixed(1)}%</td>
+          </tr>`;
+        }).join("")}
+      </tbody>
+    </table>
+    </div>
+  `;
+}
+
+function renderStats() {
+  const stats = computePlayerStats();
+  renderStatsRanking(stats);
+
+  // UTR ranking (Berwick roster only — UTR data isn't available for opponents)
+  const utrEl = document.getElementById("stats-utr");
+  const utrRows = DATA.roster
+    .map(p => ({ ...p, _avg: avgUtr(p) }))
+    .filter(p => p._avg !== null)
+    .sort((a, b) => b._avg - a._avg);
+
+  if (!utrRows.length) {
+    utrEl.innerHTML = `<p class="muted">No UTR data yet — add ratings on the Roster tab.</p>`;
+  } else {
+    utrEl.innerHTML = `
+      <div class="table-wrap">
+      <table>
+        <thead><tr><th>Player</th><th>UTR Singles</th><th>UTR Doubles</th></tr></thead>
+        <tbody>
+          ${utrRows.map(p => `
+            <tr class="us-row">
+              <td>${escapeHtml(p.name)}</td>
+              <td>${formatUtr(p, "singles")}</td>
+              <td>${formatUtr(p, "doubles")}</td>
+            </tr>`).join("")}
+        </tbody>
+      </table>
+      </div>
+      <p class="muted" style="margin-top:0.5rem;">Ranked by average of singles/doubles UTR. Values shown as "N.xx" are masked by UTR Sports until signed in — update with exact ratings on the Berwick tab when known.</p>
+    `;
+  }
+}
+
+function avgUtr(p) {
+  const s = parseUtr(p.utrSingles), d = parseUtr(p.utrDoubles);
+  if (s === null && d === null) return null;
+  if (s === null) return d;
+  if (d === null) return s;
+  return (s + d) / 2;
+}
+
+/* ---------------- Helpers ---------------- */
+
+function fmtDate(iso) {
+  if (!iso) return "";
+  const d = new Date(iso + "T00:00:00");
+  return d.toLocaleDateString("en-AU", { weekday: "short", day: "numeric", month: "short", year: "numeric" });
+}
+
+function todayISO() {
+  const d = new Date();
+  return d.toISOString().slice(0, 10);
+}
+
+function clubByName(name) {
+  return DATA.clubs.find(c => c.name === name || c.name.replace(" U/C", "") === name.replace(" U/C", ""));
+}
+
+function rosterByName(name) {
+  return DATA.roster.find(p => p.name === name);
+}
+
+// Returns { order, emergency } for any player on any of the 8 teams.
+// Berwick uses DATA.roster (order/emergency already set there);
+// other teams use DATA.teamRosters[team] (computed from rubber position data).
+function getPlayerOrderInfo(team, name) {
+  if (team === OUR_TEAM) {
+    const r = rosterByName(name);
+    return r ? { order: r.order, emergency: !!r.emergency } : { order: null, emergency: false };
+  }
+  const teamKey = team.replace(" U/C", "") === "Ashburton" ? "Ashburton U/C" : team;
+  const list = (DATA.teamRosters && DATA.teamRosters[teamKey]) || [];
+  const p = list.find(x => x.name === name);
+  return p ? { order: p.order, emergency: !!p.emergency } : { order: null, emergency: false };
+}
+
+// Sort comparator: by order ascending (nulls last), then emergencies last, then name.
+function byRosterOrder(team) {
+  return (a, b) => {
+    const ia = getPlayerOrderInfo(team, a.name);
+    const ib = getPlayerOrderInfo(team, b.name);
+    if (ia.emergency !== ib.emergency) return ia.emergency ? 1 : -1;
+    const oa = ia.order ?? 999, ob = ib.order ?? 999;
+    if (oa !== ob) return oa - ob;
+    return a.name.localeCompare(b.name);
+  };
+}
+
+// Turn a masked or precise UTR string ("5.xx", "5.23") into a sortable number.
+function parseUtr(val) {
+  if (!val) return null;
+  const cleaned = String(val).replace(/x/gi, "0");
+  const num = parseFloat(cleaned);
+  return isNaN(num) ? null : num;
+}
+
+function formatUtr(p, type) {
+  const val = type === "singles" ? p.utrSingles : p.utrDoubles;
+  if (!val) return `<span class="muted">-</span>`;
+  return escapeHtml(val);
+}
+
+function mapsLink(address) {
+  return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`;
+}
+
+// Find a previously-played result this season between OUR_TEAM and opponent (before given date).
+function findPreviousResult(opponent, beforeDate) {
+  for (const round of DATA.results) {
+    for (const m of round.matches) {
+      const involvesUs = m.home === OUR_TEAM || m.away === OUR_TEAM;
+      const involvesOpp = m.home === opponent || m.away === opponent;
+      if (involvesUs && involvesOpp && round.date < beforeDate) {
+        const usHome = m.home === OUR_TEAM;
+        return {
+          round: round.round,
+          date: round.date,
+          usPts: usHome ? m.homePts : m.awayPts,
+          oppPts: usHome ? m.awayPts : m.homePts,
+          usRubbers: usHome ? m.homeR : m.awayR,
+          oppRubbers: usHome ? m.awayR : m.homeR,
+          venue: usHome ? "home" : "away"
+        };
+      }
+    }
+  }
+  return null;
+}
+
+/* ---------------- Tabs ---------------- */
+
+function initTabs() {
+  document.querySelectorAll("nav button").forEach(btn => {
+    btn.addEventListener("click", () => {
+      document.querySelectorAll("nav button").forEach(b => b.classList.remove("active"));
+      document.querySelectorAll(".tab").forEach(t => t.classList.remove("active"));
+      btn.classList.add("active");
+      document.getElementById(btn.dataset.tab).classList.add("active");
+    });
+  });
+}
+
+/* ---------------- Dashboard ---------------- */
+
+function renderDashboard() {
+  const ladder = computeLadder();
+  const today = todayISO();
+
+  // Next match: first scheduled, non-bye row with date >= today
+  const next = DATA.schedule.find(s => !s.byeDate && s.home && s.away && s.date >= today);
+  const el = document.getElementById("next-match");
+
+  if (next) {
+    const isHome = next.home === OUR_TEAM;
+    const opponent = isHome ? next.away : next.home;
+    const venue = clubByName(next.home);
+    const oppLadder = ladder.find(t => t.team === opponent || t.team.replace(" U/C", "") === opponent.replace(" U/C", ""));
+    const usLadder = ladder.find(t => t.team === OUR_TEAM);
+
+    const pillsFor = (ladderEntry) => (ladderEntry ? ladderEntry.form.slice(-5) : []).map(f =>
+      `<span class="pill ${f.result}" title="Rd${f.round} vs ${f.opponent} (${f.pts}-${f.oppPts})">${f.result}</span>`
+    ).join("");
+    const usForm = pillsFor(usLadder);
+    const oppForm = pillsFor(oppLadder);
+
+    // Previous result this season vs this opponent (if any)
+    const prev = findPreviousResult(opponent, next.date);
+    const prevBlock = prev ? `
+      <div class="muted" style="margin-top:0.5rem;">
+        Previous result this season (Rd${prev.round}, ${prev.venue}):
+        <span class="badge ${prev.usPts > prev.oppPts ? "win" : "loss"}">${prev.usPts > prev.oppPts ? "W" : "L"} ${prev.usPts.toFixed(0)}-${prev.oppPts.toFixed(0)} pts</span>
+        <span class="muted">(rubbers ${prev.usRubbers}-${prev.oppRubbers})</span>
+      </div>` : "";
+
+    el.innerHTML = `
+      <div class="next-match-head">
+        <div class="muted">Round ${next.round} &middot; ${fmtDate(next.date)}</div>
+        <div class="vs">${isHome ? `Berwick <span class="muted" style="font-size:1rem;">(home)</span> vs ${escapeHtml(opponent)}` : `${escapeHtml(opponent)} <span class="muted" style="font-size:1rem;">(away – we travel)</span> vs Berwick`}</div>
+      </div>
+      <div class="next-match-grid">
+        <div class="match-venue-block">
+          ${venue ? `
+            <div><a href="${mapsLink(venue.address)}" target="_blank" rel="noopener">${escapeHtml(venue.address)}</a>${venue.melway ? ` &middot; Melway ${venue.melway}` : ""}</div>
+            <div class="court-type-banner">${venue.courtType ? `🎾 ${escapeHtml(venue.courtType)}` : `<span class="muted">Court surface not set — add it on the Venues tab</span>`}</div>
+            <div class="map-embed">
+              <iframe src="https://www.google.com/maps?q=${encodeURIComponent(venue.address)}&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+              <a class="map-open" href="${mapsLink(venue.address)}" target="_blank" rel="noopener">Directions ↗</a>
+            </div>
+            ${venue.notes ? `<div class="venue-notes-block"><div class="label">Venue notes</div>${escapeHtml(venue.notes).replace(/\n/g, "<br>")}</div>` : ""}
+          ` : ""}
+          ${prevBlock}
+        </div>
+        <div>
+          <div class="muted" style="margin-bottom:0.35rem;">Ladder comparison</div>
+          <div class="table-wrap">
+          <table class="compare-table">
+            <thead><tr><th></th><th>Berwick</th><th>${escapeHtml(opponent)}</th></tr></thead>
+            <tbody>
+              <tr><td>Ladder pos</td><td>${usLadder ? usLadder.position : "-"}</td><td>${oppLadder ? oppLadder.position : "-"}</td></tr>
+              <tr><td>Points</td><td>${usLadder ? usLadder.pts.toFixed(1) : "0.0"}</td><td>${oppLadder ? oppLadder.pts.toFixed(1) : "0.0"}</td></tr>
+              <tr>
+                <td>Form (last 5)</td>
+                <td><div class="form-pills" style="justify-content:center;">${usForm || "<span class='muted'>-</span>"}</div></td>
+                <td><div class="form-pills" style="justify-content:center;">${oppForm || "<span class='muted'>-</span>"}</div></td>
+              </tr>
+            </tbody>
+          </table>
+          </div>
+          <div class="muted" style="margin-top:0.5rem;"><a href="#" data-goto-players="${escapeAttr(opponent)}">View/edit ${escapeHtml(opponent)} player notes &rarr;</a></div>
+        </div>
+      </div>
+      <div class="grid-2" style="margin-top:1rem;">
+        <div>
+          <h3>Berwick</h3>
+          ${teamRosterTable(OUR_TEAM)}
+        </div>
+        <div>
+          <h3>${escapeHtml(opponent)}</h3>
+          ${teamRosterTable(opponent)}
+        </div>
+      </div>
+    `;
+
+    el.querySelector('[data-goto-players]').addEventListener("click", (e) => {
+      e.preventDefault();
+      document.querySelector('nav button[data-tab="players"]').click();
+      const sel = document.getElementById("players-team");
+      sel.value = opponent;
+      sel.dispatchEvent(new Event("change"));
+    });
+  } else {
+    el.innerHTML = `<p class="muted">No upcoming matches found in the schedule.</p>`;
+  }
+
+  // Ladder snapshot — full ladder with finals (top 4) cutoff line
+  const snap = document.getElementById("ladder-snapshot");
+  snap.innerHTML = `
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>#</th><th>Team</th><th>Pld</th><th>Pts</th><th>Form</th></tr></thead>
+      <tbody>
+        ${ladder.map(t => `
+          <tr class="${t.team === OUR_TEAM ? "us-row" : ""}${t.position === 4 ? " finals-cutoff" : ""}">
+            <td>${t.position}</td>
+            <td>${escapeHtml(t.team)}</td>
+            <td>${t.played}</td>
+            <td>${t.pts.toFixed(1)}</td>
+            <td><div class="form-pills">${t.form.slice(-5).map(f => `<span class="pill ${f.result}" title="Rd${f.round} vs ${f.opponent} (${f.pts}-${f.oppPts})">${f.result}</span>`).join("")}</div></td>
+          </tr>`).join("")}
+      </tbody>
+    </table>
+    </div>
+  `;
+}
+
+// Mini player-stats table for a team, used on the dashboard for the upcoming match.
+function teamRosterTable(team) {
+  const stats = computePlayerStats().filter(p => p.team === team || p.team.replace(" U/C", "") === team.replace(" U/C", ""));
+  if (!stats.length) return `<p class="muted">No player stats yet this season.</p>`;
+  const sorted = [...stats].sort(byRosterOrder(team));
+  return `
+    <div class="table-wrap" style="margin-top:0.5rem;">
+    <table>
+      <thead><tr><th></th><th>Order</th><th>Player</th><th>W-L</th><th>Win %</th></tr></thead>
+      <tbody>
+        ${sorted.map(p => {
+          const info = getPlayerOrderInfo(team, p.name);
+          return `
+          <tr>
+            <td>${info.emergency ? `<span class="badge-e" title="Emergency player">E</span>` : ""}</td>
+            <td>${info.order ?? "-"}</td>
+            <td>${escapeHtml(p.name)}</td>
+            <td>${p.wins}-${p.losses}</td>
+            <td>${(p.winPct * 100).toFixed(0)}%</td>
+          </tr>`;
+        }).join("")}
+      </tbody>
+    </table>
+    </div>
+  `;
+}
+
+/* ---------------- Ladder tab ---------------- */
+
+function renderLadder() {
+  const ladder = computeLadder();
+  const el = document.getElementById("ladder-table");
+  el.innerHTML = `
+    <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>#</th><th>Team</th><th>Pld</th><th>Pts</th>
+          <th>Rubbers</th><th>Sets</th><th>Games</th><th>Game %</th><th>Form</th>
+        </tr>
+      </thead>
+      <tbody>
+        ${ladder.map(t => `
+          <tr class="${t.team === OUR_TEAM ? "us-row" : ""}${t.position === 4 ? " finals-cutoff" : ""}">
+            <td>${t.position}</td>
+            <td>${escapeHtml(t.team)}</td>
+            <td>${t.played}</td>
+            <td>${t.pts.toFixed(1)}</td>
+            <td>${t.rFor}-${t.rAgainst}</td>
+            <td>${t.sFor}-${t.sAgainst}</td>
+            <td>${t.gFor}-${t.gAgainst}</td>
+            <td>${(t.gamePct * 100).toFixed(1)}%</td>
+            <td><div class="form-pills">${t.form.slice(-5).map(f => `<span class="pill ${f.result}" title="Rd${f.round} vs ${f.opponent} (${f.pts}-${f.oppPts})">${f.result}</span>`).join("")}</div></td>
+          </tr>`).join("")}
+      </tbody>
+    </table>
+    </div>
+    <p class="muted" style="margin-top:0.5rem;">Ladder is calculated live from match results below. Tiebreak order: Points &rarr; Set % &rarr; Game %.</p>
+  `;
+}
+
+/* ---------------- Results tab ---------------- */
+
+function renderResultsChart() {
+  const el = document.getElementById("results-chart");
+  const { rounds, teams } = computeLadderProgression();
+  if (!rounds.length) {
+    el.innerHTML = `<p class="muted">No results yet.</p>`;
+    return;
+  }
+
+  const teamNames = Object.keys(teams);
+  const maxPts = Math.max(1, ...teamNames.map(t => Math.max(...teams[t])));
+  const W = 640, H = 260, padL = 38, padR = 16, padT = 16, padB = 28;
+  const plotW = W - padL - padR, plotH = H - padT - padB;
+  const xStep = rounds.length > 1 ? plotW / (rounds.length - 1) : 0;
+  const palette = ["#42a5f5", "#ef5350", "#ffb74d", "#ba68c8", "#4dd0e1", "#f06292", "#a1887f", "#90a4ae"];
+  let colorIdx = 0;
+
+  const lines = teamNames.map(team => {
+    const isUs = team === OUR_TEAM;
+    const color = isUs ? "#d4e600" : palette[colorIdx++ % palette.length];
+    const points = teams[team].map((pts, idx) => {
+      const x = padL + idx * xStep;
+      const y = padT + plotH - (pts / maxPts) * plotH;
+      return `${x.toFixed(1)},${y.toFixed(1)}`;
+    }).join(" ");
+    return { team, color, points, isUs };
+  });
+
+  const xLabels = rounds.map((r, idx) => {
+    const x = padL + idx * xStep;
+    return `<text x="${x}" y="${H - 8}" font-size="10" fill="var(--muted)" text-anchor="middle">R${r}</text>`;
+  }).join("");
+
+  const yTicks = 4;
+  const yLines = Array.from({ length: yTicks + 1 }, (_, i) => {
+    const val = (maxPts / yTicks) * i;
+    const y = padT + plotH - (val / maxPts) * plotH;
+    return `<text x="${padL - 6}" y="${y + 3}" font-size="10" fill="var(--muted)" text-anchor="end">${val.toFixed(0)}</text>
+            <line x1="${padL}" y1="${y}" x2="${W - padR}" y2="${y}" stroke="var(--border)" stroke-width="1"/>`;
+  }).join("");
+
+  el.innerHTML = `
+    <div class="results-chart-wrap">
+      <svg viewBox="0 0 ${W} ${H}" style="width:100%; max-width:700px; height:auto;">
+        ${yLines}
+        ${lines.map(l => `<polyline points="${l.points}" fill="none" stroke="${l.color}" stroke-width="${l.isUs ? 3 : 2}" opacity="${l.isUs ? 1 : 0.85}"/>`).join("")}
+        ${xLabels}
+      </svg>
+    </div>
+    <div class="results-chart-legend">
+      ${lines.map(l => `<div class="legend-item"><span class="swatch" style="background:${l.color};"></span>${escapeHtml(l.team)}</div>`).join("")}
+    </div>
+    <p class="muted" style="margin-top:0.5rem;">Cumulative ladder points after each round.</p>
+  `;
+}
+
+function renderRubberDetail(m) {
+  if (!m.rubbers || !m.rubbers.length) return `<span class="muted">No rubber detail available.</span>`;
+  return `
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>Type</th><th>Home players</th><th>Sets</th><th>Away players</th><th>Result</th></tr></thead>
+      <tbody>
+        ${m.rubbers.map(r => {
+          const homeWon = r.winner === "home";
+          const setScores = (r.sets || []).map(s => `${s[0]}-${s[1]}`).join(", ");
+          return `
+          <tr>
+            <td>${r.type === "singles" ? "Singles" : "Doubles"}</td>
+            <td>${(r.homePlayers || []).map(n => escapeHtml(n)).join(" & ")}</td>
+            <td>${setScores}</td>
+            <td>${(r.awayPlayers || []).map(n => escapeHtml(n)).join(" & ")}</td>
+            <td><span class="badge ${homeWon ? "win" : "loss"}">${escapeHtml(homeWon ? m.home : m.away)} won</span></td>
+          </tr>`;
+        }).join("")}
+      </tbody>
+    </table>
+    </div>
+  `;
+}
+
+function renderResults() {
+  renderResultsChart();
+  const el = document.getElementById("results-list");
+  const rounds = [...DATA.results].sort((a, b) => b.round - a.round);
+  el.innerHTML = rounds.map(r => `
+    <div class="card">
+      <h3>Round ${r.round} &middot; ${fmtDate(r.date)}</h3>
+      <div class="table-wrap">
+      <table>
+        <thead><tr><th>Home</th><th>Pts</th><th>R</th><th>S</th><th>G</th><th>Pts</th><th>R</th><th>S</th><th>G</th><th>Away</th></tr></thead>
+        <tbody>
+          ${r.matches.map((m, idx) => `
+            <tr class="${m.home === OUR_TEAM || m.away === OUR_TEAM ? "us-row" : ""}">
+              <td>${m.rubbers && m.rubbers.length ? `<button class="match-home-link" data-round="${r.round}" data-idx="${idx}">${escapeHtml(m.home)}</button>` : escapeHtml(m.home)}</td>
+              <td>${m.homePts.toFixed(1)}</td><td>${m.homeR}</td><td>${m.homeS}</td><td>${m.homeG}</td>
+              <td>${m.awayPts.toFixed(1)}</td><td>${m.awayR}</td><td>${m.awayS}</td><td>${m.awayG}</td>
+              <td>${escapeHtml(m.away)}</td>
+            </tr>
+            <tr class="rubber-detail" id="detail-${r.round}-${idx}" style="display:none;">
+              <td colspan="10">${renderRubberDetail(m)}</td>
+            </tr>`).join("")}
+        </tbody>
+      </table>
+      </div>
+    </div>
+  `).join("");
+
+  el.querySelectorAll(".match-home-link").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const row = document.getElementById(`detail-${btn.dataset.round}-${btn.dataset.idx}`);
+      if (row) row.style.display = row.style.display === "none" ? "" : "none";
+    });
+  });
+}
+
+/* ---------------- Roster tab ---------------- */
+
+function renderRoster() {
+  const el = document.getElementById("roster-table");
+  const sortedRoster = [...DATA.roster].sort((a, b) => {
+    if (a.emergency !== b.emergency) return a.emergency ? 1 : -1;
+    const oa = a.order ?? 999, ob = b.order ?? 999;
+    if (oa !== ob) return oa - ob;
+    return a.name.localeCompare(b.name);
+  });
+  el.innerHTML = `
+    <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th></th><th>Player</th><th>Order</th><th>Played</th><th>Mobile</th><th>Email</th><th>UTR Singles</th><th>UTR Doubles</th></tr>
+      </thead>
+      <tbody>
+        ${sortedRoster.map(p => `
+          <tr>
+            <td>${p.emergency ? `<span class="badge-e" title="Emergency player">E</span>` : ""}</td>
+            <td>${escapeHtml(p.name)}</td>
+            <td>${p.order ?? "-"}</td>
+            <td>${p.played}</td>
+            <td><input type="text" class="editable roster-contact" data-name="${escapeAttr(p.name)}" data-field="mobile" placeholder="Mobile" value="${escapeAttr(p.mobile || "")}"></td>
+            <td><input type="text" class="editable roster-contact" data-name="${escapeAttr(p.name)}" data-field="email" placeholder="Email" value="${escapeAttr(p.email || "")}"></td>
+            <td><input type="text" class="editable roster-utr utr-input" data-name="${escapeAttr(p.name)}" data-field="utrSingles" placeholder="e.g. 7.50 or 5.xx" value="${escapeAttr(p.utrSingles ?? "")}"></td>
+            <td><input type="text" class="editable roster-utr utr-input" data-name="${escapeAttr(p.name)}" data-field="utrDoubles" placeholder="e.g. 7.50 or 6.xx" value="${escapeAttr(p.utrDoubles ?? "")}"></td>
+          </tr>`).join("")}
+      </tbody>
+    </table>
+    </div>
+    <p class="muted" style="margin-top:0.5rem;">Exact UTR ratings are hidden behind UTR Sports' sign-in wall, so values are shown masked (e.g. "5.xx") — replace with exact ratings here once known; changes are saved in this browser. <span class="badge-e" title="Emergency player">E</span> = emergency player.</p>
+  `;
+  el.querySelectorAll(".roster-utr, .roster-contact").forEach(input => {
+    input.addEventListener("change", () => {
+      const name = input.dataset.name;
+      const field = input.dataset.field;
+      OVERRIDES.roster[name] = OVERRIDES.roster[name] || {};
+      OVERRIDES.roster[name][field] = input.value;
+      saveOverrides();
+      flashSaved(input);
+    });
+  });
+}
+
+/* ---------------- Schedule tab ---------------- */
+
+function renderSchedule() {
+  const el = document.getElementById("schedule-table");
+  const today = todayISO();
+  el.innerHTML = `
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>Rd</th><th>Date</th><th>Home</th><th>Away</th><th>Venue</th><th></th></tr></thead>
+      <tbody>
+        ${DATA.schedule.map(s => {
+          if (s.byeDate || (!s.home && !s.away)) {
+            return `<tr><td>${s.round ?? ""}</td><td>${fmtDate(s.date)}</td><td colspan="3" class="muted">${s.note || "No Play"}</td><td></td></tr>`;
+          }
+          const isHome = s.home === OUR_TEAM;
+          const venue = clubByName(s.home);
+          const isPast = s.date < today;
+          const result = isPast ? DATA.results.find(r => r.round === s.round) : null;
+          let resultBadge = "";
+          if (result) {
+            const m = result.matches.find(mm => mm.home === s.home && mm.away === s.away);
+            if (m) {
+              const usWon = (isHome && m.homePts > m.awayPts) || (!isHome && m.awayPts > m.homePts);
+              resultBadge = `<span class="badge ${usWon ? "win" : "loss"}">${usWon ? "W" : "L"} ${m.homePts.toFixed(0)}-${m.awayPts.toFixed(0)}</span>`;
+            }
+          }
+          return `<tr class="${s.date === nextMatchDate() ? "us-row" : ""}">
+            <td>${s.round}</td>
+            <td>${fmtDate(s.date)}</td>
+            <td>${s.home === OUR_TEAM ? `<strong>${escapeHtml(s.home)}</strong>` : escapeHtml(s.home)}</td>
+            <td>${s.away === OUR_TEAM ? `<strong>${escapeHtml(s.away)}</strong>` : escapeHtml(s.away)}</td>
+            <td>${venue ? `${escapeHtml(venue.address)}${venue.melway ? " (Melway " + venue.melway + ")" : ""} &middot; <a href="${mapsLink(venue.address)}" target="_blank" rel="noopener">Map</a>` : ""}</td>
+            <td>${resultBadge}</td>
+          </tr>`;
+        }).join("")}
+      </tbody>
+    </table>
+    </div>
+  `;
+}
+
+function nextMatchDate() {
+  const today = todayISO();
+  const next = DATA.schedule.find(s => !s.byeDate && s.home && s.away && s.date >= today);
+  return next ? next.date : null;
+}
+
+/* ---------------- Venues tab ---------------- */
+
+function renderVenues() {
+  const el = document.getElementById("venues-list");
+  el.innerHTML = DATA.clubs.map(c => `
+    <div class="card">
+      <h3>${c.name}${c.name === OUR_TEAM ? ' <span class="tag">us</span>' : ""}</h3>
+      <p class="muted">${c.address}${c.melway ? " &middot; Melway " + c.melway : ""} &middot; <a href="${mapsLink(c.address)}" target="_blank" rel="noopener">Map &rarr;</a></p>
+      <div class="court-type-banner">${c.courtType ? `🎾 ${escapeHtml(c.courtType)}` : `<span class="muted">Court surface not set — add it below</span>`}</div>
+      <div class="grid-2">
+        <div>
+          <label class="muted">Court type</label>
+          <input type="text" class="editable club-court" data-id="${c.id}" placeholder="e.g. Synthetic grass, Plexicushion..." value="${escapeAttr(c.courtType || "")}">
+        </div>
+        <div>
+          <label class="muted">Contact</label>
+          <div>${c.contactName || "-"} ${c.contactPhone ? "&middot; " + c.contactPhone : ""}</div>
+          ${c.clubhousePhone ? `<div class="muted">Clubhouse: ${c.clubhousePhone}</div>` : ""}
+        </div>
+      </div>
+      <div style="margin-top:0.6rem;">
+        <label class="muted">Notes (shown on Dashboard for the next match at this venue)</label>
+        <textarea class="editable club-notes" data-id="${c.id}" placeholder="e.g. Parking tips, court numbers, dress code...">${escapeHtml(c.notes || "")}</textarea>
+      </div>
+    </div>
+  `).join("");
+
+  el.querySelectorAll(".club-court").forEach(input => {
+    input.addEventListener("change", () => {
+      const id = input.dataset.id;
+      OVERRIDES.clubs[id] = OVERRIDES.clubs[id] || {};
+      OVERRIDES.clubs[id].courtType = input.value;
+      saveOverrides();
+      const club = DATA.clubs.find(c => c.id === id);
+      if (club) club.courtType = input.value;
+      const banner = input.closest(".card").querySelector(".court-type-banner");
+      if (banner) banner.innerHTML = input.value ? `🎾 ${escapeHtml(input.value)}` : `<span class="muted">Court surface not set — add it below</span>`;
+      flashSaved(input);
+      renderDashboard();
+    });
+  });
+
+  el.querySelectorAll(".club-notes").forEach(input => {
+    input.addEventListener("change", () => {
+      const id = input.dataset.id;
+      OVERRIDES.clubs[id] = OVERRIDES.clubs[id] || {};
+      OVERRIDES.clubs[id].notes = input.value;
+      saveOverrides();
+      const club = DATA.clubs.find(c => c.id === id);
+      if (club) club.notes = input.value;
+      flashSaved(input);
+      renderDashboard();
+    });
+  });
+}
+
+function escapeHtml(s) {
+  return (s || "").replace(/[&<>]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;" }[c]));
+}
+function escapeAttr(s) {
+  return (s || "").replace(/"/g, "&quot;");
+}
+
+/* ---------------- Save indicator ---------------- */
+
+function flashSaved(el) {
+  let indicator = el.parentElement.querySelector(".save-status");
+  if (!indicator) {
+    indicator = document.createElement("span");
+    indicator.className = "save-status";
+    el.parentElement.appendChild(indicator);
+  }
+  indicator.textContent = "Saved ✓";
+  setTimeout(() => { indicator.textContent = ""; }, 1500);
+}
+
+/* ---------------- Export / Import ---------------- */
+
+function initDataTools() {
+  document.getElementById("export-btn").addEventListener("click", () => {
+    const blob = new Blob([JSON.stringify(OVERRIDES, null, 2)], { type: "application/json" });
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
+    a.download = "berwick-comp-notes-backup.json";
+    a.click();
+  });
+
+  document.getElementById("import-input").addEventListener("change", (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = () => {
+      try {
+        const imported = JSON.parse(reader.result);
+        OVERRIDES = { roster: {}, clubs: {}, playerNotes: {}, ...imported };
+        saveOverrides();
+        applyOverrides();
+        renderAll();
+        alert("Notes imported successfully.");
+      } catch (err) {
+        alert("Could not read that file: " + err.message);
+      }
+    };
+    reader.readAsText(file);
+  });
+}
+
+/* ---------------- Init ---------------- */
+
+function renderAll() {
+  renderDashboard();
+  renderLadder();
+  renderResults();
+  renderPlayers();
+  renderStats();
+  renderRoster();
+  renderSchedule();
+  renderVenues();
+}
+
+async function init() {
+  DATA = window.SITE_DATA;
+  OVERRIDES = loadOverrides();
+  applyOverrides();
+
+  document.getElementById("last-updated").textContent =
+    `Results loaded: ${DATA.meta.resultsLoadedFromSite || DATA.meta.lastUpdated}`;
+
+  initTabs();
+  initDataTools();
+  initStatsToggle();
+  renderAll();
+}
+
+init();

@@ -1,0 +1,2658 @@
+window.SITE_DATA = {
+  "meta": {
+    "competition": "Saturday PM - Winter 2026",
+    "section": "Open Singles/Doubles A Reserve 4",
+    "ourTeam": "Berwick",
+    "lastUpdated": "2026-06-10",
+    "resultsLoadedFromSite": "10 June 2026 8:12:33 PM",
+    "sourceUrl": "https://www.trols.org.au/wdta/results.php?daytime=AP&section=AP012&style="
+  },
+  "clubs": [
+    {
+      "id": "essex-heights",
+      "name": "Essex Heights",
+      "melway": "61 D9",
+      "address": "Federal Reserve, Barton St, Mount Waverley",
+      "courtType": "Plexipave (hard)",
+      "clubhousePhone": "0408 651 371",
+      "contactName": "Jonathan Papailiou",
+      "contactPhone": "0425 806 284",
+      "notes": ""
+    },
+    {
+      "id": "berwick",
+      "name": "Berwick",
+      "melway": "111 F6",
+      "address": "Arch Brown Reserve, Buchanan Road, Berwick",
+      "courtType": "Synthetic grass & Plexipave",
+      "clubhousePhone": "9796 1698",
+      "contactName": "Craig Kitner",
+      "contactPhone": "0414 596 310",
+      "notes": ""
+    },
+    {
+      "id": "ashburton",
+      "name": "Ashburton U/C",
+      "melway": "60 D9",
+      "address": "1 Kelvin Grove (enter from Aitchison Avenue, opp. Station), Ashburton",
+      "courtType": "En Tout Cas (clay)",
+      "clubhousePhone": "",
+      "contactName": "Trent Cobb",
+      "contactPhone": "0439 979 319",
+      "notes": ""
+    },
+    {
+      "id": "burden-park",
+      "name": "Burden Park",
+      "melway": "89 A1",
+      "address": "Olympic Avenue, Springvale South",
+      "courtType": "En Tout Cas (clay)",
+      "clubhousePhone": "",
+      "contactName": "Anika Chhun",
+      "contactPhone": "0401 708 420",
+      "notes": ""
+    },
+    {
+      "id": "monash-uni",
+      "name": "Monash Uni",
+      "melway": "",
+      "address": "26-28 Scenic Blvd, Clayton",
+      "courtType": "Plexipave (hard)",
+      "clubhousePhone": "",
+      "contactName": "Jeremy O'Brien",
+      "contactPhone": "0466 042 620",
+      "notes": ""
+    },
+    {
+      "id": "narre-warren-nth",
+      "name": "Narre Warren Nth",
+      "melway": "108 G5",
+      "address": "Recreation Reserve, A'Beckett Road (next to Primary School), Narre Warren North",
+      "courtType": "Synthetic grass",
+      "clubhousePhone": "",
+      "contactName": "Kaitlin Ruse",
+      "contactPhone": "0431 454 984",
+      "notes": ""
+    },
+    {
+      "id": "murrumbeena",
+      "name": "Murrumbeena",
+      "melway": "69 B6",
+      "address": "2-4 Bute Street, Murrumbeena",
+      "courtType": "Synthetic clay",
+      "clubhousePhone": "",
+      "contactName": "Ron Schweitzer",
+      "contactPhone": "0417 371 861",
+      "notes": ""
+    },
+    {
+      "id": "burwood",
+      "name": "Burwood",
+      "melway": "60 G7",
+      "address": "Burwood Reserve, Warrigal Rd (enter via Queens Pde, Glen Iris)",
+      "courtType": "Synthetic grass",
+      "clubhousePhone": "",
+      "contactName": "Tim Shackleton",
+      "contactPhone": "0411 299 017",
+      "notes": ""
+    }
+  ],
+  "roster": [
+    {
+      "name": "John Keecherer",
+      "mobile": "",
+      "email": "",
+      "gender": "M",
+      "dob": "",
+      "order": null,
+      "played": 0,
+      "emergency": true,
+      "grade": "A Res",
+      "utrId": "2842613",
+      "utrSingles": "5.xx",
+      "utrSinglesReliability": 100,
+      "utrDoubles": "6.xx",
+      "utrDoublesReliability": 100
+    },
+    {
+      "name": "Brett Kurz",
+      "mobile": "",
+      "email": "",
+      "gender": "M",
+      "dob": "",
+      "order": null,
+      "played": 2,
+      "emergency": true,
+      "grade": "B Sp",
+      "utrId": "3926179",
+      "utrSingles": null,
+      "utrSinglesReliability": null,
+      "utrDoubles": null,
+      "utrDoublesReliability": null
+    },
+    {
+      "name": "David Thurmond",
+      "mobile": "",
+      "email": "",
+      "gender": "M",
+      "dob": "",
+      "order": 1,
+      "played": 4,
+      "emergency": false,
+      "grade": "A Res",
+      "utrId": "5599240",
+      "utrSingles": "5.xx",
+      "utrSinglesReliability": null,
+      "utrDoubles": "6.xx",
+      "utrDoublesReliability": null
+    },
+    {
+      "name": "Shannon Watson",
+      "mobile": "",
+      "email": "",
+      "gender": "M",
+      "dob": "1983-01-01",
+      "order": 2,
+      "played": 4,
+      "emergency": false,
+      "grade": "A Res",
+      "utrId": "2842650",
+      "utrSingles": "5.xx",
+      "utrSinglesReliability": 64,
+      "utrDoubles": "7.xx",
+      "utrDoublesReliability": 100
+    },
+    {
+      "name": "Nick Teo",
+      "mobile": "",
+      "email": "",
+      "gender": "M",
+      "dob": "",
+      "order": 3,
+      "played": 4,
+      "emergency": false,
+      "grade": "B Sp",
+      "utrId": null,
+      "utrSingles": null,
+      "utrSinglesReliability": null,
+      "utrDoubles": null,
+      "utrDoublesReliability": null
+    }
+  ],
+  "schedule": [
+    {
+      "round": 1,
+      "date": "2026-05-02",
+      "home": "Monash Uni",
+      "away": "Berwick",
+      "byeDate": false
+    },
+    {
+      "round": 2,
+      "date": "2026-05-09",
+      "home": "Berwick",
+      "away": "Ashburton U/C",
+      "byeDate": false
+    },
+    {
+      "round": 3,
+      "date": "2026-05-16",
+      "home": "Burden Park",
+      "away": "Berwick",
+      "byeDate": false
+    },
+    {
+      "round": 4,
+      "date": "2026-05-23",
+      "home": "Berwick",
+      "away": "Narre Warren Nth",
+      "byeDate": false
+    },
+    {
+      "round": 5,
+      "date": "2026-05-30",
+      "home": "Essex Heights",
+      "away": "Berwick",
+      "byeDate": false
+    },
+    {
+      "round": null,
+      "date": "2026-06-06",
+      "home": null,
+      "away": null,
+      "byeDate": true,
+      "note": "No Play"
+    },
+    {
+      "round": 6,
+      "date": "2026-06-13",
+      "home": "Berwick",
+      "away": "Murrumbeena",
+      "byeDate": false
+    },
+    {
+      "round": 7,
+      "date": "2026-06-20",
+      "home": "Ashburton U/C",
+      "away": "Berwick",
+      "byeDate": false
+    },
+    {
+      "round": null,
+      "date": "2026-06-27",
+      "home": null,
+      "away": null,
+      "byeDate": true,
+      "note": "No Play"
+    },
+    {
+      "round": null,
+      "date": "2026-07-04",
+      "home": null,
+      "away": null,
+      "byeDate": true,
+      "note": "No Play"
+    },
+    {
+      "round": 8,
+      "date": "2026-07-11",
+      "home": "Berwick",
+      "away": "Burwood",
+      "byeDate": false
+    },
+    {
+      "round": 9,
+      "date": "2026-07-18",
+      "home": "Narre Warren Nth",
+      "away": "Berwick",
+      "byeDate": false
+    },
+    {
+      "round": 10,
+      "date": "2026-07-25",
+      "home": "Berwick",
+      "away": "Essex Heights",
+      "byeDate": false
+    },
+    {
+      "round": 11,
+      "date": "2026-08-01",
+      "home": "Murrumbeena",
+      "away": "Berwick",
+      "byeDate": false
+    },
+    {
+      "round": 12,
+      "date": "2026-08-08",
+      "home": "Berwick",
+      "away": "Monash Uni",
+      "byeDate": false
+    },
+    {
+      "round": 13,
+      "date": "2026-08-15",
+      "home": "Burwood",
+      "away": "Berwick",
+      "byeDate": false
+    },
+    {
+      "round": 14,
+      "date": "2026-08-22",
+      "home": "Berwick",
+      "away": "Burden Park",
+      "byeDate": false
+    },
+    {
+      "round": "SF",
+      "date": "2026-08-29",
+      "home": null,
+      "away": null,
+      "byeDate": false,
+      "note": "Semi Final"
+    },
+    {
+      "round": "GF",
+      "date": "2026-09-05",
+      "home": null,
+      "away": null,
+      "byeDate": false,
+      "note": "Grand Final"
+    }
+  ],
+  "results": [
+    {
+      "round": 1,
+      "date": "2026-05-02",
+      "matches": [
+        {
+          "home": "Essex Heights",
+          "away": "Narre Warren Nth",
+          "homePts": 0.0,
+          "homeR": 0,
+          "homeS": 0,
+          "homeG": 13,
+          "awayPts": 8.0,
+          "awayR": 3,
+          "awayS": 6,
+          "awayG": 36,
+          "homePlayers": [
+            "Martin Markovic",
+            "Thong Truong"
+          ],
+          "awayPlayers": [
+            "Noah Gallienne",
+            "Luke Shannon"
+          ],
+          "rubbers": [
+            {
+              "rubber": 1,
+              "type": "singles",
+              "homePlayers": [
+                "Martin Markovic"
+              ],
+              "awayPlayers": [
+                "Noah Gallienne"
+              ],
+              "sets": [
+                [
+                  2,
+                  6
+                ],
+                [
+                  3,
+                  6
+                ]
+              ],
+              "homeSets": 0,
+              "awaySets": 2,
+              "homeGames": 5,
+              "awayGames": 12,
+              "winner": "away"
+            },
+            {
+              "rubber": 2,
+              "type": "singles",
+              "homePlayers": [
+                "Thong Truong"
+              ],
+              "awayPlayers": [
+                "Luke Shannon"
+              ],
+              "sets": [
+                [
+                  0,
+                  6
+                ],
+                [
+                  4,
+                  6
+                ]
+              ],
+              "homeSets": 0,
+              "awaySets": 2,
+              "homeGames": 4,
+              "awayGames": 12,
+              "winner": "away"
+            },
+            {
+              "rubber": 3,
+              "type": "doubles",
+              "homePlayers": [
+                "Martin Markovic",
+                "Thong Truong"
+              ],
+              "awayPlayers": [
+                "Noah Gallienne",
+                "Luke Shannon"
+              ],
+              "sets": [
+                [
+                  2,
+                  6
+                ],
+                [
+                  2,
+                  6
+                ]
+              ],
+              "homeSets": 0,
+              "awaySets": 2,
+              "homeGames": 4,
+              "awayGames": 12,
+              "winner": "away"
+            }
+          ]
+        },
+        {
+          "home": "Ashburton U/C",
+          "away": "Murrumbeena",
+          "homePts": 2.0,
+          "homeR": 1,
+          "homeS": 2,
+          "homeG": 28,
+          "awayPts": 7.0,
+          "awayR": 2,
+          "awayS": 5,
+          "awayG": 34,
+          "homePlayers": [
+            "Alexander Granzow",
+            "Jamon Nielsen"
+          ],
+          "awayPlayers": [
+            "Janoah Gray-Taito",
+            "Zvi Schweitzer",
+            "Ronald Schweitzer",
+            "Giora Lichtenstein"
+          ],
+          "rubbers": [
+            {
+              "rubber": 1,
+              "type": "singles",
+              "homePlayers": [
+                "Alexander Granzow"
+              ],
+              "awayPlayers": [
+                "Janoah Gray-Taito"
+              ],
+              "sets": [
+                [
+                  6,
+                  0
+                ],
+                [
+                  6,
+                  7
+                ],
+                [
+                  6,
+                  3
+                ]
+              ],
+              "homeSets": 2,
+              "awaySets": 1,
+              "homeGames": 18,
+              "awayGames": 10,
+              "winner": "home"
+            },
+            {
+              "rubber": 2,
+              "type": "singles",
+              "homePlayers": [
+                "Jamon Nielsen"
+              ],
+              "awayPlayers": [
+                "Zvi Schweitzer"
+              ],
+              "sets": [
+                [
+                  1,
+                  6
+                ],
+                [
+                  1,
+                  6
+                ]
+              ],
+              "homeSets": 0,
+              "awaySets": 2,
+              "homeGames": 2,
+              "awayGames": 12,
+              "winner": "away"
+            },
+            {
+              "rubber": 3,
+              "type": "doubles",
+              "homePlayers": [
+                "Alexander Granzow",
+                "Jamon Nielsen"
+              ],
+              "awayPlayers": [
+                "Ronald Schweitzer",
+                "Giora Lichtenstein"
+              ],
+              "sets": [
+                [
+                  4,
+                  6
+                ],
+                [
+                  4,
+                  6
+                ]
+              ],
+              "homeSets": 0,
+              "awaySets": 2,
+              "homeGames": 8,
+              "awayGames": 12,
+              "winner": "away"
+            }
+          ]
+        },
+        {
+          "home": "Monash Uni",
+          "away": "Berwick",
+          "homePts": 0.0,
+          "homeR": 0,
+          "homeS": 0,
+          "homeG": 21,
+          "awayPts": 8.0,
+          "awayR": 3,
+          "awayS": 6,
+          "awayG": 38,
+          "homePlayers": [
+            "Matthew Lee",
+            "Zachary Lee",
+            "Srinivas Tirumalasetty",
+            "Kevin Chen"
+          ],
+          "awayPlayers": [
+            "Nick Teo",
+            "David Thurmond",
+            "Shannon Watson"
+          ],
+          "rubbers": [
+            {
+              "rubber": 1,
+              "type": "singles",
+              "homePlayers": [
+                "Matthew Lee"
+              ],
+              "awayPlayers": [
+                "Nick Teo"
+              ],
+              "sets": [
+                [
+                  2,
+                  6
+                ],
+                [
+                  4,
+                  6
+                ]
+              ],
+              "homeSets": 0,
+              "awaySets": 2,
+              "homeGames": 6,
+              "awayGames": 12,
+              "winner": "away"
+            },
+            {
+              "rubber": 2,
+              "type": "singles",
+              "homePlayers": [
+                "Zachary Lee"
+              ],
+              "awayPlayers": [
+                "David Thurmond"
+              ],
+              "sets": [
+                [
+                  5,
+                  7
+                ],
+                [
+                  3,
+                  6
+                ]
+              ],
+              "homeSets": 0,
+              "awaySets": 2,
+              "homeGames": 8,
+              "awayGames": 13,
+              "winner": "away"
+            },
+            {
+              "rubber": 3,
+              "type": "doubles",
+              "homePlayers": [
+                "Srinivas Tirumalasetty",
+                "Kevin Chen"
+              ],
+              "awayPlayers": [
+                "David Thurmond",
+                "Shannon Watson"
+              ],
+              "sets": [
+                [
+                  2,
+                  6
+                ],
+                [
+                  5,
+                  7
+                ]
+              ],
+              "homeSets": 0,
+              "awaySets": 2,
+              "homeGames": 7,
+              "awayGames": 13,
+              "winner": "away"
+            }
+          ]
+        },
+        {
+          "home": "Burwood",
+          "away": "Burden Park",
+          "homePts": 6.0,
+          "homeR": 2,
+          "homeS": 4,
+          "homeG": 30,
+          "awayPts": 3.0,
+          "awayR": 1,
+          "awayS": 3,
+          "awayG": 34,
+          "homePlayers": [
+            "Darshan Parikh",
+            "Eloise Lindsay"
+          ],
+          "awayPlayers": [
+            "Lun Wang",
+            "Isaac Khaoula",
+            "Tho Thai"
+          ],
+          "rubbers": [
+            {
+              "rubber": 1,
+              "type": "singles",
+              "homePlayers": [
+                "Darshan Parikh"
+              ],
+              "awayPlayers": [
+                "Lun Wang"
+              ],
+              "sets": [
+                [
+                  6,
+                  1
+                ],
+                [
+                  6,
+                  4
+                ]
+              ],
+              "homeSets": 2,
+              "awaySets": 0,
+              "homeGames": 12,
+              "awayGames": 5,
+              "winner": "home"
+            },
+            {
+              "rubber": 2,
+              "type": "singles",
+              "homePlayers": [
+                "Eloise Lindsay"
+              ],
+              "awayPlayers": [
+                "Isaac Khaoula"
+              ],
+              "sets": [
+                [
+                  7,
+                  5
+                ],
+                [
+                  1,
+                  6
+                ],
+                [
+                  7,
+                  6
+                ]
+              ],
+              "homeSets": 2,
+              "awaySets": 1,
+              "homeGames": 15,
+              "awayGames": 17,
+              "winner": "home"
+            },
+            {
+              "rubber": 3,
+              "type": "doubles",
+              "homePlayers": [
+                "Darshan Parikh",
+                "Eloise Lindsay"
+              ],
+              "awayPlayers": [
+                "Lun Wang",
+                "Tho Thai"
+              ],
+              "sets": [
+                [
+                  2,
+                  6
+                ],
+                [
+                  1,
+                  6
+                ]
+              ],
+              "homeSets": 0,
+              "awaySets": 2,
+              "homeGames": 3,
+              "awayGames": 12,
+              "winner": "away"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "round": 2,
+      "date": "2026-05-09",
+      "matches": [
+        {
+          "home": "Berwick",
+          "away": "Ashburton U/C",
+          "homePts": 7.0,
+          "homeR": 2,
+          "homeS": 5,
+          "homeG": 30,
+          "awayPts": 2.0,
+          "awayR": 1,
+          "awayS": 2,
+          "awayG": 21,
+          "homePlayers": [
+            "Nick Teo",
+            "David Thurmond",
+            "Shannon Watson"
+          ],
+          "awayPlayers": [
+            "Alexander Granzow",
+            "Jamon Nielsen"
+          ],
+          "rubbers": [
+            {
+              "rubber": 1,
+              "type": "singles",
+              "homePlayers": [
+                "Nick Teo"
+              ],
+              "awayPlayers": [
+                "Alexander Granzow"
+              ],
+              "sets": [
+                [
+                  6,
+                  4
+                ],
+                [
+                  0,
+                  6
+                ],
+                [
+                  0,
+                  6
+                ]
+              ],
+              "homeSets": 1,
+              "awaySets": 2,
+              "homeGames": 6,
+              "awayGames": 16,
+              "winner": "away"
+            },
+            {
+              "rubber": 2,
+              "type": "singles",
+              "homePlayers": [
+                "David Thurmond"
+              ],
+              "awayPlayers": [
+                "Jamon Nielsen"
+              ],
+              "sets": [
+                [
+                  6,
+                  1
+                ],
+                [
+                  6,
+                  2
+                ]
+              ],
+              "homeSets": 2,
+              "awaySets": 0,
+              "homeGames": 12,
+              "awayGames": 3,
+              "winner": "home"
+            },
+            {
+              "rubber": 3,
+              "type": "doubles",
+              "homePlayers": [
+                "David Thurmond",
+                "Shannon Watson"
+              ],
+              "awayPlayers": [
+                "Alexander Granzow",
+                "Jamon Nielsen"
+              ],
+              "sets": [
+                [
+                  6,
+                  1
+                ],
+                [
+                  6,
+                  1
+                ]
+              ],
+              "homeSets": 2,
+              "awaySets": 0,
+              "homeGames": 12,
+              "awayGames": 2,
+              "winner": "home"
+            }
+          ]
+        },
+        {
+          "home": "Burden Park",
+          "away": "Essex Heights",
+          "homePts": 8.0,
+          "homeR": 3,
+          "homeS": 6,
+          "homeG": 37,
+          "awayPts": 0.0,
+          "awayR": 0,
+          "awayS": 0,
+          "awayG": 15,
+          "homePlayers": [
+            "Tho Thai",
+            "Isaac Khaoula",
+            "Ciara Norng",
+            "Lun Wang"
+          ],
+          "awayPlayers": [
+            "Thong Truong",
+            "Andrew Boyes"
+          ],
+          "rubbers": [
+            {
+              "rubber": 1,
+              "type": "singles",
+              "homePlayers": [
+                "Tho Thai"
+              ],
+              "awayPlayers": [
+                "Thong Truong"
+              ],
+              "sets": [
+                [
+                  6,
+                  1
+                ],
+                [
+                  6,
+                  0
+                ]
+              ],
+              "homeSets": 2,
+              "awaySets": 0,
+              "homeGames": 12,
+              "awayGames": 1,
+              "winner": "home"
+            },
+            {
+              "rubber": 2,
+              "type": "singles",
+              "homePlayers": [
+                "Isaac Khaoula"
+              ],
+              "awayPlayers": [
+                "Andrew Boyes"
+              ],
+              "sets": [
+                [
+                  7,
+                  5
+                ],
+                [
+                  6,
+                  3
+                ]
+              ],
+              "homeSets": 2,
+              "awaySets": 0,
+              "homeGames": 13,
+              "awayGames": 8,
+              "winner": "home"
+            },
+            {
+              "rubber": 3,
+              "type": "doubles",
+              "homePlayers": [
+                "Ciara Norng",
+                "Lun Wang"
+              ],
+              "awayPlayers": [
+                "Thong Truong",
+                "Andrew Boyes"
+              ],
+              "sets": [
+                [
+                  6,
+                  2
+                ],
+                [
+                  6,
+                  4
+                ]
+              ],
+              "homeSets": 2,
+              "awaySets": 0,
+              "homeGames": 12,
+              "awayGames": 6,
+              "winner": "home"
+            }
+          ]
+        },
+        {
+          "home": "Narre Warren Nth",
+          "away": "Burwood",
+          "homePts": 0.0,
+          "homeR": 0,
+          "homeS": 0,
+          "homeG": 11,
+          "awayPts": 8.0,
+          "awayR": 3,
+          "awayS": 6,
+          "awayG": 37,
+          "homePlayers": [
+            "Noah Gallienne",
+            "Luke Shannon"
+          ],
+          "awayPlayers": [
+            "Yen Wu",
+            "Skanda Kumble"
+          ],
+          "rubbers": [
+            {
+              "rubber": 1,
+              "type": "singles",
+              "homePlayers": [
+                "Noah Gallienne"
+              ],
+              "awayPlayers": [
+                "Yen Wu"
+              ],
+              "sets": [
+                [
+                  1,
+                  6
+                ],
+                [
+                  5,
+                  7
+                ]
+              ],
+              "homeSets": 0,
+              "awaySets": 2,
+              "homeGames": 6,
+              "awayGames": 13,
+              "winner": "away"
+            },
+            {
+              "rubber": 2,
+              "type": "singles",
+              "homePlayers": [
+                "Luke Shannon"
+              ],
+              "awayPlayers": [
+                "Skanda Kumble"
+              ],
+              "sets": [
+                [
+                  1,
+                  6
+                ],
+                [
+                  3,
+                  6
+                ]
+              ],
+              "homeSets": 0,
+              "awaySets": 2,
+              "homeGames": 4,
+              "awayGames": 12,
+              "winner": "away"
+            },
+            {
+              "rubber": 3,
+              "type": "doubles",
+              "homePlayers": [
+                "Noah Gallienne",
+                "Luke Shannon"
+              ],
+              "awayPlayers": [
+                "Yen Wu",
+                "Skanda Kumble"
+              ],
+              "sets": [
+                [
+                  0,
+                  6
+                ],
+                [
+                  1,
+                  6
+                ]
+              ],
+              "homeSets": 0,
+              "awaySets": 2,
+              "homeGames": 1,
+              "awayGames": 12,
+              "winner": "away"
+            }
+          ]
+        },
+        {
+          "home": "Murrumbeena",
+          "away": "Monash Uni",
+          "homePts": 7.0,
+          "homeR": 2,
+          "homeS": 5,
+          "homeG": 37,
+          "awayPts": 2.0,
+          "awayR": 1,
+          "awayS": 2,
+          "awayG": 31,
+          "homePlayers": [
+            "Giora Lichtenstein",
+            "Pranav Arora",
+            "Zvi Schweitzer",
+            "Ronald Schweitzer"
+          ],
+          "awayPlayers": [
+            "Matthew Lee",
+            "Kevin Chen",
+            "Zachary Lee"
+          ],
+          "rubbers": [
+            {
+              "rubber": 1,
+              "type": "singles",
+              "homePlayers": [
+                "Giora Lichtenstein"
+              ],
+              "awayPlayers": [
+                "Matthew Lee"
+              ],
+              "sets": [
+                [
+                  6,
+                  2
+                ],
+                [
+                  7,
+                  6
+                ]
+              ],
+              "homeSets": 2,
+              "awaySets": 0,
+              "homeGames": 13,
+              "awayGames": 8,
+              "winner": "home"
+            },
+            {
+              "rubber": 2,
+              "type": "singles",
+              "homePlayers": [
+                "Pranav Arora"
+              ],
+              "awayPlayers": [
+                "Kevin Chen"
+              ],
+              "sets": [
+                [
+                  6,
+                  1
+                ],
+                [
+                  6,
+                  4
+                ]
+              ],
+              "homeSets": 2,
+              "awaySets": 0,
+              "homeGames": 12,
+              "awayGames": 5,
+              "winner": "home"
+            },
+            {
+              "rubber": 3,
+              "type": "doubles",
+              "homePlayers": [
+                "Zvi Schweitzer",
+                "Ronald Schweitzer"
+              ],
+              "awayPlayers": [
+                "Matthew Lee",
+                "Zachary Lee"
+              ],
+              "sets": [
+                [
+                  7,
+                  5
+                ],
+                [
+                  5,
+                  7
+                ],
+                [
+                  0,
+                  6
+                ]
+              ],
+              "homeSets": 1,
+              "awaySets": 2,
+              "homeGames": 12,
+              "awayGames": 18,
+              "winner": "away"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "round": 3,
+      "date": "2026-05-16",
+      "matches": [
+        {
+          "home": "Essex Heights",
+          "away": "Ashburton U/C",
+          "homePts": 3.0,
+          "homeR": 0,
+          "homeS": 3,
+          "homeG": 39,
+          "awayPts": 8.0,
+          "awayR": 3,
+          "awayS": 6,
+          "awayG": 51,
+          "homePlayers": [
+            "Isaac Lo",
+            "Martin Markovic"
+          ],
+          "awayPlayers": [
+            "Alexander Granzow",
+            "Jamon Nielsen"
+          ],
+          "rubbers": [
+            {
+              "rubber": 1,
+              "type": "singles",
+              "homePlayers": [
+                "Isaac Lo"
+              ],
+              "awayPlayers": [
+                "Alexander Granzow"
+              ],
+              "sets": [
+                [
+                  6,
+                  4
+                ],
+                [
+                  5,
+                  7
+                ],
+                [
+                  1,
+                  6
+                ]
+              ],
+              "homeSets": 1,
+              "awaySets": 2,
+              "homeGames": 12,
+              "awayGames": 17,
+              "winner": "away"
+            },
+            {
+              "rubber": 2,
+              "type": "singles",
+              "homePlayers": [
+                "Martin Markovic"
+              ],
+              "awayPlayers": [
+                "Jamon Nielsen"
+              ],
+              "sets": [
+                [
+                  6,
+                  4
+                ],
+                [
+                  2,
+                  6
+                ],
+                [
+                  2,
+                  6
+                ]
+              ],
+              "homeSets": 1,
+              "awaySets": 2,
+              "homeGames": 10,
+              "awayGames": 16,
+              "winner": "away"
+            },
+            {
+              "rubber": 3,
+              "type": "doubles",
+              "homePlayers": [
+                "Isaac Lo",
+                "Martin Markovic"
+              ],
+              "awayPlayers": [
+                "Alexander Granzow",
+                "Jamon Nielsen"
+              ],
+              "sets": [
+                [
+                  4,
+                  6
+                ],
+                [
+                  7,
+                  5
+                ],
+                [
+                  6,
+                  7
+                ]
+              ],
+              "homeSets": 1,
+              "awaySets": 2,
+              "homeGames": 17,
+              "awayGames": 18,
+              "winner": "away"
+            }
+          ]
+        },
+        {
+          "home": "Burden Park",
+          "away": "Berwick",
+          "homePts": 2.0,
+          "homeR": 1,
+          "homeS": 2,
+          "homeG": 18,
+          "awayPts": 7.0,
+          "awayR": 2,
+          "awayS": 5,
+          "awayG": 36,
+          "homePlayers": [
+            "Ciara Norng",
+            "Isaac Khaoula",
+            "Lun Wang"
+          ],
+          "awayPlayers": [
+            "David Thurmond",
+            "Brett Kurz"
+          ],
+          "rubbers": [
+            {
+              "rubber": 1,
+              "type": "singles",
+              "homePlayers": [
+                "Ciara Norng"
+              ],
+              "awayPlayers": [
+                "David Thurmond"
+              ],
+              "sets": [
+                [
+                  0,
+                  6
+                ],
+                [
+                  1,
+                  6
+                ]
+              ],
+              "homeSets": 0,
+              "awaySets": 2,
+              "homeGames": 1,
+              "awayGames": 12,
+              "winner": "away"
+            },
+            {
+              "rubber": 2,
+              "type": "singles",
+              "homePlayers": [
+                "Isaac Khaoula"
+              ],
+              "awayPlayers": [
+                "Brett Kurz"
+              ],
+              "sets": [
+                [
+                  7,
+                  5
+                ],
+                [
+                  3,
+                  6
+                ],
+                [
+                  6,
+                  1
+                ]
+              ],
+              "homeSets": 2,
+              "awaySets": 1,
+              "homeGames": 16,
+              "awayGames": 12,
+              "winner": "home"
+            },
+            {
+              "rubber": 3,
+              "type": "doubles",
+              "homePlayers": [
+                "Ciara Norng",
+                "Lun Wang"
+              ],
+              "awayPlayers": [
+                "David Thurmond",
+                "Brett Kurz"
+              ],
+              "sets": [
+                [
+                  1,
+                  6
+                ],
+                [
+                  0,
+                  6
+                ]
+              ],
+              "homeSets": 0,
+              "awaySets": 2,
+              "homeGames": 1,
+              "awayGames": 12,
+              "winner": "away"
+            }
+          ]
+        },
+        {
+          "home": "Narre Warren Nth",
+          "away": "Murrumbeena",
+          "homePts": 2.0,
+          "homeR": 1,
+          "homeS": 2,
+          "homeG": 20,
+          "awayPts": 6.0,
+          "awayR": 2,
+          "awayS": 4,
+          "awayG": 28,
+          "homePlayers": [
+            "Noah Gallienne",
+            "Luke Shannon",
+            "Steve Gallienne"
+          ],
+          "awayPlayers": [
+            "Giora Lichtenstein",
+            "Adrian Bow",
+            "James Teh"
+          ],
+          "rubbers": [
+            {
+              "rubber": 1,
+              "type": "singles",
+              "homePlayers": [
+                "Noah Gallienne"
+              ],
+              "awayPlayers": [
+                "Giora Lichtenstein"
+              ],
+              "sets": [
+                [
+                  2,
+                  6
+                ],
+                [
+                  5,
+                  7
+                ]
+              ],
+              "homeSets": 0,
+              "awaySets": 2,
+              "homeGames": 7,
+              "awayGames": 13,
+              "winner": "away"
+            },
+            {
+              "rubber": 2,
+              "type": "singles",
+              "homePlayers": [
+                "Luke Shannon"
+              ],
+              "awayPlayers": [
+                "Adrian Bow"
+              ],
+              "sets": [
+                [
+                  1,
+                  6
+                ],
+                [
+                  0,
+                  6
+                ]
+              ],
+              "homeSets": 0,
+              "awaySets": 2,
+              "homeGames": 1,
+              "awayGames": 12,
+              "winner": "away"
+            },
+            {
+              "rubber": 3,
+              "type": "doubles",
+              "homePlayers": [
+                "Noah Gallienne",
+                "Steve Gallienne"
+              ],
+              "awayPlayers": [
+                "Giora Lichtenstein",
+                "James Teh"
+              ],
+              "sets": [
+                [
+                  6,
+                  1
+                ],
+                [
+                  6,
+                  2
+                ]
+              ],
+              "homeSets": 2,
+              "awaySets": 0,
+              "homeGames": 12,
+              "awayGames": 3,
+              "winner": "home"
+            }
+          ]
+        },
+        {
+          "home": "Burwood",
+          "away": "Monash Uni",
+          "homePts": 6.0,
+          "homeR": 2,
+          "homeS": 4,
+          "homeG": 32,
+          "awayPts": 3.0,
+          "awayR": 1,
+          "awayS": 3,
+          "awayG": 31,
+          "homePlayers": [
+            "Yen Wu",
+            "Eloise Lindsay",
+            "Skanda Kumble"
+          ],
+          "awayPlayers": [
+            "Zachary Lee",
+            "Kevin Chen"
+          ],
+          "rubbers": [
+            {
+              "rubber": 1,
+              "type": "singles",
+              "homePlayers": [
+                "Yen Wu"
+              ],
+              "awayPlayers": [
+                "Zachary Lee"
+              ],
+              "sets": [
+                [
+                  6,
+                  2
+                ],
+                [
+                  6,
+                  4
+                ]
+              ],
+              "homeSets": 2,
+              "awaySets": 0,
+              "homeGames": 12,
+              "awayGames": 6,
+              "winner": "home"
+            },
+            {
+              "rubber": 2,
+              "type": "singles",
+              "homePlayers": [
+                "Eloise Lindsay"
+              ],
+              "awayPlayers": [
+                "Kevin Chen"
+              ],
+              "sets": [
+                [
+                  3,
+                  6
+                ],
+                [
+                  1,
+                  6
+                ]
+              ],
+              "homeSets": 0,
+              "awaySets": 2,
+              "homeGames": 4,
+              "awayGames": 12,
+              "winner": "away"
+            },
+            {
+              "rubber": 3,
+              "type": "doubles",
+              "homePlayers": [
+                "Eloise Lindsay",
+                "Skanda Kumble"
+              ],
+              "awayPlayers": [
+                "Zachary Lee",
+                "Kevin Chen"
+              ],
+              "sets": [
+                [
+                  6,
+                  2
+                ],
+                [
+                  3,
+                  6
+                ],
+                [
+                  7,
+                  5
+                ]
+              ],
+              "homeSets": 2,
+              "awaySets": 1,
+              "homeGames": 16,
+              "awayGames": 13,
+              "winner": "home"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "round": 4,
+      "date": "2026-05-23",
+      "matches": [
+        {
+          "home": "Berwick",
+          "away": "Narre Warren Nth",
+          "homePts": 6.0,
+          "homeR": 2,
+          "homeS": 4,
+          "homeG": 36,
+          "awayPts": 2.0,
+          "awayR": 1,
+          "awayS": 2,
+          "awayG": 27,
+          "homePlayers": [
+            "Shannon Watson",
+            "Brett Kurz",
+            "Nick Teo"
+          ],
+          "awayPlayers": [
+            "Noah Gallienne",
+            "Steve Gallienne"
+          ],
+          "rubbers": [
+            {
+              "rubber": 1,
+              "type": "singles",
+              "homePlayers": [
+                "Shannon Watson"
+              ],
+              "awayPlayers": [
+                "Noah Gallienne"
+              ],
+              "sets": [
+                [
+                  6,
+                  7
+                ],
+                [
+                  6,
+                  7
+                ]
+              ],
+              "homeSets": 0,
+              "awaySets": 2,
+              "homeGames": 12,
+              "awayGames": 14,
+              "winner": "away"
+            },
+            {
+              "rubber": 2,
+              "type": "singles",
+              "homePlayers": [
+                "Brett Kurz"
+              ],
+              "awayPlayers": [
+                "Steve Gallienne"
+              ],
+              "sets": [
+                [
+                  6,
+                  4
+                ],
+                [
+                  6,
+                  4
+                ]
+              ],
+              "homeSets": 2,
+              "awaySets": 0,
+              "homeGames": 12,
+              "awayGames": 8,
+              "winner": "home"
+            },
+            {
+              "rubber": 3,
+              "type": "doubles",
+              "homePlayers": [
+                "Shannon Watson",
+                "Nick Teo"
+              ],
+              "awayPlayers": [
+                "Noah Gallienne",
+                "Steve Gallienne"
+              ],
+              "sets": [
+                [
+                  6,
+                  1
+                ],
+                [
+                  6,
+                  4
+                ]
+              ],
+              "homeSets": 2,
+              "awaySets": 0,
+              "homeGames": 12,
+              "awayGames": 5,
+              "winner": "home"
+            }
+          ]
+        },
+        {
+          "home": "Ashburton U/C",
+          "away": "Burwood",
+          "homePts": 8.0,
+          "homeR": 3,
+          "homeS": 6,
+          "homeG": 36,
+          "awayPts": 0.0,
+          "awayR": 0,
+          "awayS": 0,
+          "awayG": 12,
+          "homePlayers": [
+            "Alexander Granzow",
+            "Jamon Nielsen"
+          ],
+          "awayPlayers": [
+            "Yen Wu",
+            "Eloise Lindsay",
+            "Skanda Kumble",
+            "Darshan Parikh"
+          ],
+          "rubbers": [
+            {
+              "rubber": 1,
+              "type": "singles",
+              "homePlayers": [
+                "Alexander Granzow"
+              ],
+              "awayPlayers": [
+                "Yen Wu"
+              ],
+              "sets": [
+                [
+                  6,
+                  2
+                ],
+                [
+                  6,
+                  3
+                ]
+              ],
+              "homeSets": 2,
+              "awaySets": 0,
+              "homeGames": 12,
+              "awayGames": 5,
+              "winner": "home"
+            },
+            {
+              "rubber": 2,
+              "type": "singles",
+              "homePlayers": [
+                "Jamon Nielsen"
+              ],
+              "awayPlayers": [
+                "Eloise Lindsay"
+              ],
+              "sets": [
+                [
+                  6,
+                  0
+                ],
+                [
+                  6,
+                  3
+                ]
+              ],
+              "homeSets": 2,
+              "awaySets": 0,
+              "homeGames": 12,
+              "awayGames": 3,
+              "winner": "home"
+            },
+            {
+              "rubber": 3,
+              "type": "doubles",
+              "homePlayers": [
+                "Alexander Granzow",
+                "Jamon Nielsen"
+              ],
+              "awayPlayers": [
+                "Skanda Kumble",
+                "Darshan Parikh"
+              ],
+              "sets": [
+                [
+                  6,
+                  1
+                ],
+                [
+                  6,
+                  3
+                ]
+              ],
+              "homeSets": 2,
+              "awaySets": 0,
+              "homeGames": 12,
+              "awayGames": 4,
+              "winner": "home"
+            }
+          ]
+        },
+        {
+          "home": "Monash Uni",
+          "away": "Essex Heights",
+          "homePts": 0.0,
+          "homeR": 0,
+          "homeS": 0,
+          "homeG": 15,
+          "awayPts": 8.0,
+          "awayR": 3,
+          "awayS": 6,
+          "awayG": 36,
+          "homePlayers": [
+            "Zachary Lee",
+            "Srinivas Tirumalasetty",
+            "Kevin Chen"
+          ],
+          "awayPlayers": [
+            "Isaac Lo",
+            "Martin Markovic",
+            "Leo Lookman"
+          ],
+          "rubbers": [
+            {
+              "rubber": 1,
+              "type": "singles",
+              "homePlayers": [
+                "Zachary Lee"
+              ],
+              "awayPlayers": [
+                "Isaac Lo"
+              ],
+              "sets": [
+                [
+                  4,
+                  6
+                ],
+                [
+                  3,
+                  6
+                ]
+              ],
+              "homeSets": 0,
+              "awaySets": 2,
+              "homeGames": 7,
+              "awayGames": 12,
+              "winner": "away"
+            },
+            {
+              "rubber": 2,
+              "type": "singles",
+              "homePlayers": [
+                "Srinivas Tirumalasetty"
+              ],
+              "awayPlayers": [
+                "Martin Markovic"
+              ],
+              "sets": [
+                [
+                  2,
+                  6
+                ],
+                [
+                  4,
+                  6
+                ]
+              ],
+              "homeSets": 0,
+              "awaySets": 2,
+              "homeGames": 6,
+              "awayGames": 12,
+              "winner": "away"
+            },
+            {
+              "rubber": 3,
+              "type": "doubles",
+              "homePlayers": [
+                "Zachary Lee",
+                "Kevin Chen"
+              ],
+              "awayPlayers": [
+                "Isaac Lo",
+                "Leo Lookman"
+              ],
+              "sets": [
+                [
+                  0,
+                  6
+                ],
+                [
+                  2,
+                  6
+                ]
+              ],
+              "homeSets": 0,
+              "awaySets": 2,
+              "homeGames": 2,
+              "awayGames": 12,
+              "winner": "away"
+            }
+          ]
+        },
+        {
+          "home": "Murrumbeena",
+          "away": "Burden Park",
+          "homePts": 3.0,
+          "homeR": 1,
+          "homeS": 3,
+          "homeG": 29,
+          "awayPts": 6.0,
+          "awayR": 2,
+          "awayS": 4,
+          "awayG": 30,
+          "homePlayers": [
+            "Janoah Gray-Taito",
+            "Ishaan Nagpal",
+            "Giora Lichtenstein"
+          ],
+          "awayPlayers": [
+            "Sovath Choung",
+            "Isaac Khaoula",
+            "Ciara Norng",
+            "Tiffin Wong"
+          ],
+          "rubbers": [
+            {
+              "rubber": 1,
+              "type": "singles",
+              "homePlayers": [
+                "Janoah Gray-Taito"
+              ],
+              "awayPlayers": [
+                "Sovath Choung"
+              ],
+              "sets": [
+                [
+                  4,
+                  6
+                ],
+                [
+                  2,
+                  6
+                ]
+              ],
+              "homeSets": 0,
+              "awaySets": 2,
+              "homeGames": 6,
+              "awayGames": 12,
+              "winner": "away"
+            },
+            {
+              "rubber": 2,
+              "type": "singles",
+              "homePlayers": [
+                "Ishaan Nagpal"
+              ],
+              "awayPlayers": [
+                "Isaac Khaoula"
+              ],
+              "sets": [
+                [
+                  6,
+                  3
+                ],
+                [
+                  1,
+                  6
+                ],
+                [
+                  4,
+                  6
+                ]
+              ],
+              "homeSets": 1,
+              "awaySets": 2,
+              "homeGames": 11,
+              "awayGames": 15,
+              "winner": "away"
+            },
+            {
+              "rubber": 3,
+              "type": "doubles",
+              "homePlayers": [
+                "Ishaan Nagpal",
+                "Giora Lichtenstein"
+              ],
+              "awayPlayers": [
+                "Ciara Norng",
+                "Tiffin Wong"
+              ],
+              "sets": [
+                [
+                  6,
+                  1
+                ],
+                [
+                  6,
+                  2
+                ]
+              ],
+              "homeSets": 2,
+              "awaySets": 0,
+              "homeGames": 12,
+              "awayGames": 3,
+              "winner": "home"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "round": 5,
+      "date": "2026-05-30",
+      "matches": [
+        {
+          "home": "Essex Heights",
+          "away": "Berwick",
+          "homePts": 1.0,
+          "homeR": 0,
+          "homeS": 1,
+          "homeG": 24,
+          "awayPts": 8.0,
+          "awayR": 3,
+          "awayS": 6,
+          "awayG": 39,
+          "homePlayers": [
+            "Leo Lookman",
+            "Martin Markovic",
+            "Isaac Lo"
+          ],
+          "awayPlayers": [
+            "Nick Teo",
+            "David Thurmond",
+            "Shannon Watson"
+          ],
+          "rubbers": [
+            {
+              "rubber": 1,
+              "type": "singles",
+              "homePlayers": [
+                "Leo Lookman"
+              ],
+              "awayPlayers": [
+                "Nick Teo"
+              ],
+              "sets": [
+                [
+                  4,
+                  6
+                ],
+                [
+                  4,
+                  6
+                ]
+              ],
+              "homeSets": 0,
+              "awaySets": 2,
+              "homeGames": 8,
+              "awayGames": 12,
+              "winner": "away"
+            },
+            {
+              "rubber": 2,
+              "type": "singles",
+              "homePlayers": [
+                "Martin Markovic"
+              ],
+              "awayPlayers": [
+                "David Thurmond"
+              ],
+              "sets": [
+                [
+                  1,
+                  6
+                ],
+                [
+                  5,
+                  7
+                ]
+              ],
+              "homeSets": 0,
+              "awaySets": 2,
+              "homeGames": 6,
+              "awayGames": 13,
+              "winner": "away"
+            },
+            {
+              "rubber": 3,
+              "type": "doubles",
+              "homePlayers": [
+                "Leo Lookman",
+                "Isaac Lo"
+              ],
+              "awayPlayers": [
+                "David Thurmond",
+                "Shannon Watson"
+              ],
+              "sets": [
+                [
+                  1,
+                  6
+                ],
+                [
+                  6,
+                  2
+                ],
+                [
+                  3,
+                  6
+                ]
+              ],
+              "homeSets": 1,
+              "awaySets": 2,
+              "homeGames": 10,
+              "awayGames": 14,
+              "winner": "away"
+            }
+          ]
+        },
+        {
+          "home": "Ashburton U/C",
+          "away": "Monash Uni",
+          "homePts": 8.0,
+          "homeR": 3,
+          "homeS": 6,
+          "homeG": 41,
+          "awayPts": 1.0,
+          "awayR": 0,
+          "awayS": 1,
+          "awayG": 26,
+          "homePlayers": [
+            "Alexander Granzow",
+            "Jamon Nielsen"
+          ],
+          "awayPlayers": [
+            "Matthew Lee",
+            "Kevin Chen",
+            "Srinivas Tirumalasetty"
+          ],
+          "rubbers": [
+            {
+              "rubber": 1,
+              "type": "singles",
+              "homePlayers": [
+                "Alexander Granzow"
+              ],
+              "awayPlayers": [
+                "Matthew Lee"
+              ],
+              "sets": [
+                [
+                  6,
+                  4
+                ],
+                [
+                  4,
+                  6
+                ],
+                [
+                  6,
+                  2
+                ]
+              ],
+              "homeSets": 2,
+              "awaySets": 1,
+              "homeGames": 16,
+              "awayGames": 12,
+              "winner": "home"
+            },
+            {
+              "rubber": 2,
+              "type": "singles",
+              "homePlayers": [
+                "Jamon Nielsen"
+              ],
+              "awayPlayers": [
+                "Kevin Chen"
+              ],
+              "sets": [
+                [
+                  6,
+                  4
+                ],
+                [
+                  6,
+                  2
+                ]
+              ],
+              "homeSets": 2,
+              "awaySets": 0,
+              "homeGames": 12,
+              "awayGames": 6,
+              "winner": "home"
+            },
+            {
+              "rubber": 3,
+              "type": "doubles",
+              "homePlayers": [
+                "Alexander Granzow",
+                "Jamon Nielsen"
+              ],
+              "awayPlayers": [
+                "Matthew Lee",
+                "Srinivas Tirumalasetty"
+              ],
+              "sets": [
+                [
+                  7,
+                  6
+                ],
+                [
+                  6,
+                  2
+                ]
+              ],
+              "homeSets": 2,
+              "awaySets": 0,
+              "homeGames": 13,
+              "awayGames": 8,
+              "winner": "home"
+            }
+          ]
+        },
+        {
+          "home": "Narre Warren Nth",
+          "away": "Burden Park",
+          "homePts": 1.0,
+          "homeR": 0,
+          "homeS": 1,
+          "homeG": 27,
+          "awayPts": 8.0,
+          "awayR": 3,
+          "awayS": 6,
+          "awayG": 39,
+          "homePlayers": [
+            "Noah Gallienne",
+            "Steve Gallienne"
+          ],
+          "awayPlayers": [
+            "Tho Thai",
+            "Lun Wang"
+          ],
+          "rubbers": [
+            {
+              "rubber": 1,
+              "type": "singles",
+              "homePlayers": [
+                "Noah Gallienne"
+              ],
+              "awayPlayers": [
+                "Tho Thai"
+              ],
+              "sets": [
+                [
+                  6,
+                  7
+                ],
+                [
+                  6,
+                  2
+                ],
+                [
+                  4,
+                  6
+                ]
+              ],
+              "homeSets": 1,
+              "awaySets": 2,
+              "homeGames": 16,
+              "awayGames": 15,
+              "winner": "away"
+            },
+            {
+              "rubber": 2,
+              "type": "singles",
+              "homePlayers": [
+                "Steve Gallienne"
+              ],
+              "awayPlayers": [
+                "Lun Wang"
+              ],
+              "sets": [
+                [
+                  2,
+                  6
+                ],
+                [
+                  1,
+                  6
+                ]
+              ],
+              "homeSets": 0,
+              "awaySets": 2,
+              "homeGames": 3,
+              "awayGames": 12,
+              "winner": "away"
+            },
+            {
+              "rubber": 3,
+              "type": "doubles",
+              "homePlayers": [
+                "Noah Gallienne",
+                "Steve Gallienne"
+              ],
+              "awayPlayers": [
+                "Tho Thai",
+                "Lun Wang"
+              ],
+              "sets": [
+                [
+                  4,
+                  6
+                ],
+                [
+                  4,
+                  6
+                ]
+              ],
+              "homeSets": 0,
+              "awaySets": 2,
+              "homeGames": 8,
+              "awayGames": 12,
+              "winner": "away"
+            }
+          ]
+        },
+        {
+          "home": "Burwood",
+          "away": "Murrumbeena",
+          "homePts": 2.0,
+          "homeR": 1,
+          "homeS": 2,
+          "homeG": 29,
+          "awayPts": 7.0,
+          "awayR": 2,
+          "awayS": 5,
+          "awayG": 38,
+          "homePlayers": [
+            "Yen Wu",
+            "Skanda Kumble",
+            "Eloise Lindsay"
+          ],
+          "awayPlayers": [
+            "Giora Lichtenstein",
+            "Janoah Gray-Taito",
+            "Pranav Arora",
+            "Zvi Schweitzer"
+          ],
+          "rubbers": [
+            {
+              "rubber": 1,
+              "type": "singles",
+              "homePlayers": [
+                "Yen Wu"
+              ],
+              "awayPlayers": [
+                "Giora Lichtenstein"
+              ],
+              "sets": [
+                [
+                  6,
+                  3
+                ],
+                [
+                  5,
+                  7
+                ],
+                [
+                  6,
+                  3
+                ]
+              ],
+              "homeSets": 2,
+              "awaySets": 1,
+              "homeGames": 17,
+              "awayGames": 13,
+              "winner": "home"
+            },
+            {
+              "rubber": 2,
+              "type": "singles",
+              "homePlayers": [
+                "Skanda Kumble"
+              ],
+              "awayPlayers": [
+                "Janoah Gray-Taito"
+              ],
+              "sets": [
+                [
+                  1,
+                  6
+                ],
+                [
+                  3,
+                  6
+                ]
+              ],
+              "homeSets": 0,
+              "awaySets": 2,
+              "homeGames": 4,
+              "awayGames": 12,
+              "winner": "away"
+            },
+            {
+              "rubber": 3,
+              "type": "doubles",
+              "homePlayers": [
+                "Skanda Kumble",
+                "Eloise Lindsay"
+              ],
+              "awayPlayers": [
+                "Pranav Arora",
+                "Zvi Schweitzer"
+              ],
+              "sets": [
+                [
+                  6,
+                  7
+                ],
+                [
+                  2,
+                  6
+                ]
+              ],
+              "homeSets": 0,
+              "awaySets": 2,
+              "homeGames": 8,
+              "awayGames": 13,
+              "winner": "away"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "opponentNotes": {
+    "Essex Heights": {
+      "general": "",
+      "players": []
+    },
+    "Ashburton U/C": {
+      "general": "",
+      "players": []
+    },
+    "Burden Park": {
+      "general": "",
+      "players": []
+    },
+    "Monash Uni": {
+      "general": "",
+      "players": []
+    },
+    "Narre Warren Nth": {
+      "general": "",
+      "players": []
+    },
+    "Murrumbeena": {
+      "general": "",
+      "players": []
+    },
+    "Burwood": {
+      "general": "",
+      "players": []
+    }
+  },
+  "teamRosters": {
+    "Essex Heights": [
+      {
+        "name": "Isaac Lo",
+        "order": 1,
+        "emergency": false,
+        "played": 3
+      },
+      {
+        "name": "Leo Lookman",
+        "order": 1,
+        "emergency": false,
+        "played": 2
+      },
+      {
+        "name": "Martin Markovic",
+        "order": 2,
+        "emergency": false,
+        "played": 4
+      },
+      {
+        "name": "Thong Truong",
+        "order": null,
+        "emergency": true,
+        "played": 2
+      },
+      {
+        "name": "Andrew Boyes",
+        "order": null,
+        "emergency": true,
+        "played": 1
+      }
+    ],
+    "Narre Warren Nth": [
+      {
+        "name": "Noah Gallienne",
+        "order": 1,
+        "emergency": false,
+        "played": 5
+      },
+      {
+        "name": "Luke Shannon",
+        "order": 2,
+        "emergency": false,
+        "played": 3
+      },
+      {
+        "name": "Steve Gallienne",
+        "order": 2,
+        "emergency": false,
+        "played": 3
+      }
+    ],
+    "Ashburton U/C": [
+      {
+        "name": "Alexander Granzow",
+        "order": 1,
+        "emergency": false,
+        "played": 5
+      },
+      {
+        "name": "Jamon Nielsen",
+        "order": 2,
+        "emergency": false,
+        "played": 5
+      }
+    ],
+    "Murrumbeena": [
+      {
+        "name": "Giora Lichtenstein",
+        "order": 1,
+        "emergency": false,
+        "played": 5
+      },
+      {
+        "name": "Zvi Schweitzer",
+        "order": 2,
+        "emergency": false,
+        "played": 3
+      },
+      {
+        "name": "Ronald Schweitzer",
+        "order": null,
+        "emergency": false,
+        "played": 2
+      },
+      {
+        "name": "Janoah Gray-Taito",
+        "order": null,
+        "emergency": true,
+        "played": 3
+      },
+      {
+        "name": "Pranav Arora",
+        "order": null,
+        "emergency": true,
+        "played": 2
+      },
+      {
+        "name": "Adrian Bow",
+        "order": null,
+        "emergency": true,
+        "played": 1
+      },
+      {
+        "name": "Ishaan Nagpal",
+        "order": null,
+        "emergency": true,
+        "played": 1
+      },
+      {
+        "name": "James Teh",
+        "order": null,
+        "emergency": true,
+        "played": 1
+      }
+    ],
+    "Monash Uni": [
+      {
+        "name": "Matthew Lee",
+        "order": 1,
+        "emergency": false,
+        "played": 3
+      },
+      {
+        "name": "Kevin Chen",
+        "order": 2,
+        "emergency": false,
+        "played": 5
+      },
+      {
+        "name": "Zachary Lee",
+        "order": 2,
+        "emergency": false,
+        "played": 4
+      },
+      {
+        "name": "Srinivas Tirumalasetty",
+        "order": 2,
+        "emergency": false,
+        "played": 3
+      }
+    ],
+    "Burwood": [
+      {
+        "name": "Yen Wu",
+        "order": 1,
+        "emergency": false,
+        "played": 4
+      },
+      {
+        "name": "Darshan Parikh",
+        "order": 1,
+        "emergency": false,
+        "played": 2
+      },
+      {
+        "name": "Eloise Lindsay",
+        "order": 2,
+        "emergency": false,
+        "played": 4
+      },
+      {
+        "name": "Skanda Kumble",
+        "order": 2,
+        "emergency": false,
+        "played": 4
+      }
+    ],
+    "Burden Park": [
+      {
+        "name": "Ciara Norng",
+        "order": 1,
+        "emergency": false,
+        "played": 3
+      },
+      {
+        "name": "Tho Thai",
+        "order": 1,
+        "emergency": false,
+        "played": 3
+      },
+      {
+        "name": "Lun Wang",
+        "order": 2,
+        "emergency": false,
+        "played": 4
+      },
+      {
+        "name": "Isaac Khaoula",
+        "order": null,
+        "emergency": true,
+        "played": 4
+      },
+      {
+        "name": "Sovath Choung",
+        "order": null,
+        "emergency": true,
+        "played": 1
+      },
+      {
+        "name": "Tiffin Wong",
+        "order": null,
+        "emergency": true,
+        "played": 1
+      }
+    ]
+  }
+};

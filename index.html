@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Berwick — Saturday PM A Reserve 4</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>🎾 Berwick Tennis Club</h1>
+    <div class="sub">Saturday PM &middot; Winter 2026 &middot; Open Singles/Doubles A Reserve 4</div>
+    <div class="updated" id="last-updated">Results loaded: —</div>
+  </header>
+
+  <nav>
+    <button class="active" data-tab="dashboard">Dashboard</button>
+    <button data-tab="ladder">Ladder</button>
+    <button data-tab="results">Results</button>
+    <button data-tab="players">Players</button>
+    <button data-tab="stats">Stats</button>
+    <button data-tab="schedule">Schedule</button>
+    <button data-tab="venues">Venues</button>
+    <button data-tab="roster">Berwick</button>
+  </nav>
+
+  <main>
+    <section id="dashboard" class="tab active">
+      <div class="card">
+        <h2>Next Match</h2>
+        <div id="next-match">Loading…</div>
+      </div>
+      <div class="card">
+        <h2>Ladder Snapshot</h2>
+        <div id="ladder-snapshot">Loading…</div>
+        <p class="finals-note muted"><span class="swatch"></span>Line marks the top 4 — finals qualification cutoff.</p>
+      </div>
+    </section>
+
+    <section id="ladder" class="tab">
+      <div class="card">
+        <h2>Ladder — A Reserve 4</h2>
+        <div id="ladder-table">Loading…</div>
+        <p class="finals-note muted"><span class="swatch"></span>Line marks the top 4 — finals qualification cutoff.</p>
+      </div>
+    </section>
+
+    <section id="results" class="tab">
+      <h2 style="margin-top:0;">Results</h2>
+      <div class="card">
+        <h3>Ladder points progression</h3>
+        <div id="results-chart">Loading…</div>
+      </div>
+      <div id="results-list">Loading…</div>
+    </section>
+
+    <section id="players" class="tab">
+      <div class="card">
+        <h2>Players — A Reserve 4</h2>
+        <p class="muted">Win/loss records, sets and games for every player across all 8 teams, compiled from each round's rubber-by-rubber results. UTR and Emergency columns apply to Berwick players. Click a player's name to view or edit scouting notes.</p>
+        <div class="opponent-select">
+          <label class="muted">Filter by team</label>
+          <select id="players-team"></select>
+        </div>
+        <div id="players-table">Loading…</div>
+      </div>
+      <div id="player-notes-section"></div>
+    </section>
+
+    <section id="stats" class="tab">
+      <div class="card">
+        <h2>Stats — Player Rankings</h2>
+        <p class="muted">Players ranked by win % (min. 1 rubber played) and UTR (Berwick roster, masked values where ratings aren't public).</p>
+      </div>
+      <div class="card">
+        <h3>Ranking</h3>
+        <div class="stats-toggle" id="stats-toggle">
+          <button class="btn secondary active" data-mode="singles">Singles</button>
+          <button class="btn secondary" data-mode="doubles">Doubles</button>
+        </div>
+        <div id="stats-ranking">Loading…</div>
+      </div>
+      <div class="card">
+        <h3>UTR ranking</h3>
+        <div id="stats-utr">Loading…</div>
+      </div>
+    </section>
+
+    <section id="schedule" class="tab">
+      <div class="card">
+        <h2>Season Schedule</h2>
+        <div id="schedule-table">Loading…</div>
+      </div>
+    </section>
+
+    <section id="venues" class="tab">
+      <h2 style="margin-top:0;">Clubs &amp; Venues</h2>
+      <div id="venues-list">Loading…</div>
+    </section>
+
+    <section id="roster" class="tab">
+      <div class="card">
+        <h2>Berwick Roster</h2>
+        <div class="actions-row">
+          <button class="btn secondary" id="export-btn">Export notes (JSON)</button>
+          <label class="btn secondary" style="cursor:pointer;">
+            Import notes
+            <input type="file" id="import-input" accept="application/json" style="display:none;">
+          </label>
+        </div>
+        <div id="roster-table">Loading…</div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    Berwick A Reserve 4 &middot; Data from <a href="https://www.trols.org.au/wdta/results.php?daytime=AP&section=AP012&style=" target="_blank" rel="noopener">trols.org.au</a> &middot; Updated weekly (Wednesdays)
+  </footer>
+
+  <script src="data.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
