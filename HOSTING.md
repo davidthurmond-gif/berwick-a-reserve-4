@@ -1,53 +1,30 @@
 # Hosting on GitHub Pages
 
-This site is plain HTML/CSS/JS (`index.html`, `style.css`, `script.js`, `data.js`), so GitHub Pages can serve it as-is — no build step needed.
+**Live site:** https://davidthurmond-gif.github.io/berwick-a-reserve-4/
 
-## 1. Create the repo
+**Repo:** https://github.com/davidthurmond-gif/berwick-a-reserve-4 (public)
 
-1. On GitHub, create a new repository (e.g. `berwick-tennis`). Public is fine — GitHub Pages is free for public repos (private repos need a paid plan for Pages).
-2. Don't initialize with a README (this folder already has one).
+This site is plain HTML/CSS/JS (`index.html`, `style.css`, `script.js`, `data.js`), served as-is by GitHub Pages from the `main` branch root.
 
-## 2. Push this folder
+## Keeping it updated
 
-From this project folder:
+The weekly scheduled task (`berwick-tennis-results-update`, Wednesdays 8am) now automatically commits and pushes updated `data.json`/`data.js` to GitHub after each run, so the live site stays current without any manual steps.
 
-```bash
-cd "Saturday Comp - A Reserve 4"
-git init
-git add .
-git commit -m "Initial site"
-git branch -M main
-git remote add origin https://github.com/<your-username>/berwick-tennis.git
-git push -u origin main
-```
-
-## 3. Turn on Pages
-
-1. In the repo, go to **Settings → Pages**.
-2. Under "Build and deployment", set **Source** to "Deploy from a branch".
-3. Set **Branch** to `main` and folder to `/ (root)`.
-4. Save.
-
-After a minute or two, the site will be live at:
-
-```
-https://<your-username>.github.io/berwick-tennis/
-```
-
-## 4. Keeping it updated
-
-The weekly scheduled task updates `data.json`/`data.js` in this local folder, but GitHub Pages serves whatever is in the GitHub repo — those are separate copies. After each weekly update, you'll need to push the changes:
+If you ever need to push a manual edit yourself:
 
 ```bash
 cd "Saturday Comp - A Reserve 4"
+git clone https://github.com/davidthurmond-gif/berwick-a-reserve-4.git /tmp/berwick-push
+cp data.json data.js /tmp/berwick-push/
+cd /tmp/berwick-push
 git add data.json data.js
 git commit -m "Update results"
-git push
+git push https://davidthurmond-gif:<PAT>@github.com/davidthurmond-gif/berwick-a-reserve-4.git main
 ```
 
-If you'd like, the scheduled task can be extended to also commit and push automatically — just let me know and I can set that up (it would need a GitHub personal access token stored securely).
+The PAT used for auto-push is stored in `.github-pat` in this project folder (gitignored, never pushed to the repo). It's a fine-grained token scoped only to this repo with Contents read/write.
 
 ## Notes
 
-- `data.json` is the master file; `data.js` is generated from it (see README/script comments). Make sure both are committed and pushed together so they stay in sync.
-- Any in-browser edits (overrides, notes) are stored in each visitor's `localStorage` — they're per-device and won't sync between the site and your local copy.
+- `data.json` is the master file; `data.js` is generated from it (see README/script comments). Both are committed and pushed together so they stay in sync.
+- Any in-browser edits (overrides, notes) are stored in each visitor's `localStorage` — they're per-device and won't sync between the site and the GitHub copy.
