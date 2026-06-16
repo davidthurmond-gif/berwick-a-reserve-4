@@ -3,8 +3,8 @@
     "competition": "Saturday PM - Winter 2026",
     "section": "Open Singles/Doubles A Reserve 4",
     "ourTeam": "Berwick",
-    "lastUpdated": "2026-06-10",
-    "resultsLoadedFromSite": "10 June 2026 8:12:33 PM",
+    "lastUpdated": "2026-06-17",
+    "resultsLoadedFromSite": "16th June 26 @ 11:32:26 PM",
     "sourceUrl": "https://www.trols.org.au/wdta/results.php?daytime=AP&section=AP012&style="
   },
   "clubs": [
@@ -2410,6 +2410,406 @@
               "awaySets": 2,
               "homeGames": 8,
               "awayGames": 13,
+              "winner": "away"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "round": 6,
+      "date": "2026-06-13",
+      "matches": [
+        {
+          "home": "Berwick",
+          "away": "Murrumbeena",
+          "homePts": 5.0,
+          "homeR": 1,
+          "homeS": 2,
+          "homeG": 17,
+          "awayPts": 3.0,
+          "awayR": 0,
+          "awayS": 0,
+          "awayG": 12,
+          "homePlayers": [
+            "David Thurmond",
+            "Shannon Watson",
+            "Nick Teo"
+          ],
+          "awayPlayers": [
+            "Giora Lichtenstein",
+            "Janoah Gray-Taito",
+            "Pranav Arora",
+            "Zvi Schweitzer"
+          ],
+          "rubbers": [
+            {
+              "rubber": 1,
+              "type": "singles",
+              "homePlayers": [
+                "David Thurmond"
+              ],
+              "awayPlayers": [
+                "Giora Lichtenstein"
+              ],
+              "sets": [
+                [
+                  3,
+                  5
+                ]
+              ],
+              "homeSets": 0,
+              "awaySets": 1,
+              "homeGames": 3,
+              "awayGames": 5,
+              "winner": "away"
+            },
+            {
+              "rubber": 2,
+              "type": "singles",
+              "homePlayers": [
+                "Shannon Watson"
+              ],
+              "awayPlayers": [
+                "Janoah Gray-Taito"
+              ],
+              "sets": [
+                [
+                  2,
+                  4
+                ]
+              ],
+              "homeSets": 0,
+              "awaySets": 1,
+              "homeGames": 2,
+              "awayGames": 4,
+              "winner": "away"
+            },
+            {
+              "rubber": 3,
+              "type": "doubles",
+              "homePlayers": [
+                "David Thurmond",
+                "Nick Teo"
+              ],
+              "awayPlayers": [
+                "Pranav Arora",
+                "Zvi Schweitzer"
+              ],
+              "sets": [
+                [
+                  6,
+                  0
+                ],
+                [
+                  6,
+                  3
+                ]
+              ],
+              "homeSets": 2,
+              "awaySets": 0,
+              "homeGames": 12,
+              "awayGames": 3,
+              "winner": "home"
+            }
+          ]
+        },
+        {
+          "home": "Burden Park",
+          "away": "Monash Uni",
+          "homePts": 7.5,
+          "homeR": 2,
+          "homeS": 5,
+          "homeG": 35,
+          "awayPts": 0.5,
+          "awayR": 0,
+          "awayS": 0,
+          "awayG": 14,
+          "homePlayers": [
+            "James Nguyen",
+            "Isaac Khaoula",
+            "Tho Thai",
+            "Ciara Norng"
+          ],
+          "awayPlayers": [
+            "Matthew Lee",
+            "Kevin Chen",
+            "Srinivas Tirumalasetty"
+          ],
+          "rubbers": [
+            {
+              "rubber": 1,
+              "type": "singles",
+              "homePlayers": [
+                "James Nguyen"
+              ],
+              "awayPlayers": [
+                "Matthew Lee"
+              ],
+              "sets": [
+                [
+                  6,
+                  0
+                ],
+                [
+                  6,
+                  1
+                ]
+              ],
+              "homeSets": 2,
+              "awaySets": 0,
+              "homeGames": 12,
+              "awayGames": 1,
+              "winner": "home"
+            },
+            {
+              "rubber": 2,
+              "type": "singles",
+              "homePlayers": [
+                "Isaac Khaoula"
+              ],
+              "awayPlayers": [
+                "Kevin Chen"
+              ],
+              "sets": [
+                [
+                  6,
+                  4
+                ],
+                [
+                  6,
+                  2
+                ]
+              ],
+              "homeSets": 2,
+              "awaySets": 0,
+              "homeGames": 12,
+              "awayGames": 6,
+              "winner": "home"
+            },
+            {
+              "rubber": 3,
+              "type": "doubles",
+              "homePlayers": [
+                "Tho Thai",
+                "Ciara Norng"
+              ],
+              "awayPlayers": [
+                "Kevin Chen",
+                "Srinivas Tirumalasetty"
+              ],
+              "sets": [
+                [
+                  6,
+                  2
+                ],
+                [
+                  5,
+                  5
+                ]
+              ],
+              "homeSets": 1,
+              "awaySets": 0,
+              "homeGames": 11,
+              "awayGames": 7,
+              "winner": "draw"
+            }
+          ]
+        },
+        {
+          "home": "Narre Warren Nth",
+          "away": "Ashburton U/C",
+          "homePts": 0.0,
+          "homeR": 0,
+          "homeS": 0,
+          "homeG": 20,
+          "awayPts": 8.0,
+          "awayR": 3,
+          "awayS": 6,
+          "awayG": 38,
+          "homePlayers": [
+            "Noah Gallienne",
+            "Steve Gallienne"
+          ],
+          "awayPlayers": [
+            "Alexander Granzow",
+            "Jamon Nielsen"
+          ],
+          "rubbers": [
+            {
+              "rubber": 1,
+              "type": "singles",
+              "homePlayers": [
+                "Noah Gallienne"
+              ],
+              "awayPlayers": [
+                "Alexander Granzow"
+              ],
+              "sets": [
+                [
+                  5,
+                  7
+                ],
+                [
+                  0,
+                  6
+                ]
+              ],
+              "homeSets": 0,
+              "awaySets": 2,
+              "homeGames": 5,
+              "awayGames": 13,
+              "winner": "away"
+            },
+            {
+              "rubber": 2,
+              "type": "singles",
+              "homePlayers": [
+                "Steve Gallienne"
+              ],
+              "awayPlayers": [
+                "Jamon Nielsen"
+              ],
+              "sets": [
+                [
+                  3,
+                  6
+                ],
+                [
+                  3,
+                  6
+                ]
+              ],
+              "homeSets": 0,
+              "awaySets": 2,
+              "homeGames": 6,
+              "awayGames": 12,
+              "winner": "away"
+            },
+            {
+              "rubber": 3,
+              "type": "doubles",
+              "homePlayers": [
+                "Noah Gallienne",
+                "Steve Gallienne"
+              ],
+              "awayPlayers": [
+                "Alexander Granzow",
+                "Jamon Nielsen"
+              ],
+              "sets": [
+                [
+                  6,
+                  7
+                ],
+                [
+                  3,
+                  6
+                ]
+              ],
+              "homeSets": 0,
+              "awaySets": 2,
+              "homeGames": 9,
+              "awayGames": 13,
+              "winner": "away"
+            }
+          ]
+        },
+        {
+          "home": "Burwood",
+          "away": "Essex Heights",
+          "homePts": 0.0,
+          "homeR": 0,
+          "homeS": 0,
+          "homeG": 4,
+          "awayPts": 8.0,
+          "awayR": 3,
+          "awayS": 6,
+          "awayG": 36,
+          "homePlayers": [
+            "Darshan Parikh",
+            "Skanda Kumble"
+          ],
+          "awayPlayers": [
+            "Leo Lookman",
+            "Isaac Lo"
+          ],
+          "rubbers": [
+            {
+              "rubber": 1,
+              "type": "singles",
+              "homePlayers": [
+                "Darshan Parikh"
+              ],
+              "awayPlayers": [
+                "Leo Lookman"
+              ],
+              "sets": [
+                [
+                  0,
+                  6
+                ],
+                [
+                  0,
+                  6
+                ]
+              ],
+              "homeSets": 0,
+              "awaySets": 2,
+              "homeGames": 0,
+              "awayGames": 12,
+              "winner": "away"
+            },
+            {
+              "rubber": 2,
+              "type": "singles",
+              "homePlayers": [
+                "Skanda Kumble"
+              ],
+              "awayPlayers": [
+                "Isaac Lo"
+              ],
+              "sets": [
+                [
+                  1,
+                  6
+                ],
+                [
+                  1,
+                  6
+                ]
+              ],
+              "homeSets": 0,
+              "awaySets": 2,
+              "homeGames": 2,
+              "awayGames": 12,
+              "winner": "away"
+            },
+            {
+              "rubber": 3,
+              "type": "doubles",
+              "homePlayers": [
+                "Darshan Parikh",
+                "Skanda Kumble"
+              ],
+              "awayPlayers": [
+                "Leo Lookman",
+                "Isaac Lo"
+              ],
+              "sets": [
+                [
+                  0,
+                  6
+                ],
+                [
+                  2,
+                  6
+                ]
+              ],
+              "homeSets": 0,
+              "awaySets": 2,
+              "homeGames": 2,
+              "awayGames": 12,
               "winner": "away"
             }
           ]
