@@ -620,14 +620,31 @@ function findPreviousResult(opponent, beforeDate) {
 /* ---------------- Tabs ---------------- */
 
 function initTabs() {
+  function activateTab(tabId) {
+    const valid = document.getElementById(tabId) ? tabId : "dashboard";
+    document.querySelectorAll("nav button").forEach(b => b.classList.remove("active"));
+    document.querySelectorAll(".tab").forEach(t => t.classList.remove("active"));
+    const btn = document.querySelector(`nav button[data-tab="${valid}"]`);
+    const section = document.getElementById(valid);
+    if (btn) btn.classList.add("active");
+    if (section) section.classList.add("active");
+  }
+
   document.querySelectorAll("nav button").forEach(btn => {
     btn.addEventListener("click", () => {
-      document.querySelectorAll("nav button").forEach(b => b.classList.remove("active"));
-      document.querySelectorAll(".tab").forEach(t => t.classList.remove("active"));
-      btn.classList.add("active");
-      document.getElementById(btn.dataset.tab).classList.add("active");
+      const tabId = btn.dataset.tab;
+      history.pushState(null, "", `#${tabId}`);
+      activateTab(tabId);
     });
   });
+
+  // Back / forward button support
+  window.addEventListener("popstate", () => {
+    activateTab(location.hash.slice(1) || "dashboard");
+  });
+
+  // Honour hash on initial load (e.g. shared link or page refresh)
+  activateTab(location.hash.slice(1) || "dashboard");
 }
 
 /* ---------------- Dashboard ---------------- */
@@ -1139,6 +1156,18 @@ function renderAll() {
 }
 
 async function init() {
+  // Always fetch the latest data.json with a cache-busting timestamp so
+  // teammates never need to hard-refresh after a data update.
+  try {
+    const res = await fetch(`data.json?_=${Date.now()}`);
+    if (res.ok) {
+      const fresh = await res.json();
+      window.SITE_DATA = fresh; // overwrite so loadOverrides() picks up fresh playerNotes
+    }
+  } catch (e) {
+    // Offline or fetch failed — fall back to whatever data.js bundled
+  }
+
   DATA = window.SITE_DATA;
   OVERRIDES = loadOverrides();
   applyOverrides();
