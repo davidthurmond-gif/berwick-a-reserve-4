@@ -1,23 +1,96 @@
 /* Berwick A Reserve 4 - Saturday Comp site logic */
 
 const OVERRIDES_KEY = "berwickComp_overrides_v1";
+const PAT_KEY = "berwickComp_ghPat";
 const OUR_TEAM = "Berwick";
 
 let DATA = null;
 let OVERRIDES = null;
 
 function loadOverrides() {
+  // Seed playerNotes from data.json (committed notes available on all devices)
+  const siteNotes = (window.SITE_DATA && window.SITE_DATA.playerNotes) || {};
   try {
     const raw = localStorage.getItem(OVERRIDES_KEY);
     const parsed = raw ? JSON.parse(raw) : {};
-    return { roster: {}, clubs: {}, playerNotes: {}, ...parsed };
+    // Merge: site notes are the base, local edits (localStorage) sit on top
+    return {
+      roster: {},
+      clubs: {},
+      ...parsed,
+      playerNotes: { ...siteNotes, ...(parsed.playerNotes || {}) }
+    };
   } catch (e) {
-    return { roster: {}, clubs: {}, playerNotes: {} };
+    return { roster: {}, clubs: {}, playerNotes: { ...siteNotes } };
   }
 }
 
 function saveOverrides() {
   localStorage.setItem(OVERRIDES_KEY, JSON.stringify(OVERRIDES));
+}
+
+/* ---------------- Save notes to GitHub (cross-device persistence) ---------------- */
+
+async function saveNotesToGitHub() {
+  const btn = document.getElementById("save-to-site-btn");
+  const statusEl = document.getElementById("save-to-site-status");
+
+  // Get or prompt for PAT
+  let pat = localStorage.getItem(PAT_KEY);
+  if (!pat) {
+    pat = prompt(
+      "Enter your GitHub Personal Access Token to save notes to the site.\n" +
+      "This token is stored only in this browser — it is never sent anywhere except GitHub.\n\n" +
+      "(You can find it in Settings → Berwick tab → Configure token if you need to change it)"
+    );
+    if (!pat) return;
+    localStorage.setItem(PAT_KEY, pat.trim());
+    pat = pat.trim();
+  }
+
+  const repo = "davidthurmond-gif/berwick-a-reserve-4";
+  const filePath = "data.json";
+  const apiBase = `https://api.github.com/repos/${repo}/contents/${filePath}`;
+  const headers = { "Authorization": `token ${pat}`, "Content-Type": "application/json" };
+
+  if (btn) { btn.disabled = true; btn.textContent = "Saving…"; }
+  if (statusEl) statusEl.textContent = "";
+
+  try {
+    // Fetch current file SHA
+    const getRes = await fetch(apiBase, { headers });
+    if (getRes.status === 401) {
+      localStorage.removeItem(PAT_KEY);
+      if (btn) { btn.disabled = false; btn.textContent = "☁️ Save to site"; }
+      alert("GitHub token rejected — please try again.");
+      return;
+    }
+    if (!getRes.ok) throw new Error(`GitHub GET failed: ${getRes.status}`);
+    const fileData = await getRes.json();
+    const sha = fileData.sha;
+
+    // Decode, merge notes in, re-encode
+    const current = JSON.parse(decodeURIComponent(escape(atob(fileData.content.replace(/\n/g, "")))));
+    current.playerNotes = OVERRIDES.playerNotes;
+    const encoded = btoa(unescape(encodeURIComponent(JSON.stringify(current, null, 2))));
+
+    // Commit
+    const putRes = await fetch(apiBase, {
+      method: "PUT",
+      headers,
+      body: JSON.stringify({ message: "Update player notes", content: encoded, sha })
+    });
+    if (!putRes.ok) throw new Error(`GitHub PUT failed: ${putRes.status}`);
+
+    // Keep SITE_DATA in sync so next loadOverrides() doesn't double-apply old data
+    if (window.SITE_DATA) window.SITE_DATA.playerNotes = { ...OVERRIDES.playerNotes };
+
+    if (btn) { btn.disabled = false; btn.textContent = "☁️ Save to site"; }
+    if (statusEl) { statusEl.textContent = "✓ Saved"; setTimeout(() => { statusEl.textContent = ""; }, 3000); }
+  } catch (err) {
+    if (btn) { btn.disabled = false; btn.textContent = "☁️ Save to site"; }
+    alert("Save failed: " + err.message);
+  }
 }
 
 function applyOverrides() {
@@ -294,7 +367,14 @@ function renderPlayerNotes(filterTeam, stats) {
   }
   el.innerHTML = `
     <div class="card">
-      <h2>${escapeHtml(filterTeam)} — Player Notes</h2>
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:0.75rem;flex-wrap:wrap;margin-bottom:0.6rem;">
+        <h2 style="margin:0">${escapeHtml(filterTeam)} — Player Notes</h2>
+        <div style="display:flex;align-items:center;gap:0.5rem;">
+          <span id="save-to-site-status" class="save-status"></span>
+          <button id="save-to-site-btn" class="btn" onclick="saveNotesToGitHub()">☁️ Save to site</button>
+        </div>
+      </div>
+      <p class="muted" style="margin:0 0 0.75rem">Notes are saved on this device as you type. Click <strong>Save to site</strong> to sync them across all devices.</p>
       ${players.map(p => {
         const note = getPlayerNote(p.team, p.name);
         return `
@@ -1003,6 +1083,11 @@ function initDataTools() {
     a.href = URL.createObjectURL(blob);
     a.download = "berwick-comp-notes-backup.json";
     a.click();
+  });
+
+  document.getElementById("clear-pat-btn").addEventListener("click", () => {
+    localStorage.removeItem(PAT_KEY);
+    alert("GitHub token cleared. You'll be prompted for it next time you save to site.");
   });
 
   document.getElementById("import-input").addEventListener("change", (e) => {

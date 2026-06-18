@@ -7,6 +7,7 @@ window.SITE_DATA = {
     "resultsLoadedFromSite": "16th June 26 @ 11:32:26 PM",
     "sourceUrl": "https://www.trols.org.au/wdta/results.php?daytime=AP&section=AP012&style="
   },
+  "playerNotes": {},
   "clubs": [
     {
       "id": "essex-heights",
