@@ -69,18 +69,33 @@ async function saveNotesToGitHub() {
     const fileData = await getRes.json();
     const sha = fileData.sha;
 
-    // Decode, merge notes in, re-encode
+    // Decode, merge notes in
     const current = JSON.parse(decodeURIComponent(escape(atob(fileData.content.replace(/\n/g, "")))));
     current.playerNotes = OVERRIDES.playerNotes;
-    const encoded = btoa(unescape(encodeURIComponent(JSON.stringify(current, null, 2))));
+    const jsonStr = JSON.stringify(current, null, 2);
+    const jsStr = "window.SITE_DATA = " + jsonStr + ";\n";
 
-    // Commit
+    // Commit data.json
+    const encodedJson = btoa(unescape(encodeURIComponent(jsonStr)));
     const putRes = await fetch(apiBase, {
       method: "PUT",
       headers,
-      body: JSON.stringify({ message: "Update player notes", content: encoded, sha })
+      body: JSON.stringify({ message: "Update player notes", content: encodedJson, sha })
     });
-    if (!putRes.ok) throw new Error(`GitHub PUT failed: ${putRes.status}`);
+    if (!putRes.ok) throw new Error(`GitHub PUT data.json failed: ${putRes.status}`);
+
+    // Also commit data.js (the file the site actually loads)
+    const jsApiBase = `https://api.github.com/repos/${repo}/contents/data.js`;
+    const getJs = await fetch(jsApiBase, { headers });
+    if (!getJs.ok) throw new Error(`GitHub GET data.js failed: ${getJs.status}`);
+    const jsFile = await getJs.json();
+    const encodedJs = btoa(unescape(encodeURIComponent(jsStr)));
+    const putJs = await fetch(jsApiBase, {
+      method: "PUT",
+      headers,
+      body: JSON.stringify({ message: "Update player notes (data.js)", content: encodedJs, sha: jsFile.sha })
+    });
+    if (!putJs.ok) throw new Error(`GitHub PUT data.js failed: ${putJs.status}`);
 
     // Keep SITE_DATA in sync so next loadOverrides() doesn't double-apply old data
     if (window.SITE_DATA) window.SITE_DATA.playerNotes = { ...OVERRIDES.playerNotes };
