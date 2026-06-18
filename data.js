@@ -70,6 +70,13 @@ window.SITE_DATA = {
       "generalPlay": "2. Jamon Nielsen\n- Lft hand / average height / Young\n- Nice kid - 2nd year of Uni studying immunisations\n\n\n- Details\n    - Played Doubles and singles\n    - Average fitness, average pace\n    - Average first serve and slower second serve\n    - Good at defensive shots to keep himself in a rally\n        - There were points where I had him running from corner to corner and he kept getting balls back\n    - Not a threatening type player\n        - He’d sometimes come up with a winner down the line, but most shots went long or into the net\n    - Doesn’t like my slice serve to backhand - consistently hit it to Shannon at the net during doubles \n    - Doesn’t like the random slice from Deuce court into his forehand either when playing singles\n\n- Match 6 May 2026\n    - Lost to Shannon and I in Doubles 6-1 / 6-1\n    - Lost to me in Singles - 6-1 / 6-2",
       "strengths": "Fitness / Quick\nGets to a lot of balls\nGood at defensive shots to keep himself in a rally",
       "weaknesses": "Overly Defensive\nAverage to Weak Serve  \n   - Doesn’t like slice serve to backhand - consistently hit it to Shannon at the net during doubles \n    - Doesn’t like the random slice from Deuce court into his forehand either when playing singles"
+    },
+    "Burden Park::Lun Wang": {
+      "plays": "Right",
+      "serving": "Decent serve - likes to go out wide ",
+      "generalPlay": "- Late 40’s Asian dude\n- Right\n- Okay at rallies \n- Very bad at the net - hit maybe 4-5 easy volleys into the net from a meter away\n- Only played doubles",
+      "strengths": "Rallying",
+      "weaknesses": "Volleys / Net Play"
     }
   },
   "clubs": [
