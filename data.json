@@ -8,19 +8,54 @@
     "sourceUrl": "https://www.trols.org.au/wdta/results.php?daytime=AP&section=AP012&style="
   },
   "playerNotes": {
-    "Ashburton U/C::Alexander Granzow": {
+    "Burden Park::Ciara Norng": {
       "plays": "Right",
-      "serving": "  Strong Flat First Serve / Average 2nd Serve / No Slice",
-      "generalPlay": "1. Alexander Granzow\n- Rt hand / Tall / Young\n\n- Match\n    - Lost to Shannon and David in Doubles 6-1 / 6-1 \n   - Got frustrated with partner (Jamon) who was the weaker link\n    - He won against Nick in Singles - but only due to Nick’s calf injury - Nick won the first set and then stopped  6-4, 0-6, 0-6\n\n- Details\n    - Played Doubles and Singles\n    - Young / Fit / Tall\n    - Strong Flat First Serve / Average 2nd Serve\n    - Doesn’t last long in a rally\n    - Very aggressive, hits the ball into the net and long a lot\n    - Didn’t see him volley at all \n    - Served to his backhand from the Deuce side - which set up a lot of smash volleys at the net for Shannon\n\nResults: \n- Played at Berwick 9 May 2026 (doubles on court 3 / singles on court 1/3) \n\n- [ ] Doubles\n    - [ ] DT and Shannon - Won - 6-1 / 6-1\n- [ ] Singles\n    - [ ] Nick retired due to injury against Alex - 6-4, 0-6, 0-6\n    - [ ] DT won against Jamon - 6-1, 6-2\n",
-      "strengths": "Fitness\nStrong / Flat First Serve\nVery strong two-handed backhand - maybe his better shot",
-      "weaknesses": "Average Second Serve\nOverly Aggressive"
+      "serving": "Average serves",
+      "generalPlay": "20 y/o Asian girl, small build. Plays both singles and doubles. DT won 6-0, 6-1 vs her in singles.",
+      "strengths": "Great backhand — much stronger on that side, go to backhand",
+      "weaknesses": "Forehand is a weakness — not much power. Average serves."
     },
-    "Ashburton U/C::Jamon Nielsen": {
-      "plays": "Left",
-      "serving": "Average first serve and slower second serve",
-      "generalPlay": "2. Jamon Nielsen\n- Lft hand / average height / Young\n- Nice kid - 2nd year of Uni studying immunisations\n\n\n- Details\n    - Played Doubles and singles\n    - Average fitness, average pace\n    - Average first serve and slower second serve\n    - Good at defensive shots to keep himself in a rally\n        - There were points where I had him running from corner to corner and he kept getting balls back\n    - Not a threatening type player\n        - He’d sometimes come up with a winner down the line, but most shots went long or into the net\n    - Doesn’t like my slice serve to backhand - consistently hit it to Shannon at the net during doubles \n    - Doesn’t like the random slice from Deuce court into his forehand either when playing singles\n\n- Match 6 May 2026\n    - Lost to Shannon and I in Doubles 6-1 / 6-1\n    - Lost to me in Singles - 6-1 / 6-2",
-      "strengths": "Fitness / Quick\nGets to a lot of balls\nGood at defensive shots to keep himself in a rally",
-      "weaknesses": "Overly Defensive\nAverage to Weak Serve  \n   - Doesn’t like slice serve to backhand - consistently hit it to Shannon at the net during doubles \n    - Doesn’t like the random slice from Deuce court into his forehand either when playing singles"
+    "Burden Park::Alan": {
+      "plays": "Right",
+      "serving": "Decent serve — likes to go out wide",
+      "generalPlay": "Late 40s Asian guy. Only played doubles. Okay at rallies. Possibly listed as Lun Wang in results.",
+      "strengths": "Decent serve, comfortable at baseline rallies",
+      "weaknesses": "Very bad at the net — missed 4-5 easy volleys from about 1 metre away. Target him at net."
+    },
+    "Burden Park::Isaac Khaoula": {
+      "plays": "Right",
+      "serving": "Average pusher-style serve",
+      "generalPlay": "Mid-20s guy — definition of a pusher. Slices 90% of the time. Rallies last 10-20 shots each. Gives no pace, just slice and some topspin forehands. Looks a very frustrating player to play against.",
+      "strengths": "Incredible consistency — will grind out every point",
+      "weaknesses": "Doesn't like pace on the run, but hitting with pace is risky (high error rate). Try varying pace and angles to disrupt rhythm."
+    },
+    "Monash Uni::Srinivas Tirumalasetty": {
+      "plays": "Right",
+      "serving": "Average serve with short toss/swing (similar to Devraj). Serves wide to Deuce side; served down the line on Ad side.",
+      "generalPlay": "Indian guy, early 20s. Played doubles only. Probably a 2 or 3 on Tuesday. Lost to Shannon & DT in doubles 6-2, 7-5.",
+      "strengths": "",
+      "weaknesses": "Doesn't last long in a rally. No surprise shots down the tramline. Not good at volleying. Consistently hits DT's slice serve to backhand straight to the net player — use that serve."
+    },
+    "Monash Uni::Kevin Chen": {
+      "plays": "Right",
+      "serving": "Decent 1st serve but only hits it ~20% of the time. 2nd serve is a slow slice with a big bounce.",
+      "generalPlay": "Tallish Asian guy. Played doubles only. Probably a 2 on Tuesday. Lost to Shannon & DT in doubles 6-2, 7-5.",
+      "strengths": "Good at rallies from the baseline",
+      "weaknesses": "Struggles with serves to his backhand."
+    },
+    "Monash Uni::Zachary Lee": {
+      "plays": "Right",
+      "serving": "Slow tossing action (similar to Craig) — restarts toss a lot. Very quick to hit 2nd serve. 1st serve is average. 2nd serve is close to a lollipop.",
+      "generalPlay": "Young Asian guy, average height, skinny, early 20s. Played singles only. ~2 on Tuesday. Lost to DT in singles 7-5, 6-3.",
+      "strengths": "Very quick around the court. Good passing shots when opponent comes to net. Great dropshots — hit ~4-5 winners in the match.",
+      "weaknesses": "Backhand is very slow and bounces short — rush the net for a volley after a decent shot to his backhand corner. Tell him to slow down his 2nd serve next time."
+    },
+    "Monash Uni::Matthew Lee": {
+      "plays": "Right",
+      "serving": "",
+      "generalPlay": "Young Asian guy. Played singles only. ~1/2 on Tuesday. Lost to Nick in singles 6-3, 6-4. Plays long rallies with moonball/deep topspin shots.",
+      "strengths": "Deep topspin baseline game — moonballs and high heavy balls",
+      "weaknesses": ""
     }
   },
   "clubs": [
@@ -62,11 +97,11 @@
       "name": "Burden Park",
       "melway": "89 A1",
       "address": "Olympic Avenue, Springvale South",
-      "courtType": "En Tout Cas (clay)",
+      "courtType": "Synthetic grass",
       "clubhousePhone": "",
       "contactName": "Anika Chhun",
       "contactPhone": "0401 708 420",
-      "notes": ""
+      "notes": "Away courts (Springvale South): synthetic similar to courts 6 & 7, lots of sand — still a bit slippery. Home court (Burden Park): old synthetic grass."
     },
     {
       "id": "monash-uni",
@@ -77,7 +112,7 @@
       "clubhousePhone": "",
       "contactName": "Jeremy O'Brien",
       "contactPhone": "0466 042 620",
-      "notes": ""
+      "notes": "Hard concrete courts with high-bouncing balls. Balls used: Dunlop Championship (Black) — like rocks, don't slow down or fuzz up. Drive past the courts for parking."
     },
     {
       "id": "narre-warren-nth",
