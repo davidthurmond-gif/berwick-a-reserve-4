@@ -10,10 +10,17 @@ window.SITE_DATA = {
   "playerNotes": {
     "Ashburton U/C::Alexander Granzow": {
       "plays": "Right",
-      "serving": "",
-      "generalPlay": "",
-      "strengths": "",
-      "weaknesses": ""
+      "serving": "  Strong Flat First Serve / Average 2nd Serve / No Slice",
+      "generalPlay": "1. Alexander Granzow\n- Rt hand / Tall / Young\n\n- Match\n    - Lost to Shannon and David in Doubles 6-1 / 6-1 \n   - Got frustrated with partner (Jamon) who was the weaker link\n    - He won against Nick in Singles - but only due to Nick’s calf injury - Nick won the first set and then stopped  6-4, 0-6, 0-6\n\n- Details\n    - Played Doubles and Singles\n    - Young / Fit / Tall\n    - Strong Flat First Serve / Average 2nd Serve\n    - Doesn’t last long in a rally\n    - Very aggressive, hits the ball into the net and long a lot\n    - Didn’t see him volley at all \n    - Served to his backhand from the Deuce side - which set up a lot of smash volleys at the net for Shannon\n\nResults: \n- Played at Berwick 9 May 2026 (doubles on court 3 / singles on court 1/3) \n\n- [ ] Doubles\n    - [ ] DT and Shannon - Won - 6-1 / 6-1\n- [ ] Singles\n    - [ ] Nick retired due to injury against Alex - 6-4, 0-6, 0-6\n    - [ ] DT won against Jamon - 6-1, 6-2\n",
+      "strengths": "Fitness\nStrong / Flat First Serve\nVery strong two-handed backhand - maybe his better shot",
+      "weaknesses": "Average Second Serve\nOverly Aggressive"
+    },
+    "Ashburton U/C::Jamon Nielsen": {
+      "plays": "Left",
+      "serving": "Average first serve and slower second serve",
+      "generalPlay": "2. Jamon Nielsen\n- Lft hand / average height / Young\n- Nice kid - 2nd year of Uni studying immunisations\n\n\n- Details\n    - Played Doubles and singles\n    - Average fitness, average pace\n    - Average first serve and slower second serve\n    - Good at defensive shots to keep himself in a rally\n        - There were points where I had him running from corner to corner and he kept getting balls back\n    - Not a threatening type player\n        - He’d sometimes come up with a winner down the line, but most shots went long or into the net\n    - Doesn’t like my slice serve to backhand - consistently hit it to Shannon at the net during doubles \n    - Doesn’t like the random slice from Deuce court into his forehand either when playing singles\n\n- Match 6 May 2026\n    - Lost to Shannon and I in Doubles 6-1 / 6-1\n    - Lost to me in Singles - 6-1 / 6-2",
+      "strengths": "Fitness / Quick\nGets to a lot of balls\nGood at defensive shots to keep himself in a rally",
+      "weaknesses": "Overly Defensive\nAverage to Weak Serve  \n   - Doesn’t like slice serve to backhand - consistently hit it to Shannon at the net during doubles \n    - Doesn’t like the random slice from Deuce court into his forehand either when playing singles"
     }
   },
   "clubs": [
