@@ -12,8 +12,8 @@ window.SITE_DATA = {
       "plays": "Right",
       "serving": "Average serves",
       "generalPlay": "20 y/o Asian girl, small build. Plays both singles and doubles. DT won 6-0, 6-1 vs her in singles.",
-      "strengths": "Great backhand — much stronger on that side, go to backhand",
-      "weaknesses": "Forehand is a weakness — not much power. Average serves."
+      "strengths": "Great backhand — much stronger on that side, hits winners down the line with ease - do not hit to backhand!!",
+      "weaknesses": "Forehand is a weakness — not much power. \nAverage serves."
     },
     "Burden Park::Alan": {
       "plays": "Right",
@@ -25,7 +25,7 @@ window.SITE_DATA = {
     "Burden Park::Isaac Khaoula": {
       "plays": "Right",
       "serving": "Average pusher-style serve",
-      "generalPlay": "Mid-20s guy — definition of a pusher. Slices 90% of the time. Rallies last 10-20 shots each. Gives no pace, just slice and some topspin forehands. Looks a very frustrating player to play against.",
+      "generalPlay": "Mid-20s guy — definition of a pusher. Slices 90% of the time. Rallies last 10-20 shots each. Gives no pace, just slice and some topspin forehands. Looks a very frustrating player to play against.\n\nPlayed Brett - beat him in 3 sets - I've never seen Brett more frustrated playing this guy. Gave Brett no pace, nothing but slice. ",
       "strengths": "Incredible consistency — will grind out every point",
       "weaknesses": "Doesn't like pace on the run, but hitting with pace is risky (high error rate). Try varying pace and angles to disrupt rhythm."
     },
