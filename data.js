@@ -3,8 +3,8 @@ window.SITE_DATA = {
     "competition": "Saturday PM - Winter 2026",
     "section": "Open Singles/Doubles A Reserve 4",
     "ourTeam": "Berwick",
-    "lastUpdated": "2026-06-17",
-    "resultsLoadedFromSite": "16th June 26 @ 11:32:26 PM",
+    "lastUpdated": "2026-07-10",
+    "resultsLoadedFromSite": "2nd July 26 @ 07:58:42 PM",
     "sourceUrl": "https://www.trols.org.au/wdta/results.php?daytime=AP&section=AP012&style="
   },
   "playerNotes": {
@@ -12,21 +12,21 @@ window.SITE_DATA = {
       "plays": "Right",
       "serving": "Average serves",
       "generalPlay": "20 y/o Asian girl, small build. Plays both singles and doubles. DT won 6-0, 6-1 vs her in singles.",
-      "strengths": "Great backhand — much stronger on that side, hits winners down the line with ease - do not hit to backhand!!",
-      "weaknesses": "Forehand is a weakness — not much power. \nAverage serves."
+      "strengths": "Great backhand \u2014 much stronger on that side, hits winners down the line with ease - do not hit to backhand!!",
+      "weaknesses": "Forehand is a weakness \u2014 not much power. \nAverage serves."
     },
     "Burden Park::Alan": {
       "plays": "Right",
-      "serving": "Decent serve — likes to go out wide",
+      "serving": "Decent serve \u2014 likes to go out wide",
       "generalPlay": "Late 40s Asian guy. Only played doubles. Okay at rallies. Possibly listed as Lun Wang in results.",
       "strengths": "Decent serve, comfortable at baseline rallies",
-      "weaknesses": "Very bad at the net — missed 4-5 easy volleys from about 1 metre away. Target him at net."
+      "weaknesses": "Very bad at the net \u2014 missed 4-5 easy volleys from about 1 metre away. Target him at net."
     },
     "Burden Park::Isaac Khaoula": {
       "plays": "Right",
       "serving": "Average pusher-style serve",
-      "generalPlay": "Mid-20s guy — definition of a pusher. Slices 90% of the time. Rallies last 10-20 shots each. Gives no pace, just slice and some topspin forehands. Looks a very frustrating player to play against.\n\nPlayed Brett - beat him in 3 sets - I've never seen Brett more frustrated playing this guy. Gave Brett no pace, nothing but slice. ",
-      "strengths": "Incredible consistency — will grind out every point",
+      "generalPlay": "Mid-20s guy \u2014 definition of a pusher. Slices 90% of the time. Rallies last 10-20 shots each. Gives no pace, just slice and some topspin forehands. Looks a very frustrating player to play against.\n\nPlayed Brett - beat him in 3 sets - I've never seen Brett more frustrated playing this guy. Gave Brett no pace, nothing but slice. ",
+      "strengths": "Incredible consistency \u2014 will grind out every point",
       "weaknesses": "Doesn't like pace on the run, but hitting with pace is risky (high error rate). Try varying pace and angles to disrupt rhythm."
     },
     "Monash Uni::Srinivas Tirumalasetty": {
@@ -34,7 +34,7 @@ window.SITE_DATA = {
       "serving": "Average serve with short toss/swing (similar to Devraj). Serves wide to Deuce side; served down the line on Ad side.",
       "generalPlay": "Indian guy, early 20s. Played doubles only. Probably a 2 or 3 on Tuesday. Lost to Shannon & DT in doubles 6-2, 7-5.",
       "strengths": "",
-      "weaknesses": "Doesn't last long in a rally. No surprise shots down the tramline. Not good at volleying. Consistently hits DT's slice serve to backhand straight to the net player — use that serve."
+      "weaknesses": "Doesn't last long in a rally. No surprise shots down the tramline. Not good at volleying. Consistently hits DT's slice serve to backhand straight to the net player \u2014 use that serve."
     },
     "Monash Uni::Kevin Chen": {
       "plays": "Right",
@@ -45,36 +45,36 @@ window.SITE_DATA = {
     },
     "Monash Uni::Zachary Lee": {
       "plays": "Right",
-      "serving": "Slow tossing action (similar to Craig) — restarts toss a lot. Very quick to hit 2nd serve. 1st serve is average. 2nd serve is close to a lollipop.",
+      "serving": "Slow tossing action (similar to Craig) \u2014 restarts toss a lot. Very quick to hit 2nd serve. 1st serve is average. 2nd serve is close to a lollipop.",
       "generalPlay": "Young Asian guy, average height, skinny, early 20s. Played singles only. ~2 on Tuesday. Lost to DT in singles 7-5, 6-3.",
-      "strengths": "Very quick around the court. Good passing shots when opponent comes to net. Great dropshots — hit ~4-5 winners in the match.",
-      "weaknesses": "Backhand is very slow and bounces short — rush the net for a volley after a decent shot to his backhand corner. Tell him to slow down his 2nd serve next time."
+      "strengths": "Very quick around the court. Good passing shots when opponent comes to net. Great dropshots \u2014 hit ~4-5 winners in the match.",
+      "weaknesses": "Backhand is very slow and bounces short \u2014 rush the net for a volley after a decent shot to his backhand corner. Tell him to slow down his 2nd serve next time."
     },
     "Monash Uni::Matthew Lee": {
       "plays": "Right",
       "serving": "Unsure - need to ask Nick",
       "generalPlay": "Young Asian guy. Played singles only. ~1/2 on Tuesday. Lost to Nick in singles 6-3, 6-4. Plays long rallies with moonball/deep topspin shots.",
-      "strengths": "Deep topspin baseline game — moonballs and high heavy balls",
+      "strengths": "Deep topspin baseline game \u2014 moonballs and high heavy balls",
       "weaknesses": ""
     },
     "Ashburton U/C::Alexander Granzow": {
       "plays": "Right",
       "serving": "  Strong Flat First Serve / Average 2nd Serve / No Slice",
-      "generalPlay": "1. Alexander Granzow\n- Rt hand / Tall / Young\n\n- Match\n    - Lost to Shannon and David in Doubles 6-1 / 6-1 \n   - Got frustrated with partner (Jamon) who was the weaker link\n    - He won against Nick in Singles - but only due to Nick’s calf injury - Nick won the first set and then stopped  6-4, 0-6, 0-6\n\n- Details\n    - Played Doubles and Singles\n    - Young / Fit / Tall\n    - Strong Flat First Serve / Average 2nd Serve\n    - Doesn’t last long in a rally\n    - Very aggressive, hits the ball into the net and long a lot\n    - Didn’t see him volley at all \n    - Served to his backhand from the Deuce side - which set up a lot of smash volleys at the net for Shannon\n\nResults: \n- Played at Berwick 9 May 2026 (doubles on court 3 / singles on court 1/3) \n\n- [ ] Doubles\n    - [ ] DT and Shannon - Won - 6-1 / 6-1\n- [ ] Singles\n    - [ ] Nick retired due to injury against Alex - 6-4, 0-6, 0-6\n    - [ ] DT won against Jamon - 6-1, 6-2\n",
+      "generalPlay": "1. Alexander Granzow\n- Rt hand / Tall / Young\n\n- Match\n    - Lost to Shannon and David in Doubles 6-1 / 6-1 \n   - Got frustrated with partner (Jamon) who was the weaker link\n    - He won against Nick in Singles - but only due to Nick\u2019s calf injury - Nick won the first set and then stopped  6-4, 0-6, 0-6\n\n- Details\n    - Played Doubles and Singles\n    - Young / Fit / Tall\n    - Strong Flat First Serve / Average 2nd Serve\n    - Doesn\u2019t last long in a rally\n    - Very aggressive, hits the ball into the net and long a lot\n    - Didn\u2019t see him volley at all \n    - Served to his backhand from the Deuce side - which set up a lot of smash volleys at the net for Shannon\n\nResults: \n- Played at Berwick 9 May 2026 (doubles on court 3 / singles on court 1/3) \n\n- [ ] Doubles\n    - [ ] DT and Shannon - Won - 6-1 / 6-1\n- [ ] Singles\n    - [ ] Nick retired due to injury against Alex - 6-4, 0-6, 0-6\n    - [ ] DT won against Jamon - 6-1, 6-2\n",
       "strengths": "Fitness\nStrong / Flat First Serve\nVery strong two-handed backhand - maybe his better shot",
       "weaknesses": "Average Second Serve\nOverly Aggressive"
     },
     "Ashburton U/C::Jamon Nielsen": {
       "plays": "Left",
       "serving": "Average first serve and slower second serve",
-      "generalPlay": "2. Jamon Nielsen\n- Lft hand / average height / Young\n- Nice kid - 2nd year of Uni studying immunisations\n\n\n- Details\n    - Played Doubles and singles\n    - Average fitness, average pace\n    - Average first serve and slower second serve\n    - Good at defensive shots to keep himself in a rally\n        - There were points where I had him running from corner to corner and he kept getting balls back\n    - Not a threatening type player\n        - He’d sometimes come up with a winner down the line, but most shots went long or into the net\n    - Doesn’t like my slice serve to backhand - consistently hit it to Shannon at the net during doubles \n    - Doesn’t like the random slice from Deuce court into his forehand either when playing singles\n\n- Match 6 May 2026\n    - Lost to Shannon and I in Doubles 6-1 / 6-1\n    - Lost to me in Singles - 6-1 / 6-2",
+      "generalPlay": "2. Jamon Nielsen\n- Lft hand / average height / Young\n- Nice kid - 2nd year of Uni studying immunisations\n\n\n- Details\n    - Played Doubles and singles\n    - Average fitness, average pace\n    - Average first serve and slower second serve\n    - Good at defensive shots to keep himself in a rally\n        - There were points where I had him running from corner to corner and he kept getting balls back\n    - Not a threatening type player\n        - He\u2019d sometimes come up with a winner down the line, but most shots went long or into the net\n    - Doesn\u2019t like my slice serve to backhand - consistently hit it to Shannon at the net during doubles \n    - Doesn\u2019t like the random slice from Deuce court into his forehand either when playing singles\n\n- Match 6 May 2026\n    - Lost to Shannon and I in Doubles 6-1 / 6-1\n    - Lost to me in Singles - 6-1 / 6-2",
       "strengths": "Fitness / Quick\nGets to a lot of balls\nGood at defensive shots to keep himself in a rally",
-      "weaknesses": "Overly Defensive\nAverage to Weak Serve  \n   - Doesn’t like slice serve to backhand - consistently hit it to Shannon at the net during doubles \n    - Doesn’t like the random slice from Deuce court into his forehand either when playing singles"
+      "weaknesses": "Overly Defensive\nAverage to Weak Serve  \n   - Doesn\u2019t like slice serve to backhand - consistently hit it to Shannon at the net during doubles \n    - Doesn\u2019t like the random slice from Deuce court into his forehand either when playing singles"
     },
     "Burden Park::Lun Wang": {
       "plays": "Right",
       "serving": "Decent serve - likes to go out wide ",
-      "generalPlay": "- Late 40’s Asian dude\n- Right\n- Okay at rallies \n- Very bad at the net - hit maybe 4-5 easy volleys into the net from a meter away\n- Only played doubles",
+      "generalPlay": "- Late 40\u2019s Asian dude\n- Right\n- Okay at rallies \n- Very bad at the net - hit maybe 4-5 easy volleys into the net from a meter away\n- Only played doubles",
       "strengths": "Rallying",
       "weaknesses": "Volleys / Net Play"
     }
@@ -122,7 +122,7 @@ window.SITE_DATA = {
       "clubhousePhone": "",
       "contactName": "Anika Chhun",
       "contactPhone": "0401 708 420",
-      "notes": "Away courts (Springvale South): synthetic similar to courts 6 & 7, lots of sand — still a bit slippery. Home court (Burden Park): old synthetic grass."
+      "notes": "Away courts (Springvale South): synthetic similar to courts 6 & 7, lots of sand \u2014 still a bit slippery. Home court (Burden Park): old synthetic grass."
     },
     {
       "id": "monash-uni",
@@ -133,7 +133,7 @@ window.SITE_DATA = {
       "clubhousePhone": "",
       "contactName": "Jeremy O'Brien",
       "contactPhone": "0466 042 620",
-      "notes": "Hard concrete courts with high-bouncing balls. Balls used: Dunlop Championship (Black) — like rocks, don't slow down or fuzz up. Drive past the courts for parking."
+      "notes": "Hard concrete courts with high-bouncing balls. Balls used: Dunlop Championship (Black) \u2014 like rocks, don't slow down or fuzz up. Drive past the courts for parking."
     },
     {
       "id": "narre-warren-nth",
@@ -2882,6 +2882,423 @@ window.SITE_DATA = {
               "awaySets": 2,
               "homeGames": 2,
               "awayGames": 12,
+              "winner": "away"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "round": 7,
+      "date": "2026-06-20",
+      "matches": [
+        {
+          "home": "Essex Heights",
+          "away": "Burden Park",
+          "homePts": 8,
+          "homeR": 3,
+          "homeS": 6,
+          "homeG": 37,
+          "awayPts": 0,
+          "awayR": 0,
+          "awayS": 0,
+          "awayG": 10,
+          "homePlayers": [
+            "Leo Lookman",
+            "Isaac Lo"
+          ],
+          "awayPlayers": [
+            "Tho Thai",
+            "Lun Wang",
+            "Ciara Norng"
+          ],
+          "rubbers": [
+            {
+              "rubber": 1,
+              "type": "singles",
+              "homePlayers": [
+                "Leo Lookman"
+              ],
+              "awayPlayers": [
+                "Tho Thai"
+              ],
+              "sets": [
+                [
+                  6,
+                  0
+                ],
+                [
+                  6,
+                  0
+                ]
+              ],
+              "homeSets": 2,
+              "awaySets": 0,
+              "homeGames": 12,
+              "awayGames": 0,
+              "winner": "home"
+            },
+            {
+              "rubber": 2,
+              "type": "singles",
+              "homePlayers": [
+                "Isaac Lo"
+              ],
+              "awayPlayers": [
+                "Lun Wang"
+              ],
+              "sets": [
+                [
+                  6,
+                  4
+                ],
+                [
+                  6,
+                  1
+                ]
+              ],
+              "homeSets": 2,
+              "awaySets": 0,
+              "homeGames": 12,
+              "awayGames": 5,
+              "winner": "home"
+            },
+            {
+              "rubber": 3,
+              "type": "doubles",
+              "homePlayers": [
+                "Leo Lookman",
+                "Isaac Lo"
+              ],
+              "awayPlayers": [
+                "Lun Wang",
+                "Ciara Norng"
+              ],
+              "sets": [
+                [
+                  7,
+                  5
+                ],
+                [
+                  6,
+                  0
+                ]
+              ],
+              "homeSets": 2,
+              "awaySets": 0,
+              "homeGames": 13,
+              "awayGames": 5,
+              "winner": "home"
+            }
+          ]
+        },
+        {
+          "home": "Ashburton U/C",
+          "away": "Berwick",
+          "homePts": 3,
+          "homeR": 1,
+          "homeS": 3,
+          "homeG": 26,
+          "awayPts": 6,
+          "awayR": 2,
+          "awayS": 4,
+          "awayG": 33,
+          "homePlayers": [
+            "Alexander Granzow",
+            "Jamon Nielsen"
+          ],
+          "awayPlayers": [
+            "David Thurmond",
+            "Shannon Watson"
+          ],
+          "rubbers": [
+            {
+              "rubber": 1,
+              "type": "singles",
+              "homePlayers": [
+                "Alexander Granzow"
+              ],
+              "awayPlayers": [
+                "David Thurmond"
+              ],
+              "sets": [
+                [
+                  6,
+                  0
+                ],
+                [
+                  6,
+                  3
+                ]
+              ],
+              "homeSets": 2,
+              "awaySets": 0,
+              "homeGames": 12,
+              "awayGames": 3,
+              "winner": "home"
+            },
+            {
+              "rubber": 2,
+              "type": "singles",
+              "homePlayers": [
+                "Jamon Nielsen"
+              ],
+              "awayPlayers": [
+                "Shannon Watson"
+              ],
+              "sets": [
+                [
+                  0,
+                  6
+                ],
+                [
+                  1,
+                  6
+                ]
+              ],
+              "homeSets": 0,
+              "awaySets": 2,
+              "homeGames": 1,
+              "awayGames": 12,
+              "winner": "away"
+            },
+            {
+              "rubber": 3,
+              "type": "doubles",
+              "homePlayers": [
+                "Alexander Granzow",
+                "Jamon Nielsen"
+              ],
+              "awayPlayers": [
+                "David Thurmond",
+                "Shannon Watson"
+              ],
+              "sets": [
+                [
+                  7,
+                  5
+                ],
+                [
+                  5,
+                  7
+                ],
+                [
+                  1,
+                  6
+                ]
+              ],
+              "homeSets": 1,
+              "awaySets": 2,
+              "homeGames": 13,
+              "awayGames": 18,
+              "winner": "away"
+            }
+          ]
+        },
+        {
+          "home": "Monash Uni",
+          "away": "Murrumbeena",
+          "homePts": 1,
+          "homeR": 0,
+          "homeS": 1,
+          "homeG": 25,
+          "awayPts": 8,
+          "awayR": 3,
+          "awayS": 6,
+          "awayG": 44,
+          "homePlayers": [
+            "Kevin Chen",
+            "Joshua Mariajoseph"
+          ],
+          "awayPlayers": [
+            "Egor Barabanov",
+            "Janoah Gray-Taito",
+            "Giora Lichtenstein",
+            "Adrian Bow"
+          ],
+          "rubbers": [
+            {
+              "rubber": 1,
+              "type": "singles",
+              "homePlayers": [
+                "Kevin Chen"
+              ],
+              "awayPlayers": [
+                "Egor Barabanov"
+              ],
+              "sets": [
+                [
+                  2,
+                  6
+                ],
+                [
+                  2,
+                  6
+                ]
+              ],
+              "homeSets": 0,
+              "awaySets": 2,
+              "homeGames": 4,
+              "awayGames": 12,
+              "winner": "away"
+            },
+            {
+              "rubber": 2,
+              "type": "singles",
+              "homePlayers": [
+                "Joshua Mariajoseph"
+              ],
+              "awayPlayers": [
+                "Janoah Gray-Taito"
+              ],
+              "sets": [
+                [
+                  5,
+                  7
+                ],
+                [
+                  5,
+                  7
+                ]
+              ],
+              "homeSets": 0,
+              "awaySets": 2,
+              "homeGames": 10,
+              "awayGames": 14,
+              "winner": "away"
+            },
+            {
+              "rubber": 3,
+              "type": "doubles",
+              "homePlayers": [
+                "Kevin Chen",
+                "Joshua Mariajoseph"
+              ],
+              "awayPlayers": [
+                "Giora Lichtenstein",
+                "Adrian Bow"
+              ],
+              "sets": [
+                [
+                  7,
+                  6
+                ],
+                [
+                  2,
+                  6
+                ],
+                [
+                  2,
+                  6
+                ]
+              ],
+              "homeSets": 1,
+              "awaySets": 2,
+              "homeGames": 11,
+              "awayGames": 18,
+              "winner": "away"
+            }
+          ]
+        },
+        {
+          "home": "Burwood",
+          "away": "Narre Warren Nth",
+          "homePts": 3,
+          "homeR": 1,
+          "homeS": 3,
+          "homeG": 30,
+          "awayPts": 6,
+          "awayR": 2,
+          "awayS": 4,
+          "awayG": 31,
+          "homePlayers": [
+            "Darshan Parikh",
+            "Yen Wu"
+          ],
+          "awayPlayers": [
+            "Noah Gallienne",
+            "Steve Gallienne"
+          ],
+          "rubbers": [
+            {
+              "rubber": 1,
+              "type": "singles",
+              "homePlayers": [
+                "Darshan Parikh"
+              ],
+              "awayPlayers": [
+                "Noah Gallienne"
+              ],
+              "sets": [
+                [
+                  1,
+                  6
+                ],
+                [
+                  0,
+                  6
+                ]
+              ],
+              "homeSets": 0,
+              "awaySets": 2,
+              "homeGames": 1,
+              "awayGames": 12,
+              "winner": "away"
+            },
+            {
+              "rubber": 2,
+              "type": "singles",
+              "homePlayers": [
+                "Yen Wu"
+              ],
+              "awayPlayers": [
+                "Steve Gallienne"
+              ],
+              "sets": [
+                [
+                  6,
+                  0
+                ],
+                [
+                  6,
+                  0
+                ]
+              ],
+              "homeSets": 2,
+              "awaySets": 0,
+              "homeGames": 12,
+              "awayGames": 0,
+              "winner": "home"
+            },
+            {
+              "rubber": 3,
+              "type": "doubles",
+              "homePlayers": [
+                "Darshan Parikh",
+                "Yen Wu"
+              ],
+              "awayPlayers": [
+                "Noah Gallienne",
+                "Steve Gallienne"
+              ],
+              "sets": [
+                [
+                  6,
+                  7
+                ],
+                [
+                  7,
+                  6
+                ],
+                [
+                  4,
+                  6
+                ]
+              ],
+              "homeSets": 1,
+              "awaySets": 2,
+              "homeGames": 17,
+              "awayGames": 19,
               "winner": "away"
             }
           ]
