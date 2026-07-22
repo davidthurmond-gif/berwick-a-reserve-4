@@ -3970,7 +3970,7 @@ window.SITE_DATA = {
         },
         {
           "home": "Burwood",
-          "away": "Ashburton",
+          "away": "Ashburton U/C",
           "homePts": 7,
           "homeR": 2,
           "homeS": 5,
