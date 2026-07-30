@@ -16,6 +16,7 @@
   <nav>
     <button class="active" data-tab="dashboard">Dashboard</button>
     <button data-tab="ladder">Ladder</button>
+    <button data-tab="finals">Finals</button>
     <button data-tab="results">Results</button>
     <button data-tab="players">Players</button>
     <button data-tab="stats">Stats</button>
@@ -43,6 +44,12 @@
         <div id="ladder-table">Loading…</div>
         <p class="finals-note muted"><span class="swatch"></span>Line marks the top 4 — finals qualification cutoff.</p>
       </div>
+    </section>
+
+    <section id="finals" class="tab">
+      <h2 style="margin-top:0;">Run Home to Finals</h2>
+      <p class="muted">Top 4 make the finals; 1st and 2nd host the semi final. Ranked by the average current ladder points of each team's remaining opponents — lower means an easier run home. Updates automatically from the ladder and fixture data below.</p>
+      <div id="finals-content">Loading…</div>
     </section>
 
     <section id="results" class="tab">

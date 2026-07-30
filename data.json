@@ -4628,5 +4628,104 @@
         "played": 1
       }
     ]
+  },
+  "remainingFixtures": {
+    "asOfDate": "2026-07-30",
+    "note": "Fixed round-robin fixture for rounds 11-14 (all 8 teams), sourced from trols.org.au fixture pages and cross-checked across five teams' individual fixture views. Finals: Semi Final 29 Aug 26, Grand Final 5 Sep 26. Top 4 make finals; 1st and 2nd host the semi final.",
+    "rounds": [
+      {
+        "round": 11,
+        "date": "2026-08-01",
+        "matches": [
+          {
+            "home": "Murrumbeena",
+            "away": "Berwick"
+          },
+          {
+            "home": "Ashburton U/C",
+            "away": "Narre Warren Nth"
+          },
+          {
+            "home": "Essex Heights",
+            "away": "Burwood"
+          },
+          {
+            "home": "Monash Uni",
+            "away": "Burden Park"
+          }
+        ]
+      },
+      {
+        "round": 12,
+        "date": "2026-08-08",
+        "matches": [
+          {
+            "home": "Berwick",
+            "away": "Monash Uni"
+          },
+          {
+            "home": "Murrumbeena",
+            "away": "Ashburton U/C"
+          },
+          {
+            "home": "Narre Warren Nth",
+            "away": "Essex Heights"
+          },
+          {
+            "home": "Burden Park",
+            "away": "Burwood"
+          }
+        ]
+      },
+      {
+        "round": 13,
+        "date": "2026-08-15",
+        "matches": [
+          {
+            "home": "Burwood",
+            "away": "Berwick"
+          },
+          {
+            "home": "Essex Heights",
+            "away": "Murrumbeena"
+          },
+          {
+            "home": "Burden Park",
+            "away": "Ashburton U/C"
+          },
+          {
+            "home": "Narre Warren Nth",
+            "away": "Monash Uni"
+          }
+        ]
+      },
+      {
+        "round": 14,
+        "date": "2026-08-22",
+        "matches": [
+          {
+            "home": "Ashburton U/C",
+            "away": "Essex Heights"
+          },
+          {
+            "home": "Murrumbeena",
+            "away": "Narre Warren Nth"
+          },
+          {
+            "home": "Berwick",
+            "away": "Burden Park"
+          },
+          {
+            "home": "Monash Uni",
+            "away": "Burwood"
+          }
+        ]
+      }
+    ],
+    "finals": {
+      "semiFinal": "2026-08-29",
+      "grandFinal": "2026-09-05",
+      "note": "Top 4 make finals; 1st and 2nd host the semi final."
+    }
   }
 }

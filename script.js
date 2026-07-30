@@ -218,6 +218,52 @@ function computeLadderProgression() {
   return { rounds: roundNumbers, teams: progression };
 }
 
+// Strength-of-remaining-schedule: for every team, look up its unplayed rounds
+// (DATA.remainingFixtures minus anything already in DATA.results) and average
+// the current ladder points of the opponents still to come. Lower = easier run home.
+function computeRemainingStrength() {
+  const ladder = computeLadder();
+  const ladderByTeam = {};
+  ladder.forEach(t => {
+    ladderByTeam[t.team] = t;
+    ladderByTeam[t.team.replace(" U/C", "")] = t;
+  });
+  function findLadder(name) {
+    return ladderByTeam[name] || ladderByTeam[name.replace(" U/C", "")];
+  }
+
+  const playedRounds = new Set(DATA.results.map(r => r.round));
+  const remainingRounds = ((DATA.remainingFixtures && DATA.remainingFixtures.rounds) || [])
+    .filter(rnd => !playedRounds.has(rnd.round));
+
+  const perTeam = {};
+  ladder.forEach(t => { perTeam[t.team] = { team: t.team, ladder: t, games: [] }; });
+
+  remainingRounds.forEach(rnd => {
+    rnd.matches.forEach(m => {
+      const homeOppLadder = findLadder(m.away);
+      const awayOppLadder = findLadder(m.home);
+      if (perTeam[m.home]) perTeam[m.home].games.push({ round: rnd.round, date: rnd.date, opponent: m.away, venue: "home", oppLadder: homeOppLadder });
+      if (perTeam[m.away]) perTeam[m.away].games.push({ round: rnd.round, date: rnd.date, opponent: m.home, venue: "away", oppLadder: awayOppLadder });
+    });
+  });
+
+  const list = Object.values(perTeam).map(t => {
+    const valid = t.games.filter(g => g.oppLadder);
+    const avgOppPts = valid.length ? valid.reduce((s, g) => s + g.oppLadder.pts, 0) / valid.length : null;
+    return { ...t, avgOppPts };
+  });
+
+  list.sort((a, b) => {
+    if (a.avgOppPts === null && b.avgOppPts === null) return 0;
+    if (a.avgOppPts === null) return 1;
+    if (b.avgOppPts === null) return -1;
+    return a.avgOppPts - b.avgOppPts;
+  });
+
+  return list;
+}
+
 /* ---------------- Player stats computation ---------------- */
 
 function computePlayerStats() {
@@ -821,6 +867,69 @@ function renderLadder() {
   `;
 }
 
+/* ---------------- Finals tab ---------------- */
+
+function renderFinals() {
+  const el = document.getElementById("finals-content");
+  if (!el) return;
+  const ladder = computeLadder();
+  const strength = computeRemainingStrength();
+
+  const ladderRows = ladder.map(t => `
+    <tr class="${t.team === OUR_TEAM ? "us-row" : ""}${t.position === 4 ? " finals-cutoff" : ""}">
+      <td>${t.position}</td>
+      <td>${escapeHtml(t.team)}</td>
+      <td>${t.played}</td>
+      <td>${t.pts.toFixed(1)}</td>
+      <td><div class="form-pills">${t.form.slice(-5).map(f => `<span class="pill ${f.result}" title="Rd${f.round} vs ${f.opponent} (${f.pts}-${f.oppPts})">${f.result}</span>`).join("")}</div></td>
+    </tr>`).join("");
+
+  const withGames = strength.filter(t => t.games.length);
+
+  const strengthRows = withGames.map((t, i) => {
+    const chips = t.games.map(g => {
+      const rank = g.oppLadder ? g.oppLadder.position : "?";
+      const finalsBound = g.oppLadder && g.oppLadder.position <= 4;
+      const title = `Round ${g.round} (${fmtDate(g.date)}) — ${g.venue === "home" ? "home vs" : "away at"} ${g.opponent}${g.oppLadder ? `, currently #${g.oppLadder.position} on ${g.oppLadder.pts.toFixed(1)} pts` : ""}`;
+      return `<span class="opp-chip${finalsBound ? " opp-finals" : ""}" title="${escapeAttr(title)}">${g.venue === "home" ? "v" : "@"} ${escapeHtml(g.opponent)} <span class="rank">#${rank}</span></span>`;
+    }).join("");
+    return `
+      <tr class="${t.team === OUR_TEAM ? "us-row" : ""}">
+        <td>${i + 1}</td>
+        <td>${escapeHtml(t.team)}</td>
+        <td>${t.ladder ? t.ladder.position : "-"}</td>
+        <td>${t.ladder ? t.ladder.pts.toFixed(1) : "-"}</td>
+        <td>${t.avgOppPts !== null ? t.avgOppPts.toFixed(1) : "-"}</td>
+        <td><div class="opp-chips">${chips}</div></td>
+      </tr>`;
+  }).join("");
+
+  el.innerHTML = `
+    <div class="card">
+      <h3>Ladder right now</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>#</th><th>Team</th><th>Pld</th><th>Pts</th><th>Form</th></tr></thead>
+          <tbody>${ladderRows}</tbody>
+        </table>
+      </div>
+      <p class="finals-note muted"><span class="swatch"></span>Line marks the top 4 — finals qualification cutoff.</p>
+    </div>
+    <div class="card">
+      <h3>Strength of run home (remaining rounds)</h3>
+      ${withGames.length ? `
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>#</th><th>Team</th><th>Ladder pos</th><th>Pts</th><th>Avg opp pts</th><th>Remaining opponents</th></tr></thead>
+          <tbody>${strengthRows}</tbody>
+        </table>
+      </div>
+      <p class="muted" style="margin-top:0.5rem;">Sorted easiest to hardest by the average current ladder points of each team's remaining opponents (lower = easier). Chips outlined in green are against a current top-4 (finals-bound) side. Recalculates automatically each week as results and the ladder update.</p>
+      ` : `<p class="muted">Season complete — no remaining rounds.</p>`}
+    </div>
+  `;
+}
+
 /* ---------------- Results tab ---------------- */
 
 function renderResultsChart() {
@@ -1147,6 +1256,7 @@ function initDataTools() {
 function renderAll() {
   renderDashboard();
   renderLadder();
+  renderFinals();
   renderResults();
   renderPlayers();
   renderStats();

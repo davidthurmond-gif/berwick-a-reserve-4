@@ -224,6 +224,21 @@ tr.finals-cutoff td {
 .pill.W { background: var(--win); }
 .pill.L { background: var(--loss); }
 
+.opp-chips { display: flex; flex-wrap: wrap; gap: 0.3rem; }
+.opp-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.15rem 0.5rem;
+  border-radius: 6px;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  font-size: 0.78rem;
+  white-space: nowrap;
+}
+.opp-chip .rank { font-weight: 700; color: var(--yellow); }
+.opp-chip.opp-finals { border-color: var(--win); }
+
 .badge-e {
   display: inline-flex;
   align-items: center;
