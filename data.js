@@ -3,8 +3,8 @@ window.SITE_DATA = {
     "competition": "Saturday PM - Winter 2026",
     "section": "Open Singles/Doubles A Reserve 4",
     "ourTeam": "Berwick",
-    "lastUpdated": "2026-07-30",
-    "resultsLoadedFromSite": "28th July 26 @ 05:47:54 PM",
+    "lastUpdated": "2026-08-05",
+    "resultsLoadedFromSite": "4th August 26 @ 07:57:54 PM",
     "sourceUrl": "https://www.trols.org.au/wdta/results.php?daytime=AP&section=AP012&style="
   },
   "playerNotes": {
@@ -12,8 +12,8 @@ window.SITE_DATA = {
       "plays": "Right",
       "serving": "Average serves",
       "generalPlay": "20 y/o Asian girl, small build. Plays both singles and doubles. DT won 6-0, 6-1 vs her in singles.",
-      "strengths": "Great backhand \u2014 much stronger on that side, go to backhand",
-      "weaknesses": "Forehand is a weakness \u2014 not much power. Average serves."
+      "strengths": "Great backhand \u2014 much stronger on that side, hits winners down the line with ease - do not hit to backhand!!",
+      "weaknesses": "Forehand is a weakness \u2014 not much power. \nAverage serves."
     },
     "Burden Park::Alan": {
       "plays": "Right",
@@ -25,7 +25,7 @@ window.SITE_DATA = {
     "Burden Park::Isaac Khaoula": {
       "plays": "Right",
       "serving": "Average pusher-style serve",
-      "generalPlay": "Mid-20s guy \u2014 definition of a pusher. Slices 90% of the time. Rallies last 10-20 shots each. Gives no pace, just slice and some topspin forehands. Looks a very frustrating player to play against.",
+      "generalPlay": "Mid-20s guy \u2014 definition of a pusher. Slices 90% of the time. Rallies last 10-20 shots each. Gives no pace, just slice and some topspin forehands. Looks a very frustrating player to play against.\n\nPlayed Brett - beat him in 3 sets - I've never seen Brett more frustrated playing this guy. Gave Brett no pace, nothing but slice. ",
       "strengths": "Incredible consistency \u2014 will grind out every point",
       "weaknesses": "Doesn't like pace on the run, but hitting with pace is risky (high error rate). Try varying pace and angles to disrupt rhythm."
     },
@@ -52,10 +52,31 @@ window.SITE_DATA = {
     },
     "Monash Uni::Matthew Lee": {
       "plays": "Right",
-      "serving": "",
+      "serving": "Unsure - need to ask Nick",
       "generalPlay": "Young Asian guy. Played singles only. ~1/2 on Tuesday. Lost to Nick in singles 6-3, 6-4. Plays long rallies with moonball/deep topspin shots.",
       "strengths": "Deep topspin baseline game \u2014 moonballs and high heavy balls",
       "weaknesses": ""
+    },
+    "Ashburton U/C::Alexander Granzow": {
+      "plays": "Right",
+      "serving": "  Strong Flat First Serve / Average 2nd Serve / No Slice",
+      "generalPlay": "1. Alexander Granzow\n- Rt hand / Tall / Young\n\n- Match\n    - Lost to Shannon and David in Doubles 6-1 / 6-1 \n   - Got frustrated with partner (Jamon) who was the weaker link\n    - He won against Nick in Singles - but only due to Nick\u2019s calf injury - Nick won the first set and then stopped  6-4, 0-6, 0-6\n\n- Details\n    - Played Doubles and Singles\n    - Young / Fit / Tall\n    - Strong Flat First Serve / Average 2nd Serve\n    - Doesn\u2019t last long in a rally\n    - Very aggressive, hits the ball into the net and long a lot\n    - Didn\u2019t see him volley at all \n    - Served to his backhand from the Deuce side - which set up a lot of smash volleys at the net for Shannon\n\nResults: \n- Played at Berwick 9 May 2026 (doubles on court 3 / singles on court 1/3) \n\n- [ ] Doubles\n    - [ ] DT and Shannon - Won - 6-1 / 6-1\n- [ ] Singles\n    - [ ] Nick retired due to injury against Alex - 6-4, 0-6, 0-6\n    - [ ] DT won against Jamon - 6-1, 6-2\n",
+      "strengths": "Fitness\nStrong / Flat First Serve\nVery strong two-handed backhand - maybe his better shot",
+      "weaknesses": "Average Second Serve\nOverly Aggressive"
+    },
+    "Ashburton U/C::Jamon Nielsen": {
+      "plays": "Left",
+      "serving": "Average first serve and slower second serve",
+      "generalPlay": "2. Jamon Nielsen\n- Lft hand / average height / Young\n- Nice kid - 2nd year of Uni studying immunisations\n\n\n- Details\n    - Played Doubles and singles\n    - Average fitness, average pace\n    - Average first serve and slower second serve\n    - Good at defensive shots to keep himself in a rally\n        - There were points where I had him running from corner to corner and he kept getting balls back\n    - Not a threatening type player\n        - He\u2019d sometimes come up with a winner down the line, but most shots went long or into the net\n    - Doesn\u2019t like my slice serve to backhand - consistently hit it to Shannon at the net during doubles \n    - Doesn\u2019t like the random slice from Deuce court into his forehand either when playing singles\n\n- Match 6 May 2026\n    - Lost to Shannon and I in Doubles 6-1 / 6-1\n    - Lost to me in Singles - 6-1 / 6-2",
+      "strengths": "Fitness / Quick\nGets to a lot of balls\nGood at defensive shots to keep himself in a rally",
+      "weaknesses": "Overly Defensive\nAverage to Weak Serve  \n   - Doesn\u2019t like slice serve to backhand - consistently hit it to Shannon at the net during doubles \n    - Doesn\u2019t like the random slice from Deuce court into his forehand either when playing singles"
+    },
+    "Burden Park::Lun Wang": {
+      "plays": "Right",
+      "serving": "Decent serve - likes to go out wide ",
+      "generalPlay": "- Late 40\u2019s Asian dude\n- Right\n- Okay at rallies \n- Very bad at the net - hit maybe 4-5 easy volleys into the net from a meter away\n- Only played doubles",
+      "strengths": "Rallying",
+      "weaknesses": "Volleys / Net Play"
     }
   },
   "clubs": [
@@ -378,11 +399,11 @@ window.SITE_DATA = {
         {
           "home": "Essex Heights",
           "away": "Narre Warren Nth",
-          "homePts": 0.0,
+          "homePts": 0,
           "homeR": 0,
           "homeS": 0,
           "homeG": 13,
-          "awayPts": 8.0,
+          "awayPts": 8,
           "awayR": 3,
           "awayS": 6,
           "awayG": 36,
@@ -477,11 +498,11 @@ window.SITE_DATA = {
         {
           "home": "Ashburton U/C",
           "away": "Murrumbeena",
-          "homePts": 2.0,
+          "homePts": 2,
           "homeR": 1,
           "homeS": 2,
           "homeG": 28,
-          "awayPts": 7.0,
+          "awayPts": 7,
           "awayR": 2,
           "awayS": 5,
           "awayG": 34,
@@ -582,11 +603,11 @@ window.SITE_DATA = {
         {
           "home": "Monash Uni",
           "away": "Berwick",
-          "homePts": 0.0,
+          "homePts": 0,
           "homeR": 0,
           "homeS": 0,
           "homeG": 21,
-          "awayPts": 8.0,
+          "awayPts": 8,
           "awayR": 3,
           "awayS": 6,
           "awayG": 38,
@@ -684,11 +705,11 @@ window.SITE_DATA = {
         {
           "home": "Burwood",
           "away": "Burden Park",
-          "homePts": 6.0,
+          "homePts": 6,
           "homeR": 2,
           "homeS": 4,
           "homeG": 30,
-          "awayPts": 3.0,
+          "awayPts": 3,
           "awayR": 1,
           "awayS": 3,
           "awayG": 34,
@@ -794,11 +815,11 @@ window.SITE_DATA = {
         {
           "home": "Berwick",
           "away": "Ashburton U/C",
-          "homePts": 7.0,
+          "homePts": 7,
           "homeR": 2,
           "homeS": 5,
           "homeG": 30,
-          "awayPts": 2.0,
+          "awayPts": 2,
           "awayR": 1,
           "awayS": 2,
           "awayG": 21,
@@ -898,11 +919,11 @@ window.SITE_DATA = {
         {
           "home": "Burden Park",
           "away": "Essex Heights",
-          "homePts": 8.0,
+          "homePts": 8,
           "homeR": 3,
           "homeS": 6,
           "homeG": 37,
-          "awayPts": 0.0,
+          "awayPts": 0,
           "awayR": 0,
           "awayS": 0,
           "awayG": 15,
@@ -999,11 +1020,11 @@ window.SITE_DATA = {
         {
           "home": "Narre Warren Nth",
           "away": "Burwood",
-          "homePts": 0.0,
+          "homePts": 0,
           "homeR": 0,
           "homeS": 0,
           "homeG": 11,
-          "awayPts": 8.0,
+          "awayPts": 8,
           "awayR": 3,
           "awayS": 6,
           "awayG": 37,
@@ -1098,11 +1119,11 @@ window.SITE_DATA = {
         {
           "home": "Murrumbeena",
           "away": "Monash Uni",
-          "homePts": 7.0,
+          "homePts": 7,
           "homeR": 2,
           "homeS": 5,
           "homeG": 37,
-          "awayPts": 2.0,
+          "awayPts": 2,
           "awayR": 1,
           "awayS": 2,
           "awayG": 31,
@@ -1210,11 +1231,11 @@ window.SITE_DATA = {
         {
           "home": "Essex Heights",
           "away": "Ashburton U/C",
-          "homePts": 3.0,
+          "homePts": 3,
           "homeR": 0,
           "homeS": 3,
           "homeG": 39,
-          "awayPts": 8.0,
+          "awayPts": 8,
           "awayR": 3,
           "awayS": 6,
           "awayG": 51,
@@ -1321,11 +1342,11 @@ window.SITE_DATA = {
         {
           "home": "Burden Park",
           "away": "Berwick",
-          "homePts": 2.0,
+          "homePts": 2,
           "homeR": 1,
           "homeS": 2,
           "homeG": 18,
-          "awayPts": 7.0,
+          "awayPts": 7,
           "awayR": 2,
           "awayS": 5,
           "awayG": 36,
@@ -1425,11 +1446,11 @@ window.SITE_DATA = {
         {
           "home": "Narre Warren Nth",
           "away": "Murrumbeena",
-          "homePts": 2.0,
+          "homePts": 2,
           "homeR": 1,
           "homeS": 2,
           "homeG": 20,
-          "awayPts": 6.0,
+          "awayPts": 6,
           "awayR": 2,
           "awayS": 4,
           "awayG": 28,
@@ -1526,11 +1547,11 @@ window.SITE_DATA = {
         {
           "home": "Burwood",
           "away": "Monash Uni",
-          "homePts": 6.0,
+          "homePts": 6,
           "homeR": 2,
           "homeS": 4,
           "homeG": 32,
-          "awayPts": 3.0,
+          "awayPts": 3,
           "awayR": 1,
           "awayS": 3,
           "awayG": 31,
@@ -1636,11 +1657,11 @@ window.SITE_DATA = {
         {
           "home": "Berwick",
           "away": "Narre Warren Nth",
-          "homePts": 6.0,
+          "homePts": 6,
           "homeR": 2,
           "homeS": 4,
           "homeG": 36,
-          "awayPts": 2.0,
+          "awayPts": 2,
           "awayR": 1,
           "awayS": 2,
           "awayG": 27,
@@ -1736,11 +1757,11 @@ window.SITE_DATA = {
         {
           "home": "Ashburton U/C",
           "away": "Burwood",
-          "homePts": 8.0,
+          "homePts": 8,
           "homeR": 3,
           "homeS": 6,
           "homeG": 36,
-          "awayPts": 0.0,
+          "awayPts": 0,
           "awayR": 0,
           "awayS": 0,
           "awayG": 12,
@@ -1837,11 +1858,11 @@ window.SITE_DATA = {
         {
           "home": "Monash Uni",
           "away": "Essex Heights",
-          "homePts": 0.0,
+          "homePts": 0,
           "homeR": 0,
           "homeS": 0,
           "homeG": 15,
-          "awayPts": 8.0,
+          "awayPts": 8,
           "awayR": 3,
           "awayS": 6,
           "awayG": 36,
@@ -1938,11 +1959,11 @@ window.SITE_DATA = {
         {
           "home": "Murrumbeena",
           "away": "Burden Park",
-          "homePts": 3.0,
+          "homePts": 3,
           "homeR": 1,
           "homeS": 3,
           "homeG": 29,
-          "awayPts": 6.0,
+          "awayPts": 6,
           "awayR": 2,
           "awayS": 4,
           "awayG": 30,
@@ -2050,11 +2071,11 @@ window.SITE_DATA = {
         {
           "home": "Essex Heights",
           "away": "Berwick",
-          "homePts": 1.0,
+          "homePts": 1,
           "homeR": 0,
           "homeS": 1,
           "homeG": 24,
-          "awayPts": 8.0,
+          "awayPts": 8,
           "awayR": 3,
           "awayS": 6,
           "awayG": 39,
@@ -2155,11 +2176,11 @@ window.SITE_DATA = {
         {
           "home": "Ashburton U/C",
           "away": "Monash Uni",
-          "homePts": 8.0,
+          "homePts": 8,
           "homeR": 3,
           "homeS": 6,
           "homeG": 41,
-          "awayPts": 1.0,
+          "awayPts": 1,
           "awayR": 0,
           "awayS": 1,
           "awayG": 26,
@@ -2259,11 +2280,11 @@ window.SITE_DATA = {
         {
           "home": "Narre Warren Nth",
           "away": "Burden Park",
-          "homePts": 1.0,
+          "homePts": 1,
           "homeR": 0,
           "homeS": 1,
           "homeG": 27,
-          "awayPts": 8.0,
+          "awayPts": 8,
           "awayR": 3,
           "awayS": 6,
           "awayG": 39,
@@ -2362,11 +2383,11 @@ window.SITE_DATA = {
         {
           "home": "Burwood",
           "away": "Murrumbeena",
-          "homePts": 2.0,
+          "homePts": 2,
           "homeR": 1,
           "homeS": 2,
           "homeG": 29,
-          "awayPts": 7.0,
+          "awayPts": 7,
           "awayR": 2,
           "awayS": 5,
           "awayG": 38,
@@ -2474,11 +2495,11 @@ window.SITE_DATA = {
         {
           "home": "Berwick",
           "away": "Murrumbeena",
-          "homePts": 5.0,
+          "homePts": 5,
           "homeR": 1,
           "homeS": 2,
           "homeG": 17,
-          "awayPts": 3.0,
+          "awayPts": 3,
           "awayR": 0,
           "awayS": 0,
           "awayG": 12,
@@ -2670,11 +2691,11 @@ window.SITE_DATA = {
         {
           "home": "Narre Warren Nth",
           "away": "Ashburton U/C",
-          "homePts": 0.0,
+          "homePts": 0,
           "homeR": 0,
           "homeS": 0,
           "homeG": 20,
-          "awayPts": 8.0,
+          "awayPts": 8,
           "awayR": 3,
           "awayS": 6,
           "awayG": 38,
@@ -2769,11 +2790,11 @@ window.SITE_DATA = {
         {
           "home": "Burwood",
           "away": "Essex Heights",
-          "homePts": 0.0,
+          "homePts": 0,
           "homeR": 0,
           "homeS": 0,
           "homeG": 4,
-          "awayPts": 8.0,
+          "awayPts": 8,
           "awayR": 3,
           "awayS": 6,
           "awayG": 36,
@@ -2874,11 +2895,11 @@ window.SITE_DATA = {
         {
           "home": "Essex Heights",
           "away": "Burden Park",
-          "homePts": 8.0,
+          "homePts": 8,
           "homeR": 3,
           "homeS": 6,
           "homeG": 37,
-          "awayPts": 0.0,
+          "awayPts": 0,
           "awayR": 0,
           "awayS": 0,
           "awayG": 10,
@@ -2974,11 +2995,11 @@ window.SITE_DATA = {
         {
           "home": "Ashburton U/C",
           "away": "Berwick",
-          "homePts": 3.0,
+          "homePts": 3,
           "homeR": 1,
           "homeS": 3,
           "homeG": 26,
-          "awayPts": 6.0,
+          "awayPts": 6,
           "awayR": 2,
           "awayS": 4,
           "awayG": 33,
@@ -3077,11 +3098,11 @@ window.SITE_DATA = {
         {
           "home": "Monash Uni",
           "away": "Murrumbeena",
-          "homePts": 1.0,
+          "homePts": 1,
           "homeR": 0,
           "homeS": 1,
           "homeG": 25,
-          "awayPts": 8.0,
+          "awayPts": 8,
           "awayR": 3,
           "awayS": 6,
           "awayG": 44,
@@ -3182,11 +3203,11 @@ window.SITE_DATA = {
         {
           "home": "Burwood",
           "away": "Narre Warren Nth",
-          "homePts": 3.0,
+          "homePts": 3,
           "homeR": 1,
           "homeS": 3,
           "homeG": 30,
-          "awayPts": 6.0,
+          "awayPts": 6,
           "awayR": 2,
           "awayS": 4,
           "awayG": 31,
@@ -3291,11 +3312,11 @@ window.SITE_DATA = {
         {
           "home": "Berwick",
           "away": "Burwood",
-          "homePts": 6.0,
+          "homePts": 6,
           "homeR": 2,
           "homeS": 4,
           "homeG": 33,
-          "awayPts": 3.0,
+          "awayPts": 3,
           "awayR": 1,
           "awayS": 3,
           "awayG": 31,
@@ -3395,11 +3416,11 @@ window.SITE_DATA = {
         {
           "home": "Ashburton U/C",
           "away": "Burden Park",
-          "homePts": 8.0,
+          "homePts": 8,
           "homeR": 3,
           "homeS": 6,
           "homeG": 38,
-          "awayPts": 1.0,
+          "awayPts": 1,
           "awayR": 0,
           "awayS": 1,
           "awayG": 22,
@@ -3500,11 +3521,11 @@ window.SITE_DATA = {
         {
           "home": "Monash Uni",
           "away": "Narre Warren Nth",
-          "homePts": 8.0,
+          "homePts": 8,
           "homeR": 3,
           "homeS": 6,
           "homeG": 42,
-          "awayPts": 1.0,
+          "awayPts": 1,
           "awayR": 0,
           "awayS": 1,
           "awayG": 17,
@@ -3605,11 +3626,11 @@ window.SITE_DATA = {
         {
           "home": "Murrumbeena",
           "away": "Essex Heights",
-          "homePts": 6.0,
+          "homePts": 6,
           "homeR": 2,
           "homeS": 4,
           "homeG": 36,
-          "awayPts": 3.0,
+          "awayPts": 3,
           "awayR": 1,
           "awayS": 3,
           "awayG": 29,
@@ -3716,11 +3737,11 @@ window.SITE_DATA = {
         {
           "home": "Essex Heights",
           "away": "Monash Uni",
-          "homePts": 8.0,
+          "homePts": 8,
           "homeR": 3,
           "homeS": 6,
           "homeG": 38,
-          "awayPts": 1.0,
+          "awayPts": 1,
           "awayR": 0,
           "awayS": 1,
           "awayG": 18,
@@ -3821,11 +3842,11 @@ window.SITE_DATA = {
         {
           "home": "Burden Park",
           "away": "Murrumbeena",
-          "homePts": 2.0,
+          "homePts": 2,
           "homeR": 0,
           "homeS": 2,
           "homeG": 28,
-          "awayPts": 8.0,
+          "awayPts": 8,
           "awayR": 3,
           "awayS": 6,
           "awayG": 41,
@@ -3932,30 +3953,29 @@ window.SITE_DATA = {
         {
           "home": "Narre Warren Nth",
           "away": "Berwick",
-          "homePts": 0.0,
+          "homePts": 0,
           "homeR": 0,
           "homeS": 0,
           "homeG": 0,
-          "awayPts": 8.0,
-          "awayR": 0,
-          "awayS": 0,
+          "awayPts": 8,
+          "awayR": 3,
+          "awayS": 6,
           "awayG": 0,
           "homePlayers": [],
           "awayPlayers": [],
           "rubbers": [],
-          "forfeit": {
-            "team": "Narre Warren Nth",
-            "note": "Narre Warren Nth forfeited to Berwick"
-          }
+          "forfeit": true,
+          "winner": "away",
+          "note": "Narre Warren Nth forfeited to Berwick"
         },
         {
           "home": "Burwood",
           "away": "Ashburton U/C",
-          "homePts": 7.0,
+          "homePts": 7,
           "homeR": 2,
           "homeS": 5,
           "homeG": 36,
-          "awayPts": 2.0,
+          "awayPts": 2,
           "awayR": 1,
           "awayS": 2,
           "awayG": 23,
@@ -4060,11 +4080,11 @@ window.SITE_DATA = {
         {
           "home": "Berwick",
           "away": "Essex Heights",
-          "homePts": 3.0,
+          "homePts": 3,
           "homeR": 1,
           "homeS": 3,
           "homeG": 35,
-          "awayPts": 7.0,
+          "awayPts": 7,
           "awayR": 2,
           "awayS": 5,
           "awayG": 31,
@@ -4167,30 +4187,29 @@ window.SITE_DATA = {
         {
           "home": "Burden Park",
           "away": "Narre Warren Nth",
-          "homePts": 8.0,
-          "homeR": 0,
-          "homeS": 0,
+          "homePts": 8,
+          "homeR": 3,
+          "homeS": 6,
           "homeG": 0,
-          "awayPts": 0.0,
+          "awayPts": 0,
           "awayR": 0,
           "awayS": 0,
           "awayG": 0,
           "homePlayers": [],
           "awayPlayers": [],
           "rubbers": [],
-          "forfeit": {
-            "team": "Narre Warren Nth",
-            "note": "Narre Warren Nth forfeited to Burden Park"
-          }
+          "forfeit": true,
+          "winner": "home",
+          "note": "Narre Warren Nth forfeited to Burden Park"
         },
         {
           "home": "Monash Uni",
           "away": "Ashburton U/C",
-          "homePts": 2.0,
+          "homePts": 2,
           "homeR": 1,
           "homeS": 2,
           "homeG": 23,
-          "awayPts": 6.0,
+          "awayPts": 6,
           "awayR": 2,
           "awayS": 4,
           "awayG": 25,
@@ -4286,11 +4305,11 @@ window.SITE_DATA = {
         {
           "home": "Murrumbeena",
           "away": "Burwood",
-          "homePts": 8.0,
+          "homePts": 8,
           "homeR": 3,
           "homeS": 6,
           "homeG": 40,
-          "awayPts": 1.0,
+          "awayPts": 1,
           "awayR": 0,
           "awayS": 1,
           "awayG": 22,
@@ -4385,6 +4404,426 @@ window.SITE_DATA = {
               "homeGames": 13,
               "awayGames": 6,
               "winner": "home"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "round": 11,
+      "date": "2026-08-01",
+      "matches": [
+        {
+          "home": "Essex Heights",
+          "away": "Burwood",
+          "homePts": 8,
+          "homeR": 3,
+          "homeS": 6,
+          "homeG": 37,
+          "awayPts": 0,
+          "awayR": 0,
+          "awayS": 0,
+          "awayG": 16,
+          "homePlayers": [
+            "Leo Lookman",
+            "Isaac Lo",
+            "Martin Markovic"
+          ],
+          "awayPlayers": [
+            "Yen Wu",
+            "Skanda Kumble",
+            "Eloise Lindsay"
+          ],
+          "rubbers": [
+            {
+              "rubber": 1,
+              "type": "singles",
+              "homePlayers": [
+                "Leo Lookman"
+              ],
+              "awayPlayers": [
+                "Yen Wu"
+              ],
+              "sets": [
+                [
+                  6,
+                  2
+                ],
+                [
+                  6,
+                  2
+                ]
+              ],
+              "homeSets": 2,
+              "awaySets": 0,
+              "homeGames": 12,
+              "awayGames": 4,
+              "winner": "home"
+            },
+            {
+              "rubber": 2,
+              "type": "singles",
+              "homePlayers": [
+                "Isaac Lo"
+              ],
+              "awayPlayers": [
+                "Skanda Kumble"
+              ],
+              "sets": [
+                [
+                  7,
+                  6
+                ],
+                [
+                  6,
+                  1
+                ]
+              ],
+              "homeSets": 2,
+              "awaySets": 0,
+              "homeGames": 13,
+              "awayGames": 7,
+              "winner": "home"
+            },
+            {
+              "rubber": 3,
+              "type": "doubles",
+              "homePlayers": [
+                "Leo Lookman",
+                "Martin Markovic"
+              ],
+              "awayPlayers": [
+                "Yen Wu",
+                "Eloise Lindsay"
+              ],
+              "sets": [
+                [
+                  6,
+                  2
+                ],
+                [
+                  6,
+                  3
+                ]
+              ],
+              "homeSets": 2,
+              "awaySets": 0,
+              "homeGames": 12,
+              "awayGames": 5,
+              "winner": "home"
+            }
+          ]
+        },
+        {
+          "home": "Ashburton U/C",
+          "away": "Narre Warren Nth",
+          "homePts": 6,
+          "homeR": 2,
+          "homeS": 4,
+          "homeG": 27,
+          "awayPts": 3,
+          "awayR": 1,
+          "awayS": 3,
+          "awayG": 25,
+          "homePlayers": [
+            "Alexander Granzow",
+            "David Granzow"
+          ],
+          "awayPlayers": [
+            "Noah Gallienne",
+            "Ryan Abbott"
+          ],
+          "rubbers": [
+            {
+              "rubber": 1,
+              "type": "singles",
+              "homePlayers": [
+                "Alexander Granzow"
+              ],
+              "awayPlayers": [
+                "Noah Gallienne"
+              ],
+              "sets": [
+                [
+                  2,
+                  6
+                ],
+                [
+                  6,
+                  3
+                ],
+                [
+                  6,
+                  4
+                ]
+              ],
+              "homeSets": 2,
+              "awaySets": 1,
+              "homeGames": 14,
+              "awayGames": 13,
+              "winner": "home"
+            },
+            {
+              "rubber": 2,
+              "type": "singles",
+              "homePlayers": [
+                "David Granzow"
+              ],
+              "awayPlayers": [
+                "Ryan Abbott"
+              ],
+              "sets": [
+                [
+                  6,
+                  0
+                ],
+                [
+                  6,
+                  0
+                ]
+              ],
+              "homeSets": 2,
+              "awaySets": 0,
+              "homeGames": 12,
+              "awayGames": 0,
+              "winner": "home"
+            },
+            {
+              "rubber": 3,
+              "type": "doubles",
+              "homePlayers": [
+                "Alexander Granzow",
+                "David Granzow"
+              ],
+              "awayPlayers": [
+                "Noah Gallienne",
+                "Ryan Abbott"
+              ],
+              "sets": [
+                [
+                  1,
+                  6
+                ],
+                [
+                  0,
+                  6
+                ]
+              ],
+              "homeSets": 0,
+              "awaySets": 2,
+              "homeGames": 1,
+              "awayGames": 12,
+              "winner": "away"
+            }
+          ]
+        },
+        {
+          "home": "Monash Uni",
+          "away": "Burden Park",
+          "homePts": 7,
+          "homeR": 2,
+          "homeS": 5,
+          "homeG": 35,
+          "awayPts": 2,
+          "awayR": 1,
+          "awayS": 2,
+          "awayG": 25,
+          "homePlayers": [
+            "Matthew Lee",
+            "Zachary Lee",
+            "Kevin Chen"
+          ],
+          "awayPlayers": [
+            "Tho Thai",
+            "Isaac Khaoula",
+            "Lun Wang"
+          ],
+          "rubbers": [
+            {
+              "rubber": 1,
+              "type": "singles",
+              "homePlayers": [
+                "Matthew Lee"
+              ],
+              "awayPlayers": [
+                "Tho Thai"
+              ],
+              "sets": [
+                [
+                  6,
+                  3
+                ],
+                [
+                  6,
+                  1
+                ]
+              ],
+              "homeSets": 2,
+              "awaySets": 0,
+              "homeGames": 12,
+              "awayGames": 4,
+              "winner": "home"
+            },
+            {
+              "rubber": 2,
+              "type": "singles",
+              "homePlayers": [
+                "Zachary Lee"
+              ],
+              "awayPlayers": [
+                "Isaac Khaoula"
+              ],
+              "sets": [
+                [
+                  2,
+                  6
+                ],
+                [
+                  6,
+                  1
+                ],
+                [
+                  3,
+                  6
+                ]
+              ],
+              "homeSets": 1,
+              "awaySets": 2,
+              "homeGames": 11,
+              "awayGames": 13,
+              "winner": "away"
+            },
+            {
+              "rubber": 3,
+              "type": "doubles",
+              "homePlayers": [
+                "Matthew Lee",
+                "Kevin Chen"
+              ],
+              "awayPlayers": [
+                "Tho Thai",
+                "Lun Wang"
+              ],
+              "sets": [
+                [
+                  6,
+                  4
+                ],
+                [
+                  6,
+                  4
+                ]
+              ],
+              "homeSets": 2,
+              "awaySets": 0,
+              "homeGames": 12,
+              "awayGames": 8,
+              "winner": "home"
+            }
+          ]
+        },
+        {
+          "home": "Murrumbeena",
+          "away": "Berwick",
+          "homePts": 6,
+          "homeR": 2,
+          "homeS": 4,
+          "homeG": 34,
+          "awayPts": 3,
+          "awayR": 1,
+          "awayS": 3,
+          "awayG": 23,
+          "homePlayers": [
+            "Egor Barabanov",
+            "Janoah Gray-Taito",
+            "Zvi Schweitzer",
+            "Ronald Schweitzer"
+          ],
+          "awayPlayers": [
+            "David Thurmond",
+            "Shannon Watson"
+          ],
+          "rubbers": [
+            {
+              "rubber": 1,
+              "type": "singles",
+              "homePlayers": [
+                "Egor Barabanov"
+              ],
+              "awayPlayers": [
+                "David Thurmond"
+              ],
+              "sets": [
+                [
+                  6,
+                  1
+                ],
+                [
+                  6,
+                  4
+                ]
+              ],
+              "homeSets": 2,
+              "awaySets": 0,
+              "homeGames": 12,
+              "awayGames": 5,
+              "winner": "home"
+            },
+            {
+              "rubber": 2,
+              "type": "singles",
+              "homePlayers": [
+                "Janoah Gray-Taito"
+              ],
+              "awayPlayers": [
+                "Shannon Watson"
+              ],
+              "sets": [
+                [
+                  4,
+                  6
+                ],
+                [
+                  6,
+                  0
+                ],
+                [
+                  6,
+                  0
+                ]
+              ],
+              "homeSets": 2,
+              "awaySets": 1,
+              "homeGames": 16,
+              "awayGames": 6,
+              "winner": "home"
+            },
+            {
+              "rubber": 3,
+              "type": "doubles",
+              "homePlayers": [
+                "Zvi Schweitzer",
+                "Ronald Schweitzer"
+              ],
+              "awayPlayers": [
+                "David Thurmond",
+                "Shannon Watson"
+              ],
+              "sets": [
+                [
+                  3,
+                  6
+                ],
+                [
+                  3,
+                  6
+                ]
+              ],
+              "homeSets": 0,
+              "awaySets": 2,
+              "homeGames": 6,
+              "awayGames": 12,
+              "winner": "away"
             }
           ]
         }
@@ -4628,104 +5067,5 @@ window.SITE_DATA = {
         "played": 1
       }
     ]
-  },
-  "remainingFixtures": {
-    "asOfDate": "2026-07-30",
-    "note": "Fixed round-robin fixture for rounds 11-14 (all 8 teams), sourced from trols.org.au fixture pages and cross-checked across five teams' individual fixture views. Finals: Semi Final 29 Aug 26, Grand Final 5 Sep 26. Top 4 make finals; 1st and 2nd host the semi final.",
-    "rounds": [
-      {
-        "round": 11,
-        "date": "2026-08-01",
-        "matches": [
-          {
-            "home": "Murrumbeena",
-            "away": "Berwick"
-          },
-          {
-            "home": "Ashburton U/C",
-            "away": "Narre Warren Nth"
-          },
-          {
-            "home": "Essex Heights",
-            "away": "Burwood"
-          },
-          {
-            "home": "Monash Uni",
-            "away": "Burden Park"
-          }
-        ]
-      },
-      {
-        "round": 12,
-        "date": "2026-08-08",
-        "matches": [
-          {
-            "home": "Berwick",
-            "away": "Monash Uni"
-          },
-          {
-            "home": "Murrumbeena",
-            "away": "Ashburton U/C"
-          },
-          {
-            "home": "Narre Warren Nth",
-            "away": "Essex Heights"
-          },
-          {
-            "home": "Burden Park",
-            "away": "Burwood"
-          }
-        ]
-      },
-      {
-        "round": 13,
-        "date": "2026-08-15",
-        "matches": [
-          {
-            "home": "Burwood",
-            "away": "Berwick"
-          },
-          {
-            "home": "Essex Heights",
-            "away": "Murrumbeena"
-          },
-          {
-            "home": "Burden Park",
-            "away": "Ashburton U/C"
-          },
-          {
-            "home": "Narre Warren Nth",
-            "away": "Monash Uni"
-          }
-        ]
-      },
-      {
-        "round": 14,
-        "date": "2026-08-22",
-        "matches": [
-          {
-            "home": "Ashburton U/C",
-            "away": "Essex Heights"
-          },
-          {
-            "home": "Murrumbeena",
-            "away": "Narre Warren Nth"
-          },
-          {
-            "home": "Berwick",
-            "away": "Burden Park"
-          },
-          {
-            "home": "Monash Uni",
-            "away": "Burwood"
-          }
-        ]
-      }
-    ],
-    "finals": {
-      "semiFinal": "2026-08-29",
-      "grandFinal": "2026-09-05",
-      "note": "Top 4 make finals; 1st and 2nd host the semi final."
-    }
   }
 };
