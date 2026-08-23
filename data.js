@@ -362,6 +362,14 @@ window.SITE_DATA = {
       "note": "Semi Final"
     },
     {
+      "round": "SF",
+      "date": "2026-08-29",
+      "home": "Murrumbeena",
+      "away": "Ashburton U/C",
+      "byeDate": false,
+      "note": "Semi Final"
+    },
+    {
       "round": "GF",
       "date": "2026-09-05",
       "home": null,
