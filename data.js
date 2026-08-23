@@ -356,8 +356,8 @@ window.SITE_DATA = {
     {
       "round": "SF",
       "date": "2026-08-29",
-      "home": null,
-      "away": null,
+      "home": "Berwick",
+      "away": "Essex Heights",
       "byeDate": false,
       "note": "Semi Final"
     },
@@ -5570,6 +5570,256 @@ window.SITE_DATA = {
               "winner": "away"
             }
           ]
+        }
+      ]
+    },
+    {
+      "round": 14,
+      "date": "2026-08-22",
+      "matches": [
+        {
+          "home": "Berwick",
+          "away": "Burden Park",
+          "homePts": 8.0,
+          "homeR": 0,
+          "homeS": 0,
+          "homeG": 0,
+          "awayPts": 0.0,
+          "awayR": 0,
+          "awayS": 0,
+          "awayG": 0,
+          "homePlayers": [],
+          "awayPlayers": [],
+          "rubbers": [],
+          "forfeit": {
+            "team": "Burden Park",
+            "note": "Burden Park forfeited to Berwick"
+          }
+        },
+        {
+          "home": "Ashburton U/C",
+          "away": "Essex Heights",
+          "homePts": 6.0,
+          "homeR": 2,
+          "homeS": 4,
+          "homeG": 33,
+          "awayPts": 3.0,
+          "awayR": 1,
+          "awayS": 3,
+          "awayG": 31,
+          "homePlayers": [
+            "Alexander Granzow",
+            "Jamon Nielsen"
+          ],
+          "awayPlayers": [
+            "Isaac Lo",
+            "Martin Markovic",
+            "Leo Lookman"
+          ],
+          "rubbers": [
+            {
+              "rubber": 1,
+              "type": "singles",
+              "homePlayers": [
+                "Alexander Granzow"
+              ],
+              "awayPlayers": [
+                "Isaac Lo"
+              ],
+              "sets": [
+                [
+                  7,
+                  6
+                ],
+                [
+                  7,
+                  6
+                ]
+              ],
+              "homeSets": 2,
+              "awaySets": 0,
+              "homeGames": 14,
+              "awayGames": 12,
+              "winner": "home"
+            },
+            {
+              "rubber": 2,
+              "type": "singles",
+              "homePlayers": [
+                "Jamon Nielsen"
+              ],
+              "awayPlayers": [
+                "Martin Markovic"
+              ],
+              "sets": [
+                [
+                  3,
+                  6
+                ],
+                [
+                  6,
+                  1
+                ],
+                [
+                  6,
+                  0
+                ]
+              ],
+              "homeSets": 2,
+              "awaySets": 1,
+              "homeGames": 15,
+              "awayGames": 7,
+              "winner": "home"
+            },
+            {
+              "rubber": 3,
+              "type": "doubles",
+              "homePlayers": [
+                "Alexander Granzow",
+                "Jamon Nielsen"
+              ],
+              "awayPlayers": [
+                "Isaac Lo",
+                "Leo Lookman"
+              ],
+              "sets": [
+                [
+                  0,
+                  6
+                ],
+                [
+                  4,
+                  6
+                ]
+              ],
+              "homeSets": 0,
+              "awaySets": 2,
+              "homeGames": 4,
+              "awayGames": 12,
+              "winner": "away"
+            }
+          ]
+        },
+        {
+          "home": "Monash Uni",
+          "away": "Burwood",
+          "homePts": 2.0,
+          "homeR": 1,
+          "homeS": 2,
+          "homeG": 26,
+          "awayPts": 6.0,
+          "awayR": 2,
+          "awayS": 4,
+          "awayG": 31,
+          "homePlayers": [
+            "Matthew Lee",
+            "Srinivas Tirumalasetty",
+            "Kevin Chen",
+            "Zachary Lee"
+          ],
+          "awayPlayers": [
+            "Yen Wu",
+            "Skanda Kumble",
+            "Eloise Lindsay"
+          ],
+          "rubbers": [
+            {
+              "rubber": 1,
+              "type": "singles",
+              "homePlayers": [
+                "Matthew Lee"
+              ],
+              "awayPlayers": [
+                "Yen Wu"
+              ],
+              "sets": [
+                [
+                  4,
+                  6
+                ],
+                [
+                  4,
+                  6
+                ]
+              ],
+              "homeSets": 0,
+              "awaySets": 2,
+              "homeGames": 8,
+              "awayGames": 12,
+              "winner": "away"
+            },
+            {
+              "rubber": 2,
+              "type": "singles",
+              "homePlayers": [
+                "Srinivas Tirumalasetty"
+              ],
+              "awayPlayers": [
+                "Skanda Kumble"
+              ],
+              "sets": [
+                [
+                  3,
+                  6
+                ],
+                [
+                  2,
+                  6
+                ]
+              ],
+              "homeSets": 0,
+              "awaySets": 2,
+              "homeGames": 5,
+              "awayGames": 12,
+              "winner": "away"
+            },
+            {
+              "rubber": 3,
+              "type": "doubles",
+              "homePlayers": [
+                "Kevin Chen",
+                "Zachary Lee"
+              ],
+              "awayPlayers": [
+                "Skanda Kumble",
+                "Eloise Lindsay"
+              ],
+              "sets": [
+                [
+                  6,
+                  2
+                ],
+                [
+                  7,
+                  5
+                ]
+              ],
+              "homeSets": 2,
+              "awaySets": 0,
+              "homeGames": 13,
+              "awayGames": 7,
+              "winner": "home"
+            }
+          ]
+        },
+        {
+          "home": "Murrumbeena",
+          "away": "Narre Warren Nth",
+          "homePts": 8.0,
+          "homeR": 0,
+          "homeS": 0,
+          "homeG": 0,
+          "awayPts": 0.0,
+          "awayR": 0,
+          "awayS": 0,
+          "awayG": 0,
+          "homePlayers": [],
+          "awayPlayers": [],
+          "rubbers": [],
+          "forfeit": {
+            "team": "Narre Warren Nth",
+            "note": "Narre Warren Nth forfeited to Murrumbeena"
+          }
         }
       ]
     }
