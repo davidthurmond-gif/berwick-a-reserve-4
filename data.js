@@ -165,9 +165,9 @@ window.SITE_DATA = {
       "played": 0,
       "emergency": false,
       "grade": "",
-      "utrId": null,
-      "utrSingles": null,
-      "utrSinglesReliability": null,
+      "utrId": "5822177",
+      "utrSingles": "6.xx",
+      "utrSinglesReliability": 100,
       "utrDoubles": null,
       "utrDoublesReliability": null
     },
@@ -181,11 +181,11 @@ window.SITE_DATA = {
       "played": 0,
       "emergency": false,
       "grade": "",
-      "utrId": null,
-      "utrSingles": null,
-      "utrSinglesReliability": null,
-      "utrDoubles": null,
-      "utrDoublesReliability": null
+      "utrId": "3220280",
+      "utrSingles": "5.xx",
+      "utrSinglesReliability": 40,
+      "utrDoubles": "5.xx",
+      "utrDoublesReliability": 40
     },
     {
       "name": "David Thurmond",
