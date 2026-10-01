@@ -1,7 +1,6 @@
-/* Berwick Saturday Comp site logic — current season (archived seasons live in sub-folders, e.g. winter-2026/) */
+/* Berwick A Reserve 4 - Saturday Comp site logic */
 
-const OVERRIDES_KEY = "berwickComp_summer2627_overrides_v1";
-const PREV_OVERRIDES_KEY = "berwickComp_overrides_v1"; // Winter 2026 (archived) — roster UTR/contact edits carried over once
+const OVERRIDES_KEY = "berwickComp_overrides_v1";
 const PAT_KEY = "berwickComp_ghPat";
 const OUR_TEAM = "Berwick";
 
@@ -12,13 +11,8 @@ function loadOverrides() {
   // Seed playerNotes from data.json (committed notes available on all devices)
   const siteNotes = (window.SITE_DATA && window.SITE_DATA.playerNotes) || {};
   try {
-    let raw = localStorage.getItem(OVERRIDES_KEY);
-    let parsed = raw ? JSON.parse(raw) : null;
-    if (!parsed) {
-      // First visit this season: carry over roster edits (UTR, mobile, email) and player notes from last season
-      const prev = JSON.parse(localStorage.getItem(PREV_OVERRIDES_KEY) || "{}");
-      parsed = { roster: prev.roster || {}, clubs: {}, playerNotes: prev.playerNotes || {} };
-    }
+    const raw = localStorage.getItem(OVERRIDES_KEY);
+    const parsed = raw ? JSON.parse(raw) : {};
     // Merge: site notes are the base, local edits (localStorage) sit on top
     return {
       roster: {},
@@ -55,7 +49,7 @@ async function saveNotesToGitHub() {
   }
 
   const repo = "davidthurmond-gif/berwick-a-reserve-4";
-  const filePath = "data.json";
+  const filePath = "winter-2026/data.json";
   const apiBase = `https://api.github.com/repos/${repo}/contents/${filePath}`;
   const headers = { "Authorization": `token ${pat}`, "Content-Type": "application/json" };
 
@@ -91,7 +85,7 @@ async function saveNotesToGitHub() {
     if (!putRes.ok) throw new Error(`GitHub PUT data.json failed: ${putRes.status}`);
 
     // Also commit data.js (the file the site actually loads)
-    const jsApiBase = `https://api.github.com/repos/${repo}/contents/data.js`;
+    const jsApiBase = `https://api.github.com/repos/${repo}/contents/winter-2026/data.js`;
     const getJs = await fetch(jsApiBase, { headers });
     if (!getJs.ok) throw new Error(`GitHub GET data.js failed: ${getJs.status}`);
     const jsFile = await getJs.json();
@@ -168,8 +162,6 @@ function computeLadder() {
     return teams[name];
   }
 
-  (DATA.teams || []).forEach(ensure);
-
   DATA.results.forEach(round => {
     round.matches.forEach(m => {
       const h = ensure(m.home);
@@ -196,8 +188,7 @@ function computeLadder() {
   list.sort((x, y) => {
     if (y.pts !== x.pts) return y.pts - x.pts;
     if (y.setPct !== x.setPct) return y.setPct - x.setPct;
-    if (y.gamePct !== x.gamePct) return y.gamePct - x.gamePct;
-    return x.team.localeCompare(y.team);
+    return y.gamePct - x.gamePct;
   });
 
   list.forEach((t, i) => t.position = i + 1);
@@ -292,9 +283,6 @@ function computePlayerStats() {
     }
     return players[name];
   }
-
-  // Always list our own roster, even before they've played a rubber
-  (DATA.roster || []).forEach(p => ensure(p.name, OUR_TEAM));
 
   DATA.results.forEach(round => {
     round.matches.forEach(m => {
@@ -404,7 +392,7 @@ function renderPlayers() {
       </tbody>
     </table>
     </div>
-    <p class="muted" style="margin-top:0.5rem;">Stats compiled from rubber-by-rubber results (singles + doubles) across all ${(DATA.teams || []).length || "the"} teams in ${escapeHtml(sectionShort())}${DATA.results.length ? `, rounds 1–${DATA.results.length}` : " (no rounds played yet)"}. Hover the form pills for set scores. UTR values are masked where UTR Sports requires sign-in to view the exact rating — edit them on the Berwick tab as real ratings become known. "Order" is each player's roster/singles position (lower = more senior); rostered players may only play at their own position or higher (more senior). <span class="badge-e" title="Emergency player">E</span> = emergency player.</p>
+    <p class="muted" style="margin-top:0.5rem;">Stats compiled from rubber-by-rubber results (singles + doubles) across all 8 teams in A Reserve 4, rounds 1–${DATA.results.length}. Hover the form pills for set scores. UTR values are masked where UTR Sports requires sign-in to view the exact rating — edit them on the Berwick tab as real ratings become known. "Order" is each player's roster/singles position (lower = more senior); rostered players may only play at their own position or higher (more senior). <span class="badge-e" title="Emergency player">E</span> = emergency player.</p>
   `;
 
   el.querySelectorAll(".player-link").forEach(btn => {
@@ -600,10 +588,6 @@ function todayISO() {
   return d.toISOString().slice(0, 10);
 }
 
-function sectionShort() {
-  return ((DATA.meta && DATA.meta.section) || "").replace("Open Singles/Doubles ", "");
-}
-
 function clubByName(name) {
   return DATA.clubs.find(c => c.name === name || c.name.replace(" U/C", "") === name.replace(" U/C", ""));
 }
@@ -612,7 +596,7 @@ function rosterByName(name) {
   return DATA.roster.find(p => p.name === name);
 }
 
-// Returns { order, emergency } for any player on any team in the section.
+// Returns { order, emergency } for any player on any of the 8 teams.
 // Berwick uses DATA.roster (order/emergency already set there);
 // other teams use DATA.teamRosters[team] (computed from rubber position data).
 function getPlayerOrderInfo(team, name) {

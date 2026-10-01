@@ -1,6 +1,11 @@
-# Berwick A Reserve 4 — Team Site
+# Berwick Saturday PM — Team Site
 
-A simple static site for the Berwick Saturday PM A Reserve 4 team (Open Singles/Doubles, Winter 2026).
+A simple static site for the Berwick Saturday PM team.
+
+- **Current season (site root):** Summer 26/27 — Open Singles/Doubles **A Reserve 2** (trols section `AP020`, 7 teams + bye). Team: David Thurmond, Shannon Watson, John Keecherer, Tom Maloney, Soe. Season starts 10 Oct 26; finals 13 & 20 Mar 27.
+- **Archive:** `winter-2026/` — Winter 2026, A Reserve 4 (`AP012`), final ladder and all results, frozen.
+
+To archive a season: copy `index.html style.css script.js data.json data.js` into a new sub-folder, patch that copy's `saveNotesToGitHub()` paths to the sub-folder, add the archive banner, then rebuild the root `data.json` for the new section.
 
 ## What it shows
 - **Dashboard** – next match, ladder snapshot, opponent form
@@ -32,9 +37,9 @@ These are saved in your browser's local storage, so they persist between visits 
 
 ## Weekly updates
 A scheduled task ("berwick-tennis-results-update") runs every **Wednesday at 8am** and updates `data.json`/`data.js` with the previous weekend's results (scores are posted Tuesday nights). It uses Claude in Chrome to read:
-https://www.trols.org.au/wdta/results.php?daytime=AP&section=AP012&style=
+https://www.trols.org.au/wdta/results.php?daytime=AP&section=AP020&style=
 
-For each completed match it also clicks into the match-detail popup to capture per-rubber data (players, set scores, winners) for all 8 teams, which feeds the Player Stats tab.
+For each completed match it also clicks into the match-detail popup to capture per-rubber data (players, set scores, winners) for all teams in the section, which feeds the Player Stats tab.
 
 After it runs, if you're using GitHub Pages, commit and push the updated `data.json`/`data.js` files to keep the live site in sync.
 
