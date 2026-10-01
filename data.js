@@ -157,8 +157,8 @@ window.SITE_DATA = {
   "roster": [
     {
       "name": "David Thurmond",
-      "mobile": "",
-      "email": "",
+      "mobile": "0431 486 053",
+      "email": "david.thurmond@icloud.com",
       "gender": "M",
       "dob": "",
       "order": null,
