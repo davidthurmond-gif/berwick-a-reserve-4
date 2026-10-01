@@ -205,7 +205,7 @@ window.SITE_DATA = {
     },
     {
       "name": "Tom Maloney",
-      "mobile": "",
+      "mobile": "0434 413 723",
       "email": "tommaloney4@gmail.com",
       "gender": "M",
       "dob": "",
@@ -220,7 +220,7 @@ window.SITE_DATA = {
       "utrDoublesReliability": null
     },
     {
-      "name": "Soe",
+      "name": "Soe Min Tun",
       "mobile": "0424 072 129",
       "email": "soemintunstar@gmail.com",
       "gender": "M",
