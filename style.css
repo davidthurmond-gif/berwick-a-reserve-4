@@ -533,3 +533,25 @@ footer {
 }
 
 a { color: var(--green-dark); }
+
+/* Availability */
+.avail-wrap{display:flex;flex-wrap:wrap;gap:.25rem;align-items:center}
+.avail-chip{font-size:.78rem;padding:.1rem .45rem;border-radius:999px;border:1px solid var(--border);white-space:nowrap}
+.avail-chip.yes{background:rgba(76,175,80,.18);border-color:rgba(76,175,80,.55)}
+.avail-chip.maybe{background:rgba(255,183,77,.15);border-color:rgba(255,183,77,.6);color:#ffcc80}
+.avail-chip.no{opacity:.55;text-decoration:line-through;border-style:dashed}
+.avail-count{font-size:.75rem;font-weight:700;padding:.1rem .4rem;border-radius:4px;margin-right:.15rem}
+.avail-count.ok{background:#2e7d32;color:#fff}
+.avail-count.warn{background:#ef6c00;color:#fff}
+.avail-count.short{background:#c62828;color:#fff}
+.next-match-avail{margin:.4rem 0 .8rem;display:flex;gap:.5rem;align-items:center;flex-wrap:wrap}
+.avail-table td.avail-cell{text-align:center;font-weight:700}
+.avail-table td.avail-cell.yes{color:#66bb6a}
+.avail-table td.avail-cell.maybe{color:#ffb74d}
+.avail-table td.avail-cell.no{color:#ef5350}
+.avail-table tr.past-row{opacity:.5}
+.avail-compact{font-size:.82rem;min-width:120px;line-height:1.6}
+.avail-note.no{color:#ef9a9a}
+.avail-note.maybe{color:#ffcc80}
+#schedule-table td:nth-child(5){white-space:normal;min-width:200px}
+#schedule-table td:nth-child(6){white-space:normal}

@@ -13,7 +13,8 @@ window.SITE_DATA = {
         "label": "Winter 2026 — A Reserve 4",
         "path": "winter-2026/"
       }
-    ]
+    ],
+    "playersNeeded": 3
   },
   "teams": [
     "Berwick",
@@ -655,6 +656,32 @@ window.SITE_DATA = {
       "semiFinal": "2027-03-13",
       "grandFinal": "2027-03-20",
       "note": "Top 4 make finals; 1st and 2nd host the semi final."
+    }
+  },
+  "availability": {
+    "2026-10-17": {
+      "Soe Min Tun": {
+        "status": "out",
+        "note": "Not available (WhatsApp, 4 Oct)"
+      }
+    },
+    "2026-11-21": {
+      "Soe Min Tun": {
+        "status": "maybe",
+        "note": "Probably away last 2 weeks of Nov — to confirm"
+      }
+    },
+    "2026-11-28": {
+      "Soe Min Tun": {
+        "status": "maybe",
+        "note": "Probably away last 2 weeks of Nov — to confirm"
+      }
+    },
+    "2027-01-30": {
+      "Shannon Watson": {
+        "status": "out",
+        "note": "Not available (WhatsApp, 5 Oct)"
+      }
     }
   }
 };

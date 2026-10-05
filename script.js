@@ -157,6 +157,94 @@ function slug(s) {
   return (s || "").toLowerCase().replace(/[^a-z0-9]+/g, "-");
 }
 
+/* ---------------- Availability ---------------- */
+
+// DATA.availability = { "YYYY-MM-DD": { "Player Name": { status: "out" | "maybe", note: "" } } }
+// Anyone on the roster not listed for a date is assumed available.
+function playersNeeded() {
+  return (DATA.meta && DATA.meta.playersNeeded) || 3;
+}
+
+function availabilityFor(date) {
+  const byDate = (DATA.availability && DATA.availability[date]) || {};
+  const roster = [...DATA.roster].sort((a, b) => (a.order ?? 999) - (b.order ?? 999));
+  const out = { available: [], maybe: [], out: [] };
+  roster.forEach(p => {
+    const entry = byDate[p.name];
+    const status = entry ? entry.status : "available";
+    const item = { name: p.name, note: entry && entry.note ? entry.note : "" };
+    (out[status === "out" ? "out" : status === "maybe" ? "maybe" : "available"]).push(item);
+  });
+  return out;
+}
+
+function firstName(name) {
+  return (name || "").split(" ")[0];
+}
+
+function availabilityChips(date, opts = {}) {
+  const a = availabilityFor(date);
+  const need = playersNeeded();
+  const confirmed = a.available.length;
+  const status = confirmed >= need ? "ok" : confirmed + a.maybe.length >= need ? "warn" : "short";
+  const label = opts.full ? (n => escapeHtml(n)) : (n => escapeHtml(firstName(n)));
+  const chip = (p, cls, prefix) => `<span class="avail-chip ${cls}" title="${escapeAttr(p.name + (p.note ? " — " + p.note : ""))}">${prefix}${label(p.name)}</span>`;
+  if (opts.compact) {
+    const bits = [];
+    if (a.out.length) bits.push(`<span class="avail-note no">Out: ${a.out.map(p => escapeHtml(firstName(p.name))).join(", ")}</span>`);
+    if (a.maybe.length) bits.push(`<span class="avail-note maybe">TBC: ${a.maybe.map(p => escapeHtml(firstName(p.name))).join(", ")}</span>`);
+    if (!bits.length) bits.push(`<span class="avail-note muted">All available</span>`);
+    return `<div class="avail-compact" title="${escapeAttr("Available: " + a.available.map(p => p.name).join(", "))}"><span class="avail-count ${status}">${confirmed}/${DATA.roster.length}</span> ${bits.join(" ")}</div>`;
+  }
+  return `
+    <div class="avail-wrap">
+      <span class="avail-count ${status}" title="${confirmed} confirmed of ${DATA.roster.length}; ${need} needed">${confirmed}/${DATA.roster.length}</span>
+      ${a.available.map(p => chip(p, "yes", "")).join("")}
+      ${a.maybe.map(p => chip(p, "maybe", "? ")).join("")}
+      ${a.out.map(p => chip(p, "no", "")).join("")}
+    </div>`;
+}
+
+// Rows of the schedule where Berwick actually plays (incl. finals placeholders)
+function playingDates() {
+  return DATA.schedule.filter(s => !s.byeDate && ((s.home === OUR_TEAM || s.away === OUR_TEAM) || (!s.home && !s.away && s.note)));
+}
+
+function renderAvailabilityGrid() {
+  const el = document.getElementById("availability-grid");
+  if (!el) return;
+  const roster = [...DATA.roster].sort((a, b) => (a.order ?? 999) - (b.order ?? 999));
+  const today = todayISO();
+  const rows = playingDates().map(s => {
+    const byDate = (DATA.availability && DATA.availability[s.date]) || {};
+    const a = availabilityFor(s.date);
+    const need = playersNeeded();
+    const status = a.available.length >= need ? "ok" : a.available.length + a.maybe.length >= need ? "warn" : "short";
+    const opp = s.home === OUR_TEAM ? `v ${s.away}` : s.away === OUR_TEAM ? `@ ${s.home}` : (s.note || "");
+    return `<tr class="${s.date < today ? "past-row" : ""}${s.date === nextMatchDate() ? " us-row" : ""}">
+      <td>${s.round ?? ""}</td>
+      <td>${fmtDate(s.date)}</td>
+      <td>${escapeHtml(opp)}</td>
+      ${roster.map(p => {
+        const e = byDate[p.name];
+        const st = e ? e.status : "available";
+        const sym = st === "out" ? "✗" : st === "maybe" ? "?" : "✓";
+        return `<td class="avail-cell ${st === "out" ? "no" : st === "maybe" ? "maybe" : "yes"}" title="${escapeAttr(p.name + (e && e.note ? " — " + e.note : ""))}">${sym}</td>`;
+      }).join("")}
+      <td><span class="avail-count ${status}">${a.available.length}/${roster.length}</span></td>
+    </tr>`;
+  }).join("");
+  el.innerHTML = `
+    <div class="table-wrap">
+    <table class="avail-table">
+      <thead><tr><th>Rd</th><th>Date</th><th>Match</th>${roster.map(p => `<th title="${escapeAttr(p.name)}">${escapeHtml(firstName(p.name))}</th>`).join("")}<th>Avail</th></tr></thead>
+      <tbody>${rows}</tbody>
+    </table>
+    </div>
+    <p class="muted" style="margin-top:0.5rem;">✓ available &middot; ? unconfirmed &middot; ✗ unavailable. Count is confirmed players out of ${roster.length}; we need ${playersNeeded()} each week (amber = only enough if unconfirmed players can play, red = short). Hover a cell for notes. Tell Claude when someone's availability changes and it will update this for everyone.</p>
+  `;
+}
+
 /* ---------------- Ladder computation ---------------- */
 
 function computeLadder() {
@@ -746,6 +834,7 @@ function renderDashboard() {
         <div class="muted">Round ${next.round} &middot; ${fmtDate(next.date)}</div>
         <div class="vs">${isHome ? `Berwick <span class="muted" style="font-size:1rem;">(home)</span> vs ${escapeHtml(opponent)}` : `${escapeHtml(opponent)} <span class="muted" style="font-size:1rem;">(away – we travel)</span> vs Berwick`}</div>
       </div>
+      <div class="next-match-avail"><span class="muted">Available:</span> ${availabilityChips(next.date, { full: true })}</div>
       <div class="next-match-grid">
         <div class="match-venue-block">
           ${venue ? `
@@ -1116,11 +1205,12 @@ function renderSchedule() {
   el.innerHTML = `
     <div class="table-wrap">
     <table>
-      <thead><tr><th>Rd</th><th>Date</th><th>Home</th><th>Away</th><th>Venue</th><th></th></tr></thead>
+      <thead><tr><th>Rd</th><th>Date</th><th>Home</th><th>Away</th><th>Venue</th><th>Available</th><th></th></tr></thead>
       <tbody>
         ${DATA.schedule.map(s => {
           if (s.byeDate || (!s.home && !s.away)) {
-            return `<tr><td>${s.round ?? ""}</td><td>${fmtDate(s.date)}</td><td colspan="3" class="muted">${s.note || "No Play"}</td><td></td></tr>`;
+            const finals = !s.byeDate && s.note;
+            return `<tr><td>${s.round ?? ""}</td><td>${fmtDate(s.date)}</td><td colspan="3" class="muted">${s.note || "No Play"}</td><td>${finals ? availabilityChips(s.date, { compact: true }) : ""}</td><td></td></tr>`;
           }
           const isHome = s.home === OUR_TEAM;
           const venue = clubByName(s.home);
@@ -1140,6 +1230,7 @@ function renderSchedule() {
             <td>${s.home === OUR_TEAM ? `<strong>${escapeHtml(s.home)}</strong>` : escapeHtml(s.home)}</td>
             <td>${s.away === OUR_TEAM ? `<strong>${escapeHtml(s.away)}</strong>` : escapeHtml(s.away)}</td>
             <td>${venue ? `${escapeHtml(venue.address)}${venue.melway ? " (Melway " + venue.melway + ")" : ""} &middot; <a href="${mapsLink(venue.address)}" target="_blank" rel="noopener">Map</a>` : ""}</td>
+            <td>${availabilityChips(s.date, { compact: true })}</td>
             <td>${resultBadge}</td>
           </tr>`;
         }).join("")}
@@ -1278,6 +1369,7 @@ function renderAll() {
   renderStats();
   renderRoster();
   renderSchedule();
+  renderAvailabilityGrid();
   renderVenues();
 }
 
