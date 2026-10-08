@@ -683,5 +683,15 @@ window.SITE_DATA = {
         "note": "Not available (WhatsApp, 5 Oct)"
       }
     }
+  },
+  "lineups": {
+    "2026-10-10": {
+      "singles1": "Soe Min Tun",
+      "singles2": "John Keecherer",
+      "doubles": [
+        "David Thurmond",
+        "Shannon Watson"
+      ]
+    }
   }
 };

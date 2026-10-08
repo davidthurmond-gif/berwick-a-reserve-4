@@ -245,6 +245,23 @@ function renderAvailabilityGrid() {
   `;
 }
 
+// DATA.lineups = { "YYYY-MM-DD": { singles1: "Name", singles2: "Name", doubles: ["Name", "Name"] } }
+function lineupBlock(date) {
+  const l = DATA.lineups && DATA.lineups[date];
+  const name = n => n ? escapeHtml(n) : `<span class="muted">TBC</span>`;
+  const rows = l ? [
+    ["Singles 1", name(l.singles1)],
+    ["Singles 2", name(l.singles2)],
+    ["Doubles", l.doubles && l.doubles.length ? l.doubles.map(escapeHtml).join(" &amp; ") : name(null)]
+  ] : null;
+  return `
+    <div class="lineup-block">
+      <div class="label">Roster</div>
+      ${rows ? `<div class="lineup-rows">${rows.map(([k, v]) => `<div class="lineup-row"><span class="lineup-slot">${k}</span><span class="lineup-name">${v}</span></div>`).join("")}</div>`
+             : `<span class="muted">Not set yet</span>`}
+    </div>`;
+}
+
 /* ---------------- Ladder computation ---------------- */
 
 function computeLadder() {
@@ -835,6 +852,7 @@ function renderDashboard() {
         <div class="vs">${isHome ? `Berwick <span class="muted" style="font-size:1rem;">(home)</span> vs ${escapeHtml(opponent)}` : `${escapeHtml(opponent)} <span class="muted" style="font-size:1rem;">(away – we travel)</span> vs Berwick`}</div>
       </div>
       <div class="next-match-avail"><span class="muted">Available:</span> ${availabilityChips(next.date, { full: true })}</div>
+      ${lineupBlock(next.date)}
       <div class="next-match-grid">
         <div class="match-venue-block">
           ${venue ? `
