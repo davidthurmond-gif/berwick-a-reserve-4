@@ -254,10 +254,22 @@ function lineupBlock(date) {
     ["Singles 2", name(l.singles2)],
     ["Doubles", l.doubles && l.doubles.length ? l.doubles.map(escapeHtml).join(" &amp; ") : name(null)]
   ] : null;
+  // Everyone on the roster who isn't in the line-up, with their availability note if any
+  const picked = l ? [l.singles1, l.singles2, ...(l.doubles || [])].filter(Boolean) : [];
+  const byDate = (DATA.availability && DATA.availability[date]) || {};
+  const others = l ? [...DATA.roster]
+    .sort((a, b) => (a.order ?? 999) - (b.order ?? 999))
+    .filter(p => !picked.includes(p.name))
+    .map(p => {
+      const e = byDate[p.name];
+      const status = e ? (e.status === "out" ? (e.note || "Unavailable") : `TBC${e.note ? " — " + e.note : ""}`) : "Reserve";
+      const cls = e ? (e.status === "out" ? "no" : "maybe") : "reserve";
+      return `<div class="lineup-row lineup-out ${cls}"><span class="lineup-slot">Not playing</span><span class="lineup-name">${escapeHtml(p.name)} <span class="lineup-reason">— ${escapeHtml(status)}</span></span></div>`;
+    }) : [];
   return `
     <div class="lineup-block">
       <div class="label">Roster</div>
-      ${rows ? `<div class="lineup-rows">${rows.map(([k, v]) => `<div class="lineup-row"><span class="lineup-slot">${k}</span><span class="lineup-name">${v}</span></div>`).join("")}</div>`
+      ${rows ? `<div class="lineup-rows">${rows.map(([k, v]) => `<div class="lineup-row"><span class="lineup-slot">${k}</span><span class="lineup-name">${v}</span></div>`).join("")}${others.length ? `<div class="lineup-divider"></div>${others.join("")}` : ""}</div>`
              : `<span class="muted">Not set yet</span>`}
     </div>`;
 }

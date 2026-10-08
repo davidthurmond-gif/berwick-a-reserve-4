@@ -562,3 +562,10 @@ a { color: var(--green-dark); }
 .lineup-row{display:flex;gap:.8rem;padding:.15rem 0}
 .lineup-slot{min-width:80px;color:var(--muted)}
 .lineup-name{font-weight:600}
+.lineup-divider{border-top:1px dashed var(--border);margin:.35rem 0}
+.lineup-out .lineup-name{font-weight:500;color:var(--muted)}
+.lineup-out.no .lineup-reason{color:#ef9a9a}
+.lineup-out.maybe .lineup-reason{color:#ffcc80}
+.lineup-reason{font-weight:400;font-size:.9rem}
+.lineup-block{max-width:540px}
+.lineup-slot{min-width:95px;white-space:nowrap}
