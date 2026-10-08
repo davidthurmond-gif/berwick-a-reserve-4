@@ -221,7 +221,7 @@ window.SITE_DATA = {
       "utrDoublesReliability": 100
     },
     {
-      "name": "John Keecher",
+      "name": "John Keecherer",
       "mobile": "0438 677 437",
       "email": "itkeecom@gmail.com",
       "gender": "M",
@@ -693,7 +693,7 @@ window.SITE_DATA = {
   "lineups": {
     "2026-10-10": {
       "singles1": "Soe Min Tun",
-      "singles2": "John Keecher",
+      "singles2": "John Keecherer",
       "doubles": [
         "David Thurmond",
         "Shannon Watson"
